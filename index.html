@@ -199,19 +199,30 @@
                 <span>LET'S COLLABORATE</span> • <span>BOOK A SESSION</span> • <span>CREATE VISUAL IMPACT</span> • <span>GET IN TOUCH</span> • 
             </div>
         </div>
-       <section id="contact" class="contact-section">
+       <section id="contact" class="final-cta-section">
+            <div class="cta-kinetic-bg">
+                <span>LET'S CREATE • LET'S CREATE • LET'S CREATE • </span>
+            </div>
+            
             <div class="container">
-                <h2 data-aos="fade-up">Hubungi Saya</h2>
-                <p data-aos="fade-up" data-aos-delay="100">Ada proyek menarik? Chat saya langsung di WhatsApp!</p>
-                
-                <div class="contact-form" data-aos="fade-up" data-aos-delay="200">
-                    <input type="text" id="wa-name" placeholder="Nama Anda" required>
-                    <input type="email" id="wa-email" placeholder="Email Anda" required>
-                    <textarea id="wa-message" rows="5" placeholder="Detail Proyek / Pesan" required></textarea>
+                <div class="cta-card" data-aos="zoom-in">
+                    <p class="cta-subtitle">READY TO LEVEL UP YOUR VISUALS?</p>
+                    <h2 class="cta-title">Start a Conversation</h2>
                     
-                    <button type="button" onclick="sendToWhatsApp()" class="cta-button" style="width: 100%;">
-                        Kirim via WhatsApp
-                    </button>
+                    <div class="project-tags">
+                        <button class="tag-btn" onclick="quickPitch('Corporate MICE')">Corporate/MICE</button>
+                        <button class="tag-btn" onclick="quickPitch('Nightlife/Stage')">Nightlife/Stage</button>
+                        <button class="tag-btn" onclick="quickPitch('Visual Branding')">Visual Branding</button>
+                        <button class="tag-btn" onclick="quickPitch('Property Shoot')">Property/Interior</button>
+                    </div>
+
+                    <div class="cta-action">
+                        <input type="text" id="wa-name-new" placeholder="Siapa namamu?">
+                        <button onclick="sendQuickWA()" class="magnetic-send-btn">
+                            SAY HELLO
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                        </button>
+                    </div>
                 </div>
             </div>
         </section> 
