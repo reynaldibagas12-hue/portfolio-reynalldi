@@ -1846,3 +1846,40 @@ h1:hover, h2:hover, h3:hover {
 .magnetic-send-btn:hover {
     transform: scale(1.05) rotate(-2deg);
 }
+.cv-download-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 15px 25px;
+    border-radius: 40px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.cv-download-btn:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: #fff;
+}
+
+/* Modifikasi cta-action agar muat 2 tombol */
+.cta-action {
+    display: flex;
+    max-width: 650px; /* Diperlebar sedikit */
+    margin: 0 auto;
+    gap: 15px;
+    background: transparent; /* Hilangkan background kotak hitam */
+    padding: 0;
+    border: none;
+}
+
+@media (max-width: 600px) {
+    .cta-action {
+        flex-direction: column;
+    }
+}
