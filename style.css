@@ -1737,3 +1737,112 @@ h1:hover, h2:hover, h3:hover {
     0% { opacity: 0; }
     100% { opacity: 1; }
 }
+/* ----- FINAL CTA: MAGNETIC PROJECT PITCHER ----- */
+.final-cta-section {
+    position: relative;
+    padding: 120px 0;
+    background: #050505;
+    overflow: hidden;
+}
+
+.cta-kinetic-bg {
+    position: absolute;
+    top: 50%; left: 0;
+    width: 100%;
+    transform: translateY(-50%);
+    font-size: 10rem;
+    font-weight: 900;
+    color: rgba(255,255,255,0.02);
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.cta-card {
+    position: relative;
+    z-index: 2;
+    background: rgba(30, 30, 30, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 60px 40px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cta-subtitle {
+    color: var(--highlight-color);
+    letter-spacing: 4px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.cta-title {
+    font-size: 3rem;
+    margin-bottom: 40px;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 40px;
+}
+
+.tag-btn {
+    background: transparent;
+    border: 1px solid #444;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
+
+.tag-btn.active, .tag-btn:hover {
+    border-color: var(--highlight-color);
+    color: var(--highlight-color);
+    background: rgba(245, 203, 92, 0.1);
+}
+
+.cta-action {
+    display: flex;
+    max-width: 500px;
+    margin: 0 auto;
+    gap: 10px;
+    background: #111;
+    padding: 8px;
+    border-radius: 50px;
+    border: 1px solid #333;
+}
+
+.cta-action input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    padding: 0 20px;
+    color: #fff;
+    outline: none;
+}
+
+.magnetic-send-btn {
+    background: var(--highlight-color);
+    color: #000;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 40px;
+    font-weight: 800;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.magnetic-send-btn:hover {
+    transform: scale(1.05) rotate(-2deg);
+}
