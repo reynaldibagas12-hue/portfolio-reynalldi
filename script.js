@@ -220,3 +220,24 @@ window.closeCategory = function() {
     document.getElementById('category-modal').classList.remove('active');
     document.body.style.overflow = 'auto';
 };
+let selectedPitch = "";
+
+function quickPitch(category) {
+    // Reset warna semua tombol tag
+    document.querySelectorAll('.tag-btn').forEach(btn => btn.classList.remove('active'));
+    
+    // Aktifkan yang dipilih
+    event.target.classList.add('active');
+    selectedPitch = category;
+}
+
+function sendQuickWA() {
+    const name = document.getElementById('wa-name-new').value;
+    if(!name) return alert("Boleh tau nama kamu siapa?");
+    
+    const pitchText = selectedPitch ? `ingin diskusi tentang proyek *${selectedPitch}*` : "ingin mengobrol tentang proyek visual";
+    
+    const message = `Halo Rey! Saya *${name}*, saya baru saja melihat portofolio kamu dan ${pitchText}. Bisa kita jadwalkan waktu untuk bicara?`;
+    
+    window.open(`https://wa.me/6282196956556?text=${encodeURIComponent(message)}`, '_blank');
+}
