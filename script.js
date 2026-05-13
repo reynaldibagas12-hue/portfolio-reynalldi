@@ -241,3 +241,18 @@ function sendQuickWA() {
     
     window.open(`https://wa.me/6282196956556?text=${encodeURIComponent(message)}`, '_blank');
 }
+let selectedRole = "";
+
+function quickPitch(role) {
+    document.querySelectorAll('.tag-btn').forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+    selectedRole = role;
+}
+
+function sendRecruitmentWA() {
+    const roleText = selectedRole ? `untuk posisi *${selectedRole}*` : "untuk berdiskusi lebih lanjut";
+    
+    const message = `Halo Rey! Saya telah meninjau portofolio Anda dan tertarik untuk menjadwalkan waktu diskusi ${roleText} di perusahaan kami. Kapan waktu luang Anda?`;
+    
+    window.open(`https://wa.me/6282196956556?text=${encodeURIComponent(message)}`, '_blank');
+}
