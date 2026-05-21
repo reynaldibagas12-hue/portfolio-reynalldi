@@ -153,19 +153,12 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ===============================================
-//  7. KATEGORI & WHATSAPP (GLOBAL FUNCTIONS)
+//  6. KATEGORI FOTO & WHATSAPP (GLOBAL FUNCTIONS)
 // ===============================================
-function sendToWhatsApp() {
-    const n = document.getElementById('wa-name')?.value, e = document.getElementById('wa-email')?.value, m = document.getElementById('wa-message')?.value;
-    if (!n || !e || !m) return alert("Harap isi semua kolom!");
-    window.open(`https://wa.me/6282196956556?text=Halo Rey!%0A%0ASaya: *${n}*%0AEmail: ${e}%0A%0A*Pesan:*%0A${m}`, '_blank');
-}
-
-// ⚠️ Perhatikan di bawah ini saya kembalikan ke .jpg
 function generatePhotos(prefix, count) {
     let arr = []; 
     for (let i = 1; i <= count; i++) {
-        arr.push(`${prefix}${i}.jpg`); // Ubah jadi .webp JIKA kamu sudah convert fotonya
+        arr.push(`${prefix}${i}.jpg`); 
     }
     return arr; 
 }
@@ -174,7 +167,7 @@ const categoryData = {
     'moments': { title: 'Moments & Portraits', pdf: 'pdf/portfolio fashion rey.pdf', photos: generatePhotos('moments' , 45) },
     'corporate': { title: 'Corporate & Event', pdf: 'pdf/Corporate and Event Portfolio.pdf', photos: generatePhotos('corporate', 36) },
     'nightlife': { title: 'Nightlife & Stage', pdf: 'pdf/stage photography reynaldi bagaskara.pdf', photos: generatePhotos('stage', 44) },
-    'property': { title: 'Property Visuals', pdf: 'pdf/interior & exterior portfolio reynaldi bagaskara.pdf', photos: generatePhotos('property', 31) }
+    'property': { title: 'Property Visuals', pdf: 'pdf/interior & exterior portfolio reynaldi bagaskara.pdf', photos: generatePhotos('property', 31) },
     'fnb': { title: 'Food & Beverage', pdf: 'pdf/Food and Beverage Portfolio.pdf', photos: generatePhotos('fnb', 16) }
 };
 
@@ -221,39 +214,21 @@ window.closeCategory = function() {
     document.getElementById('category-modal').classList.remove('active');
     document.body.style.overflow = 'auto';
 };
-let selectedPitch = "";
 
-function quickPitch(category) {
-    // Reset warna semua tombol tag
-    document.querySelectorAll('.tag-btn').forEach(btn => btn.classList.remove('active'));
-    
-    // Aktifkan yang dipilih
-    event.target.classList.add('active');
-    selectedPitch = category;
-}
-
-function sendQuickWA() {
-    const name = document.getElementById('wa-name-new').value;
-    if(!name) return alert("Boleh tau nama kamu siapa?");
-    
-    const pitchText = selectedPitch ? `ingin diskusi tentang proyek *${selectedPitch}*` : "ingin mengobrol tentang proyek visual";
-    
-    const message = `Halo Rey! Saya *${name}*, saya baru saja melihat portofolio kamu dan ${pitchText}. Bisa kita jadwalkan waktu untuk bicara?`;
-    
-    window.open(`https://wa.me/6282196956556?text=${encodeURIComponent(message)}`, '_blank');
-}
+// ===============================================
+//  7. LOGIKA REKRUTMEN HRD (WA CTA)
+// ===============================================
 let selectedRole = "";
 
-function quickPitch(role) {
+window.quickPitch = function(role) {
     document.querySelectorAll('.tag-btn').forEach(btn => btn.classList.remove('active'));
     event.target.classList.add('active');
     selectedRole = role;
-}
+};
 
-function sendRecruitmentWA() {
+window.sendRecruitmentWA = function() {
     const roleText = selectedRole ? `untuk posisi *${selectedRole}*` : "untuk berdiskusi lebih lanjut";
-    
     const message = `Halo Rey! Saya telah meninjau portofolio Anda dan tertarik untuk menjadwalkan waktu diskusi ${roleText} di perusahaan kami. Kapan waktu luang Anda?`;
     
     window.open(`https://wa.me/6282196956556?text=${encodeURIComponent(message)}`, '_blank');
-}
+};
