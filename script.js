@@ -227,7 +227,7 @@ const categoryData = {
     'corporate': { title: 'Corporate & Event', pdf: 'pdf/Corporate and Event Portfolio.pdf', photos: generatePhotos('corporate', 36) },
     'nightlife': { title: 'Nightlife & Stage', pdf: 'pdf/stage photography reynaldi bagaskara.pdf', photos: generatePhotos('stage', 44) },
     'property': { title: 'Property Visuals', pdf: 'pdf/interior & exterior portfolio reynaldi bagaskara.pdf', photos: generatePhotos('property', 31) },
-    'fnb': { title: 'Food & Beverage', pdf: 'pdf/Food and Beverage Portfolio.pdf', photos: generatePhotos('fnb', 25) }
+    'fnb': { title: 'Food & Beverage', pdf: 'pdf/Food and Beverage Portfolio.pdf', photos: generatePhotos('fnb', 29) }
 };
 
 function shuffleArray(array) {
