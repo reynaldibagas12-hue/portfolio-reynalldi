@@ -1,9 +1,11 @@
+// Variable global untuk mencegah salah klik saat user sedang menggeser mouse
+window.isDraggingCategory = false;
+
 // ===============================================
 //  1. INISIALISASI & PRE-LOADER (PERFORMA TINGGI)
 // ===============================================
 AOS.init({ duration: 800, once: true });
 
-// Pre-loader hilang otomatis setelah semua elemen utama termuat
 window.addEventListener('load', () => {
     setTimeout(() => {
         const loader = document.getElementById('premium-loader');
@@ -23,7 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     
-    // Tunggu sedikit agar gambar di footer ter-load sebelum menghitung tinggi
     setTimeout(adjustFooter, 500);
     window.addEventListener('resize', adjustFooter);
 
@@ -150,6 +151,64 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('scroll', () => backToTopBtn.classList.toggle('show', window.scrollY > 500));
         backToTopBtn.addEventListener('click', (e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
     }
+
+    // ===============================================
+    //  8. DRAG & MOUSE WHEEL SCROLL (KATEGORI GALERI)
+    // ===============================================
+    const categoryGrid = document.querySelector('.category-grid');
+    if (categoryGrid) {
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        // Tarik (Drag) untuk Geser
+        categoryGrid.addEventListener('mousedown', (e) => {
+            isDown = true;
+            window.isDraggingCategory = false; 
+            startX = e.pageX - categoryGrid.offsetLeft;
+            scrollLeft = categoryGrid.scrollLeft;
+            categoryGrid.style.scrollSnapType = 'none'; // Matikan snap magnetik sementara
+            categoryGrid.style.cursor = 'grabbing'; // Kursor berubah jadi tangan menggenggam
+        });
+
+        categoryGrid.addEventListener('mouseleave', () => {
+            isDown = false;
+            categoryGrid.style.scrollSnapType = 'x mandatory';
+            categoryGrid.style.cursor = 'pointer';
+        });
+
+        categoryGrid.addEventListener('mouseup', () => {
+            isDown = false;
+            categoryGrid.style.scrollSnapType = 'x mandatory';
+            categoryGrid.style.cursor = 'pointer';
+            // Beri sedikit jeda waktu sebelum reset status drag agar klik tidak bocor
+            setTimeout(() => { window.isDraggingCategory = false; }, 50);
+        });
+
+        categoryGrid.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - categoryGrid.offsetLeft;
+            const walk = (x - startX) * 2; // Kecepatan geser
+            
+            if (Math.abs(walk) > 10) { 
+                window.isDraggingCategory = true; // Tandai bahwa user murni menggeser, bukan klik
+            }
+            categoryGrid.scrollLeft = scrollLeft - walk;
+        });
+
+        // Mouse Wheel (Scroll) untuk Geser
+        categoryGrid.addEventListener('wheel', (e) => {
+            if (e.deltaY !== 0) {
+                const maxScrollLeft = categoryGrid.scrollWidth - categoryGrid.clientWidth;
+                // Hanya matikan scroll halaman (preventDefault) jika masih ada sisa ruang untuk digeser ke samping
+                if ((e.deltaY > 0 && categoryGrid.scrollLeft < maxScrollLeft) || (e.deltaY < 0 && categoryGrid.scrollLeft > 0)) {
+                    e.preventDefault();
+                    categoryGrid.scrollLeft += e.deltaY;
+                }
+            }
+        });
+    }
 });
 
 // ===============================================
@@ -181,6 +240,9 @@ function shuffleArray(array) {
 }
 
 window.openCategory = function(catKey) {
+    // KUNCI PENGAMAN: Jika user sedang menarik/drag, blokir fungsi pembuka galeri ini!
+    if (window.isDraggingCategory) return; 
+
     const modal = document.getElementById('category-modal'), titleEl = document.getElementById('category-title'), gridEl = document.getElementById('category-photos-grid'), data = categoryData[catKey];
     if (!data || !modal || !gridEl) return;
 
