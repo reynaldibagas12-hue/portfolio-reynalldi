@@ -1943,3 +1943,20 @@ h1:hover, h2:hover, h3:hover {
         flex-direction: column;
     }
 }
+
+/* =========================================
+   LIVE FEED GRID (2x2 LAYOUT KIRI KANAN)
+   ========================================= */
+.feed-grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Membagi menjadi 2 kolom sejajar (kiri & kanan) */
+    gap: 30px; /* Jarak antar kotak feed */
+    width: 100%;
+}
+
+/* Penyesuaian agar di HP tetap turun ke bawah 1 kolom (supaya tidak kekecilan) */
+@media (max-width: 992px) {
+    .feed-grid-container {
+        grid-template-columns: 1fr;
+    }
+}
