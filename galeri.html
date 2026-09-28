@@ -37,7 +37,7 @@
             
             <nav class="nav-links">
                 <ul>
-                    <li><a href="galeri.html">Galeri</a></li>
+                    <li><a href="galeri.html" class="active">Galeri</a></li>
                     <li><a href="index.html#about">Tentang Saya</a></li>
                     <li><a href="index.html#contact">Kontak</a></li>
                 </ul>
@@ -48,9 +48,25 @@
                 <div class="burger-line"></div>
                 <div class="burger-line"></div>
             </div>
-    
         </div>
     </header>
+
+    <!-- Sidebar Navigation Slide-out Tersembunyi -->
+    <div class="side-nav-wrapper">
+        <div class="side-nav-tab">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+        </div>
+        <nav class="section-nav">
+            <a href="#karya-foto-section">Karya Foto</a>
+            <a href="#video-gallery">Karya Video & Sinematografi</a>
+            <a href="#socmed-management">Social Media Strategy & Management</a>
+            <a href="#campaign-case-study">Campaign Spotlight</a>
+        </nav>
+    </div>
 
     <main>
         <section id="karya-foto-section" style="padding-top: 140px;">
@@ -58,204 +74,212 @@
                 <h2 class="gallery-divider" data-aos="fade-up">Karya Foto</h2>
                 <p class="gallery-subheading" data-aos="fade-up" data-aos-delay="100"></p>
                 
-                <div class="category-grid">
-                    <div class="cat-card" onclick="openCategory('moments')" data-aos="zoom-in" data-aos-delay="100">
-                        <img src="Gambar/acak35 (2).jpg" alt="Moments & Portraits" loading="lazy" decoding="async">
-                        <div class="cat-overlay"><h3>Moments & Portraits</h3><p>Human Emotion & Portraits</p></div>
-                    </div>
-
-                    <div class="cat-card" onclick="openCategory('corporate')" data-aos="zoom-in" data-aos-delay="200">
-                        <img src="Gambar/corporate.jpg" alt="Corporate & Event" loading="lazy" decoding="async">
-                        <div class="cat-overlay"><h3>Corporate & Event</h3><p>Professional Engagement</p></div>
-                    </div>
-
-                    <div class="cat-card" onclick="openCategory('nightlife')" data-aos="zoom-in" data-aos-delay="300">
-                        <img src="Gambar/nightlife.jpg" alt="Nightlife & Stage" loading="lazy" decoding="async">
-                        <div class="cat-overlay"><h3>Nightlife & Stage</h3><p>Energy & Crowd Atmosphere</p></div>
-                    </div>
+                <div class="category-slider-wrapper" data-aos="fade-up" data-aos-delay="200">
+                    <button class="cat-scroll-btn cat-scroll-left" id="scrollLeftBtn">&#10094;</button>
                     
-                    <div class="cat-card" onclick="openCategory('property')" data-aos="zoom-in" data-aos-delay="400">
-                        <img src="Gambar/facad.jpg" alt="Property Visuals" loading="lazy" decoding="async">
-                        <div class="cat-overlay"><h3>Property Visuals</h3><p>Architectural & Interior Space</p></div>
-                    </div>
+                    <div class="category-grid">
+                        <div class="cat-card" onclick="openCategory('portrait')">
+                            <img src="Gambar/acak35 (2).jpg" alt="Portrait" loading="lazy" decoding="async">
+                            <div class="cat-overlay"><h3>Portrait</h3><p>Human Emotion</p></div>
+                        </div>
 
-                    <div class="cat-card" onclick="openCategory('fnb')" data-aos="zoom-in" data-aos-delay="500">
-                        <img src="Gambar/fnb.jpg" alt="Food & Beverage" loading="lazy" decoding="async">
-                        <div class="cat-overlay"><h3>Food & Beverage</h3><p>Culinary & Product Styling</p></div>
-                    </div>
-                </div> 
+                        <div class="cat-card" onclick="openCategory('sport')">
+                            <img src="Gambar/sport.jpg" alt="Sport" loading="lazy" decoding="async">
+                            <div class="cat-overlay"><h3>Sport</h3><p>Action & Energy</p></div>
+                        </div>
+
+                        <div class="cat-card" onclick="openCategory('wedding')">
+                            <img src="Gambar/wedding.jpg" alt="Wedding" loading="lazy" decoding="async">
+                            <div class="cat-overlay"><h3>Wedding</h3><p>Love & Moments</p></div>
+                        </div>
+
+                        <div class="cat-card" onclick="openCategory('corporate')">
+                            <img src="Gambar/corporate.jpg" alt="Corporate & Event" loading="lazy" decoding="async">
+                            <div class="cat-overlay"><h3>Corporate & Event</h3><p>Professional Engagement</p></div>
+                        </div>
+
+                        <div class="cat-card" onclick="openCategory('nightlife')">
+                            <img src="Gambar/nightlife.jpg" alt="Nightlife & Stage" loading="lazy" decoding="async">
+                            <div class="cat-overlay"><h3>Nightlife & Stage</h3><p>Energy & Crowd Atmosphere</p></div>
+                        </div>
+                        
+                        <div class="cat-card" onclick="openCategory('property')">
+                            <img src="Gambar/facad.jpg" alt="Property Visuals" loading="lazy" decoding="async">
+                            <div class="cat-overlay"><h3>Property Visuals</h3><p>Architectural & Interior Space</p></div>
+                        </div>
+
+                        <div class="cat-card" onclick="openCategory('fnb')">
+                            <img src="Gambar/fnb.jpg" alt="Food & Beverage" loading="lazy" decoding="async">
+                            <div class="cat-overlay"><h3>Food & Beverage</h3><p>Culinary & Product Styling</p></div>
+                        </div>
+                    </div> 
+
+                    <button class="cat-scroll-btn cat-scroll-right" id="scrollRightBtn">&#10095;</button>
+                </div>
             </div>
         </section>
-        <section id="gallery-full-bleed">
-            
-            <section id="video-gallery">
-    <div class="container">
-        <h2 class="gallery-divider">Karya Video & Sinematografi</h2>
-        <p class="gallery-subheading"> </p>
-    </div>
-
-    <div class="video-mixed-grid container">
         
-        <div class="video-item vertical" data-aos="fade-up">
-            <video src="Video/Video1.mp4" muted loop controls preload="metadata"></video>
-        </div>
+        <section id="gallery-full-bleed">
+            <section id="video-gallery">
+                <div class="container">
+                    <h2 class="gallery-divider">Karya Video & Sinematografi</h2>
+                    <p class="gallery-subheading"> </p>
+                </div>
 
-        <div class="video-item vertical" data-aos="fade-up" data-aos-delay="100">
-            <video src="Video/Video2.mp4" muted loop controls preload="metadata"></video>
-        </div>
-
-        <div class="video-item vertical" data-aos="fade-up" data-aos-delay="200">
-            <video src="Video/Video3.mp4" muted loop controls preload="metadata"></video>
-        </div>
-
-        <div class="video-item vertical" data-aos="fade-up" data-aos-delay="300">
-            <video src="Video/Video4.mp4" muted loop controls preload="metadata"></video>
-        </div>
-
-    </div>
-    <section id="socmed-management" style="background-color: var(--bg-main); padding: 80px 0; border-top: 1px solid var(--border-color);">
-            <div class="container">
-                
-                <div class="socmed-expertise" style="margin-bottom: 60px;">
-                    <h2 class="gallery-divider" data-aos="fade-up" style="text-align: center; margin-left: 0;">Social Media Strategy & Management</h2>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 30px;">
-                        <div data-aos="fade-up" data-aos-delay="100">
-                            <h3 style="color: var(--highlight-color); font-size: 1.2rem; margin-bottom: 10px;">Data-Driven Content</h3>
-                            <p style="color: var(--text-secondary); font-size: 0.95rem;">Memadukan latar belakang <strong>Public Relations</strong> dengan analisis tren untuk menciptakan konten yang tidak hanya estetik, tetapi juga mencapai metrik <em>reach</em> dan <em>engagement</em> yang optimal.</p>
+                <div class="video-mixed-grid container">
+                    <div class="video-item vertical" data-aos="fade-up">
+                        <video src="Video/Video1.mp4" muted loop controls preload="metadata"></video>
+                    </div>
+                    <div class="video-item vertical" data-aos="fade-up" data-aos-delay="100">
+                        <video src="Video/Video2.mp4" muted loop controls preload="metadata"></video>
+                    </div>
+                    <div class="video-item vertical" data-aos="fade-up" data-aos-delay="200">
+                        <video src="Video/Video3.mp4" muted loop controls preload="metadata"></video>
+                    </div>
+                    <div class="video-item vertical" data-aos="fade-up" data-aos-delay="300">
+                        <video src="Video/Video4.mp4" muted loop controls preload="metadata"></video>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="socmed-management" style="background-color: var(--bg-main); padding: 80px 0; border-top: 1px solid var(--border-color);">
+                <div class="container">
+                    <div class="socmed-expertise" style="margin-bottom: 60px;">
+                        <h2 class="gallery-divider" data-aos="fade-up" style="text-align: center; margin-left: 0;">Social Media Strategy & Management</h2>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 30px;">
+                            <div data-aos="fade-up" data-aos-delay="100">
+                                <h3 style="color: var(--highlight-color); font-size: 1.2rem; margin-bottom: 10px;">Data-Driven Content</h3>
+                                <p style="color: var(--text-secondary); font-size: 0.95rem;">Memadukan latar belakang <strong>Public Relations</strong> dengan analisis tren untuk menciptakan konten yang tidak hanya estetik, tetapi juga mencapai metrik <em>reach</em> dan <em>engagement</em> yang optimal.</p>
+                            </div>
+                            <div data-aos="fade-up" data-aos-delay="200">
+                                <h3 style="color: var(--highlight-color); font-size: 1.2rem; margin-bottom: 10px;">Visual Identity & Branding</h3>
+                                <p style="color: var(--text-secondary); font-size: 0.95rem;">Memastikan setiap postingan menjaga integritas visual brand. Saya menghandle seluruh proses dari <em>creative direction</em>, pengambilan gambar, hingga manajemen jadwal tayang.</p>
+                            </div>
                         </div>
-                        <div data-aos="fade-up" data-aos-delay="200">
-                            <h3 style="color: var(--highlight-color); font-size: 1.2rem; margin-bottom: 10px;">Visual Identity & Branding</h3>
-                            <p style="color: var(--text-secondary); font-size: 0.95rem;">Memastikan setiap postingan menjaga integritas visual brand. Saya menghandle seluruh proses dari <em>creative direction</em>, pengambilan gambar, hingga manajemen jadwal tayang.</p>
+                    </div>
+
+                    <div class="feed-grid-container">
+                        <div class="live-feed-wrapper" data-aos="fade-up">
+                            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; margin-bottom: 30px; text-align: center;">
+                                <span class="badge badge-ig">Instagram 1</span>
+                                <h3 style="font-size: 1.2rem; letter-spacing: 1px;">FIRST VISUAL GRID</h3>
+                            </div>
+                            <div style="width: 100%;">
+                                <script src="https://elfsightcdn.com/platform.js" async></script>
+                                <div class="elfsight-app-d257a057-1bf6-4374-a1f6-c4956a45dc3e" data-elfsight-app-lazy style="width: 100%; max-width: 100%;"></div>
+                            </div>
+                        </div>
+
+                        <div class="live-feed-wrapper" data-aos="fade-up" data-aos-delay="100">
+                            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; margin-bottom: 30px; text-align: center;">
+                                <span class="badge badge-ig">Instagram 2</span>
+                                <h3 style="font-size: 1.2rem; letter-spacing: 1px;">SECOND VISUAL GRID</h3>
+                            </div>
+                            <div style="width: 100%;">
+                                <div class="elfsight-app-17acafec-d519-4b70-ab26-e9f66c16e8ef" data-elfsight-app-lazy style="width: 100%; max-width: 100%;"></div>
+                            </div>
+                        </div>
+
+                        <div class="live-feed-wrapper" data-aos="fade-up" data-aos-delay="200">
+                            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; margin-bottom: 30px; text-align: center;">
+                                <span class="badge badge-tiktok">TikTok Feed</span>
+                                <h3 style="font-size: 1.2rem; letter-spacing: 1px;">LIVE ENGAGEMENT INSIGHTS</h3>
+                            </div>
+                            <div style="width: 100%;">
+                                <div class="elfsight-app-3e53cae9-24f3-44dc-8c9d-e6dde6a5f88a" data-elfsight-app-lazy style="width: 100%; max-width: 100%;"></div>
+                            </div>
+                        </div>
+
+                        <div class="live-feed-wrapper" data-aos="fade-up" data-aos-delay="300">
+                            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; margin-bottom: 30px; text-align: center;">
+                                <span class="badge badge-ig">Instagram 4</span>
+                                <h3 style="font-size: 1.2rem; letter-spacing: 1px;">FOURTH VISUAL GRID</h3>
+                            </div>
+                            <div style="width: 100%;">
+                                <div class="elfsight-app-f67fad80-0231-4afa-8f68-9b731bd76a5e" data-elfsight-app-lazy style="width: 100%; max-width: 100%;"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </section>
+            
+            <section id="campaign-case-study" style="background-color: var(--bg-secondary); padding: 80px 0; border-top: 1px solid var(--border-color);">
+                <div class="container">
+                    <h2 class="gallery-divider" data-aos="fade-up">Campaign Spotlight</h2>
+                    <p class="gallery-subheading" data-aos="fade-up" data-aos-delay="100">Analisis taktis dalam membangun identitas visual dan strategi marketing digital.</p>
 
-                <!-- CONTAINER GRID BARU (Pembagian 2 kolom untuk 4 Akun yang kamu minta) -->
-                <div class="feed-grid-container">
-                    
-                    <!-- 1. FEED KIRI ATAS (Instagram Akun 1) -->
-                    <div class="live-feed-wrapper" data-aos="fade-up">
-                        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; margin-bottom: 30px; text-align: center;">
-                            <span class="badge badge-ig">Instagram 1</span>
-                            <h3 style="font-size: 1.2rem; letter-spacing: 1px;">FIRST VISUAL GRID</h3>
+                    <div class="campaign-grid">
+                        
+                        <!-- Phototentic Studio -->
+                        <div class="cs-card" data-aos="fade-right" data-aos-delay="200">
+                            <div class="cs-visual-small is-portrait">
+                                <img src="Gambar/phototentic.jpg" alt="Phototentic Visual" loading="lazy" decoding="async">
+                                <div class="cs-badge">CASE STUDY</div>
+                            </div>
+                            <div class="cs-content-small">
+                                <h3>Phototentic Studio</h3>
+                                <p class="cs-role"><strong>Role:</strong> Creative Director & Visual Strategist</p>
+                                
+                                <div class="cs-pillar">
+                                    <h4>⚠️ The Challenge</h4>
+                                    <p>Studio baru berlokasi jauh dari pusat keramaian. Target utamanya adalah klien yang mencari hasil portrait photography estetik dan elegan.</p>
+                                </div>
+                                <div class="cs-pillar">
+                                    <h4>💡 The Strategy</h4>
+                                    <p>Fokus membangun branding via Instagram Reels. Konsistensi konten berkualitas menciptakan kesan studio yang aktif, mendorong awareness dan reservasi online.</p>
+                                </div>
+                                
+                                <div class="cs-metrics-mini">
+                                    <div class="m-item"><span>2.4M</span> Impressions</div>
+                                    <div class="m-item"><span>+45%</span> Online RSVP</div>
+                                </div>
+                            </div>
                         </div>
-                        <div style="width: 100%;">
-                            <!-- Script Elfsight cukup dipanggil 1 kali di paling atas -->
-                            <script src="https://elfsightcdn.com/platform.js" async></script>
-                            <div class="elfsight-app-d257a057-1bf6-4374-a1f6-c4956a45dc3e" data-elfsight-app-lazy style="width: 100%; max-width: 100%;"></div>
+
+                        <!-- Yogyakarta Marriott Hotel -->
+                        <div class="cs-card" data-aos="fade-up" data-aos-delay="300">
+                            <div class="cs-visual-small">
+                                <img src="Gambar/facad.jpg" alt="Hotel Campaign" loading="lazy" decoding="async">
+                                <div class="cs-badge" style="background:#fff; color:#000;">HOSPITALITY</div>
+                            </div>
+                            <div class="cs-content-small">
+                                <h3>Yogyakarta Marriot Hotel</h3>
+                                <p class="cs-role"><strong>Role:</strong> Creative Lead & Brand Strategist</p>
+
+                                <div class="cs-pillar">
+                                    <h4>🔍 Insight</h4>
+                                    <p>Fasilitas bintang 5 namun Company Profile digital terlihat tertinggal jaman, gagal menarik minat klien korporat besar untuk acara MICE.</p>
+                                </div>
+                                <div class="cs-pillar">
+                                    <h4>🛠️ Strategy</h4>
+                                    <p>Pendekatan Architectural Stitching (21:9) & Interactive Digital Profile untuk menonjolkan kemewahan yang ringan didistribusikan via WhatsApp.</p>
+                                </div>
+                                
+                                <div class="cs-metrics-mini">
+                                    <div class="m-item"><span>+60%</span> Inquiries</div>
+                                    <div class="m-item"><span>30+</span> MICE Deals</div>
+                                </div>
+                            </div>
                         </div>
+
                     </div>
-
-                    <!-- 2. FEED KANAN ATAS (Instagram Akun 2) -->
-                    <div class="live-feed-wrapper" data-aos="fade-up" data-aos-delay="100">
-                        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; margin-bottom: 30px; text-align: center;">
-                            <span class="badge badge-ig">Instagram 2</span>
-                            <h3 style="font-size: 1.2rem; letter-spacing: 1px;">SECOND VISUAL GRID</h3>
-                        </div>
-                        <div style="width: 100%;">
-                            <div class="elfsight-app-17acafec-d519-4b70-ab26-e9f66c16e8ef" data-elfsight-app-lazy style="width: 100%; max-width: 100%;"></div>
-                        </div>
-                    </div>
-
-                    <!-- 3. FEED KIRI BAWAH (TikTok Akun 3) -->
-                    <div class="live-feed-wrapper" data-aos="fade-up" data-aos-delay="200">
-                        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; margin-bottom: 30px; text-align: center;">
-                            <span class="badge badge-tiktok">TikTok Feed</span>
-                            <h3 style="font-size: 1.2rem; letter-spacing: 1px;">LIVE ENGAGEMENT INSIGHTS</h3>
-                        </div>
-                        <div style="width: 100%;">
-                            <div class="elfsight-app-3e53cae9-24f3-44dc-8c9d-e6dde6a5f88a" data-elfsight-app-lazy style="width: 100%; max-width: 100%;"></div>
-                        </div>
-                    </div>
-
-                    <!-- 4. FEED KANAN BAWAH (Instagram Akun 4) -->
-                    <div class="live-feed-wrapper" data-aos="fade-up" data-aos-delay="300">
-                        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; margin-bottom: 30px; text-align: center;">
-                            <span class="badge badge-ig">Instagram 4</span>
-                            <h3 style="font-size: 1.2rem; letter-spacing: 1px;">FOURTH VISUAL GRID</h3>
-                        </div>
-                        <div style="width: 100%;">
-                            <div class="elfsight-app-f67fad80-0231-4afa-8f68-9b731bd76a5e" data-elfsight-app-lazy style="width: 100%; max-width: 100%;"></div>
-                        </div>
-                    </div>
-
                 </div>
-                <!-- AKHIR DARI CONTAINER GRID -->
-
-            </div>
-        </section>
-        <section id="campaign-case-study" style="background-color: var(--bg-secondary); padding: 80px 0; border-top: 1px solid var(--border-color);">
-            <div class="container">
-                <h2 class="gallery-divider" data-aos="fade-up">Campaign Spotlight</h2>
-                <p class="gallery-subheading" data-aos="fade-up" data-aos-delay="100">Analisis taktis dalam membangun identitas visual dan strategi marketing digital.</p>
-
-                <div class="campaign-grid">
-                    
-                    <div class="cs-card" data-aos="fade-right" data-aos-delay="200">
-                        <div class="cs-visual-small is-portrait">
-                            <img src="Gambar/phototentic.jpg" alt="Phototentic Visual" loading="lazy" decoding="async">
-                            <div class="cs-badge">CASE STUDY</div>
-                        </div>
-                        <div class="cs-content-small">
-                            <h3>Phototentic Studio</h3>
-                            <p class="cs-role"><strong>Role:</strong> Creative Director & Visual Strategist</p>
-                            
-                            <div class="cs-pillar">
-                                <h4>⚠️ The Challenge</h4>
-                                <p>Studio baru berlokasi jauh dari pusat keramaian. Target utamanya adalah klien yang mencari hasil portrait photography estetik dan elegan.</p>
-                            </div>
-                            <div class="cs-pillar">
-                                <h4>💡 The Strategy</h4>
-                                <p>Fokus membangun branding via Instagram Reels. Konsistensi konten berkualitas menciptakan kesan studio yang aktif, mendorong awareness dan reservasi online.</p>
-                            </div>
-                            
-                            <div class="cs-metrics-mini">
-                                <div class="m-item"><span>2.4M</span> Impressions</div>
-                                <div class="m-item"><span>+45%</span> Online RSVP</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="cs-card" data-aos="fade-left" data-aos-delay="300">
-                        <div class="cs-visual-small">
-                            <img src="Gambar/facad.jpg" alt="Hotel Campaign" loading="lazy" decoding="async">
-                            <div class="cs-badge" style="background:#fff; color:#000;">HOSPITALITY</div>
-                        </div>
-                        <div class="cs-content-small">
-                            <h3>Yogyakarta Marriot Hotel</h3>
-                            <p class="cs-role"><strong>Role:</strong> Creative Lead & Brand Strategist</p>
-
-                            <div class="cs-pillar">
-                                <h4>🔍 Insight</h4>
-                                <p>Fasilitas bintang 5 namun Company Profile digital terlihat tertinggal jaman, gagal menarik minat klien korporat besar untuk acara MICE.</p>
-                            </div>
-                            <div class="cs-pillar">
-                                <h4>🛠️ Strategy</h4>
-                                <p>Pendekatan Architectural Stitching (21:9) & Interactive Digital Profile untuk menonjolkan kemewahan yang ringan didistribusikan via WhatsApp.</p>
-                            </div>
-                            
-                            <div class="cs-metrics-mini">
-                                <div class="m-item"><span>+60%</span> Inquiries</div>
-                                <div class="m-item"><span>30+</span> MICE Deals</div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div> </div>
+            </section>
         </section>
     </main>
 
-      <div id="category-modal" class="category-modal">
-            <div class="category-modal-content">
-                <span class="category-modal-close" onclick="closeCategory()">&times;</span>
-                <h2 id="category-title" style="color: var(--highlight-color); margin-bottom: 30px; text-transform: uppercase;"></h2>
-                <div id="category-photos-grid" class="category-photos-grid">
-                    </div>
+    <div id="category-modal" class="category-modal">
+        <div class="category-modal-content">
+            <span class="category-modal-close" onclick="closeCategory()">&times;</span>
+            <h2 id="category-title" style="color: var(--highlight-color); margin-bottom: 30px; text-transform: uppercase;"></h2>
+            <div id="category-photos-grid" class="category-photos-grid">
             </div>
         </div>
-        <div id="lightbox" class="lightbox">
-    <span class="lightbox-close">&times;</span>
-    <img id="lightbox-img" class="lightbox-content" src="">
+    </div>
+    
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" class="lightbox-content" src="">
     </div>
     <div class="cursor-dot"></div>
     <div class="cursor-ring"></div>
@@ -289,6 +313,5 @@
         </div>
         <p>&copy; 2026 | Portfolio Reynaldi.</p>
      </footer>
-
 </body>
 </html>
