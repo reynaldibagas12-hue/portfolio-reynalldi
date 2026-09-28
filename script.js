@@ -1,4 +1,4 @@
-// Variable global untuk mencegah salah klik saat user sedang menggeser mouse
+// Variable global
 window.isDraggingCategory = false;
 
 // ===============================================
@@ -7,10 +7,11 @@ window.isDraggingCategory = false;
 AOS.init({ duration: 800, once: true });
 
 window.addEventListener('load', () => {
+    // Timeout dipercepat jadi 300ms agar halaman lebih cepat muncul
     setTimeout(() => {
         const loader = document.getElementById('premium-loader');
         if(loader) loader.classList.add('hidden');
-    }, 1200); 
+    }, 300); 
 });
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -58,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ===============================================
     const cursorDot = document.querySelector('.cursor-dot');
     const cursorRing = document.querySelector('.cursor-ring');
-    const interactables = document.querySelectorAll('a, button, .grid-photo-item img, .featured-item, input, textarea, .cat-card');
+    const interactables = document.querySelectorAll('a, button, .grid-photo-item img, .featured-item, input, textarea, .cat-card, .cat-scroll-btn, .side-nav-tab');
 
     if (window.innerWidth > 1024 && cursorDot && cursorRing) {
         let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
@@ -88,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ===============================================
-    //  4. UNIFIED LIGHTBOX (SATU SISTEM UNTUK SEMUA)
+    //  4. UNIFIED LIGHTBOX
     // ===============================================
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
@@ -153,61 +154,26 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ===============================================
-    //  8. DRAG & MOUSE WHEEL SCROLL (KATEGORI GALERI)
+    //  8. ARROW KONTROL SAJA (KATEGORI GALERI) - Mouse Scroll dihapus
     // ===============================================
     const categoryGrid = document.querySelector('.category-grid');
+    const scrollLeftBtn = document.getElementById('scrollLeftBtn');
+    const scrollRightBtn = document.getElementById('scrollRightBtn');
+
     if (categoryGrid) {
-        let isDown = false;
-        let startX;
-        let scrollLeft;
-
-        // Tarik (Drag) untuk Geser
-        categoryGrid.addEventListener('mousedown', (e) => {
-            isDown = true;
-            window.isDraggingCategory = false; 
-            startX = e.pageX - categoryGrid.offsetLeft;
-            scrollLeft = categoryGrid.scrollLeft;
-            categoryGrid.style.scrollSnapType = 'none'; // Matikan snap magnetik sementara
-            categoryGrid.style.cursor = 'grabbing'; // Kursor berubah jadi tangan menggenggam
-        });
-
-        categoryGrid.addEventListener('mouseleave', () => {
-            isDown = false;
-            categoryGrid.style.scrollSnapType = 'x mandatory';
-            categoryGrid.style.cursor = 'pointer';
-        });
-
-        categoryGrid.addEventListener('mouseup', () => {
-            isDown = false;
-            categoryGrid.style.scrollSnapType = 'x mandatory';
-            categoryGrid.style.cursor = 'pointer';
-            // Beri sedikit jeda waktu sebelum reset status drag agar klik tidak bocor
-            setTimeout(() => { window.isDraggingCategory = false; }, 50);
-        });
-
-        categoryGrid.addEventListener('mousemove', (e) => {
-            if (!isDown) return;
-            e.preventDefault();
-            const x = e.pageX - categoryGrid.offsetLeft;
-            const walk = (x - startX) * 2; // Kecepatan geser
-            
-            if (Math.abs(walk) > 10) { 
-                window.isDraggingCategory = true; // Tandai bahwa user murni menggeser, bukan klik
-            }
-            categoryGrid.scrollLeft = scrollLeft - walk;
-        });
-
-        // Mouse Wheel (Scroll) untuk Geser
-        categoryGrid.addEventListener('wheel', (e) => {
-            if (e.deltaY !== 0) {
-                const maxScrollLeft = categoryGrid.scrollWidth - categoryGrid.clientWidth;
-                // Hanya matikan scroll halaman (preventDefault) jika masih ada sisa ruang untuk digeser ke samping
-                if ((e.deltaY > 0 && categoryGrid.scrollLeft < maxScrollLeft) || (e.deltaY < 0 && categoryGrid.scrollLeft > 0)) {
-                    e.preventDefault();
-                    categoryGrid.scrollLeft += e.deltaY;
-                }
-            }
-        });
+        // Kontrol Panah (Kiri Kanan)
+        if (scrollLeftBtn) {
+            scrollLeftBtn.addEventListener('click', () => {
+                categoryGrid.scrollBy({ left: -320, behavior: 'smooth' });
+            });
+        }
+        if (scrollRightBtn) {
+            scrollRightBtn.addEventListener('click', () => {
+                categoryGrid.scrollBy({ left: 320, behavior: 'smooth' });
+            });
+        }
+        // Event Listener untuk mouse wheel (scroll) yang menjebak halaman DIBUANG sepenuhnya.
+        // Sekarang ketika kursor di atas foto, user tetap bisa scroll halaman ke bawah dengan lancar.
     }
 });
 
@@ -223,7 +189,9 @@ function generatePhotos(prefix, count) {
 }
 
 const categoryData = {
-    'moments': { title: 'Moments & Portraits', pdf: 'pdf/portfolio fashion rey.pdf', photos: generatePhotos('moments' , 45) },
+    'portrait': { title: 'Portrait', pdf: 'pdf/portfolio portrait rey.pdf', photos: generatePhotos('moments' , 40) },
+    'sport': { title: 'Sport', pdf: 'pdf/portfolio sport rey.pdf', photos: generatePhotos('Sport' , 16) },
+    'wedding': { title: 'Wedding', pdf: 'pdf/portfolio wedding rey.pdf', photos: generatePhotos('Wedding' , 10) },
     'corporate': { title: 'Corporate & Event', pdf: 'pdf/Corporate and Event Portfolio.pdf', photos: generatePhotos('corporate', 36) },
     'nightlife': { title: 'Nightlife & Stage', pdf: 'pdf/stage photography reynaldi bagaskara.pdf', photos: generatePhotos('stage', 44) },
     'property': { title: 'Property Visuals', pdf: 'pdf/interior & exterior portfolio reynaldi bagaskara.pdf', photos: generatePhotos('property', 31) },
@@ -240,9 +208,6 @@ function shuffleArray(array) {
 }
 
 window.openCategory = function(catKey) {
-    // KUNCI PENGAMAN: Jika user sedang menarik/drag, blokir fungsi pembuka galeri ini!
-    if (window.isDraggingCategory) return; 
-
     const modal = document.getElementById('category-modal'), titleEl = document.getElementById('category-title'), gridEl = document.getElementById('category-photos-grid'), data = categoryData[catKey];
     if (!data || !modal || !gridEl) return;
 
