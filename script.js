@@ -226,7 +226,8 @@ window.openCategory = function(catKey) {
 
     shuffleArray(data.photos).forEach(photoName => {
         const img = document.createElement('img');
-        img.src = `Gambar/Acak/${photoName}`;
+        // DI SINI LETAK PERBAIKANNYA (Dari Gambar/Acak menjadi gambar/acak)
+        img.src = `gambar/acak/${photoName}`;
         img.setAttribute('loading', 'lazy'); 
         img.setAttribute('decoding', 'async');
         img.classList.add('lightbox-trigger');
