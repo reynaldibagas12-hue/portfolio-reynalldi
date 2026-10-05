@@ -172,8 +172,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 categoryGrid.scrollBy({ left: 320, behavior: 'smooth' });
             });
         }
-        // Event Listener untuk mouse wheel (scroll) yang menjebak halaman DIBUANG sepenuhnya.
-        // Sekarang ketika kursor di atas foto, user tetap bisa scroll halaman ke bawah dengan lancar.
     }
 });
 
@@ -194,6 +192,8 @@ const categoryData = {
     'wedding': { title: 'Wedding', pdf: 'pdf/portfolio wedding rey.pdf', photos: generatePhotos('Wedding' , 10) },
     'corporate': { title: 'Corporate & Event', pdf: 'pdf/Corporate and Event Portfolio.pdf', photos: generatePhotos('corporate', 36) },
     'nightlife': { title: 'Nightlife & Stage', pdf: 'pdf/stage photography reynaldi bagaskara.pdf', photos: generatePhotos('stage', 44) },
+    // DITAMBAHKAN KATEGORI BARU PRIVATE PARTY
+    'private-party': { title: 'Private Party', pdf: '', photos: generatePhotos('party', 20) },
     'property': { title: 'Property Visuals', pdf: 'pdf/interior & exterior portfolio reynaldi bagaskara.pdf', photos: generatePhotos('property', 31) },
     'fnb': { title: 'Food & Beverage', pdf: 'pdf/food and beverage portfolio reynaldi bagaskara.pdf', photos: generatePhotos('fnb', 39) }
 };
@@ -226,7 +226,6 @@ window.openCategory = function(catKey) {
 
     shuffleArray(data.photos).forEach(photoName => {
         const img = document.createElement('img');
-        // DI SINI LETAK PERBAIKANNYA (Dari Gambar/Acak menjadi gambar/acak)
         img.src = `gambar/acak/${photoName}`;
         img.setAttribute('loading', 'lazy'); 
         img.setAttribute('decoding', 'async');
