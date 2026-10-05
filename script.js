@@ -187,7 +187,7 @@ function generatePhotos(prefix, count) {
 }
 
 const categoryData = {
-    'portrait': { title: 'Portrait', pdf: 'pdf/portfolio portrait rey.pdf', photos: generatePhotos('moments' , 40) },
+    'portrait': { title: 'Portrait', pdf: 'pdf/portfolio portrait rey.pdf', photos: generatePhotos('moments' , 52) },
     'sport': { title: 'Sport', pdf: 'pdf/portfolio sport rey.pdf', photos: generatePhotos('Sport' , 21) },
     'wedding': { title: 'Wedding', pdf: 'pdf/portfolio wedding rey.pdf', photos: generatePhotos('Wedding' , 10) },
     'corporate': { title: 'Corporate & Event', pdf: 'pdf/Corporate and Event Portfolio.pdf', photos: generatePhotos('corporate', 36) },
