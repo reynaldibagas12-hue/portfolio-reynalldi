@@ -110,13 +110,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ===============================================
-    //  5. VIDEO HOVER & BUTTON EFFECT & SWIPER & GSAP
+    //  5. TOMBOL EFFECT & SWIPER & GSAP
     // ===============================================
-    document.querySelectorAll('.video-item video').forEach(vdo => {
-        vdo.addEventListener('mouseenter', () => vdo.play().catch(() => {}));
-        vdo.addEventListener('mouseleave', () => vdo.pause());
-    });
-
     document.querySelectorAll('.cta-button, .filter-btn, .focus-btn').forEach(btn => {
         btn.addEventListener('mousemove', (e) => {
             const pos = btn.getBoundingClientRect();
@@ -154,14 +149,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ===============================================
-    //  8. ARROW KONTROL SAJA (KATEGORI GALERI) - Mouse Scroll dihapus
+    //  8. ARROW KONTROL SAJA (KATEGORI GALERI FOTO)
     // ===============================================
     const categoryGrid = document.querySelector('.category-grid');
     const scrollLeftBtn = document.getElementById('scrollLeftBtn');
     const scrollRightBtn = document.getElementById('scrollRightBtn');
 
     if (categoryGrid) {
-        // Kontrol Panah (Kiri Kanan)
         if (scrollLeftBtn) {
             scrollLeftBtn.addEventListener('click', () => {
                 categoryGrid.scrollBy({ left: -320, behavior: 'smooth' });
@@ -176,7 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ===============================================
-//  6. KATEGORI FOTO & WHATSAPP (GLOBAL FUNCTIONS)
+//  6. KATEGORI FOTO (GLOBAL FUNCTIONS)
 // ===============================================
 function generatePhotos(prefix, count) {
     let arr = []; 
@@ -192,9 +186,9 @@ const categoryData = {
     'wedding': { title: 'Wedding', pdf: 'pdf/portfolio wedding rey.pdf', photos: generatePhotos('Wedding' , 10) },
     'corporate': { title: 'Corporate & Event', pdf: 'pdf/Corporate and Event Portfolio.pdf', photos: generatePhotos('corporate', 36) },
     'nightlife': { title: 'Nightlife & Stage', pdf: 'pdf/stage photography reynaldi bagaskara.pdf', photos: generatePhotos('stage', 44) },
-    // DITAMBAHKAN KATEGORI BARU PRIVATE PARTY
     'private-party': { title: 'Private Party', pdf: '', photos: generatePhotos('party', 18) },
-    'property': { title: 'Property Visuals', pdf: 'pdf/interior & exterior portfolio reynaldi bagaskara.pdf', photos: generatePhotos('property', 31) },
+    // Interior dihapus, fokus property & exterior
+    'property': { title: 'Property & Exterior Visuals', pdf: 'pdf/exterior portfolio reynaldi bagaskara.pdf', photos: generatePhotos('property', 31) },
     'fnb': { title: 'Food & Beverage', pdf: 'pdf/food and beverage portfolio reynaldi bagaskara.pdf', photos: generatePhotos('fnb', 39) }
 };
 
@@ -241,6 +235,50 @@ window.closeCategory = function() {
     document.getElementById('category-modal').classList.remove('active');
     document.body.style.overflow = 'auto';
 };
+
+// ===============================================
+//  9. SISTEM KATEGORI VIDEO BARU (POP-UP)
+// ===============================================
+const videoData = {
+    'wcc': { title: 'WCC Projects', videos: ['wcc 1.mp4', 'wcc 2.mp4', 'wcc 3.mp4'] },
+    'recap': { title: 'Recap Event', videos: ['Video1.mp4', 'Video2.mp4'] },
+    'content': { title: 'Content Creation', videos: ['Video3.mp4', 'content 1.mp4', 'content 2.mp4', 'content 3.mp4', 'content 4.mp4', 'content 5.mp4'] }
+};
+
+window.openVideoCategory = function(catKey) {
+    const modal = document.getElementById('video-modal');
+    const titleEl = document.getElementById('video-category-title');
+    const gridEl = document.getElementById('video-grid-modal');
+    const data = videoData[catKey];
+    
+    if (!data || !modal || !gridEl) return;
+
+    titleEl.innerText = data.title;
+    gridEl.innerHTML = ''; // bersihkan grid video lama
+
+    // Masukkan video ke dalam grid popup
+    data.videos.forEach(videoName => {
+        const videoEl = document.createElement('video');
+        videoEl.src = `Video/${videoName}`;
+        videoEl.controls = true; 
+        videoEl.setAttribute('preload', 'metadata');
+        gridEl.appendChild(videoEl);
+    });
+
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Kunci scroll halaman belakang
+};
+
+window.closeVideoCategory = function() {
+    const modal = document.getElementById('video-modal');
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto'; // Kembalikan scroll halaman belakang
+    
+    // Matikan semua video yang sedang berputar ketika modal ditutup
+    const videos = modal.querySelectorAll('video');
+    videos.forEach(vid => vid.pause());
+};
+
 
 // ===============================================
 //  7. LOGIKA REKRUTMEN HRD (WA CTA)
