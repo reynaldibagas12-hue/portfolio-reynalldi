@@ -280,7 +280,7 @@ h1:hover, h2:hover, h3:hover { animation: glitchText 0.3s cubic-bezier(.25, .46,
 .cat-card:hover img { transform: scale(1.08); }
 @media (max-width: 768px) { .category-grid { gap: 15px; padding-left: 10px; } .cat-card { width: 260px; height: 420px; } }
 
-/* ----- CATEGORY MODAL (POP-UP) ----- */
+/* ----- CATEGORY MODAL FOTO (POP-UP) ----- */
 .category-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(10, 10, 10, 0.98); z-index: 5000; display: none; overflow-y: auto; padding: 50px 20px; }
 .category-modal.active { display: block; }
 .category-modal-content { max-width: 1200px; margin: 0 auto; text-align: center; }
@@ -291,6 +291,15 @@ h1:hover, h2:hover, h3:hover { animation: glitchText 0.3s cubic-bezier(.25, .46,
 @media (max-width: 768px) { .category-photos-grid { column-count: 2; } }
 .category-pdf-btn { display: inline-flex; align-items: center; background: transparent; color: var(--highlight-color); border: 1px solid var(--highlight-color); padding: 12px 25px; text-decoration: none; border-radius: 30px; font-weight: 700; font-size: 0.9rem; margin-bottom: 40px; transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 1px; }
 .category-pdf-btn:hover { background: var(--highlight-color); color: var(--bg-main); transform: translateY(-3px); box-shadow: 0 5px 15px rgba(245, 203, 92, 0.3); }
+
+/* ----- CATEGORY MODAL VIDEO (POP-UP BARU) ----- */
+.video-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(10, 10, 10, 0.98); z-index: 5000; display: none; overflow-y: auto; padding: 50px 20px; }
+.video-modal.active { display: block; }
+.video-modal-content { max-width: 1200px; margin: 0 auto; text-align: center; }
+.video-modal-close { position: fixed; top: 20px; right: 40px; font-size: 3rem; color: #fff; cursor: pointer; z-index: 5001; transition: 0.3s; }
+.video-modal-close:hover { color: var(--highlight-color); }
+.video-grid-modal { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 30px; }
+.video-grid-modal video { width: 100%; border-radius: 12px; background: #000; outline: none; border: 1px solid var(--border-color); box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
 
 /* =========================================
    UI/UX UPGRADE: CINEMATIC PRE-LOADER
