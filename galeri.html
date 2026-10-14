@@ -108,9 +108,10 @@
                             <div class="cat-overlay"><h3>Private Party</h3><p>Exclusive Celebrations & Vibe</p></div>
                         </div>
                         
+                        <!-- Interior Dihilangkan, sisa Property Visuals (Exterior) -->
                         <div class="cat-card" onclick="openCategory('property')">
                             <img src="gambar/facad.jpg" alt="Property Visuals" loading="lazy" decoding="async">
-                            <div class="cat-overlay"><h3>Property Visuals</h3><p>Architectural & Interior Space</p></div>
+                            <div class="cat-overlay"><h3>Property Visuals</h3><p>Architectural & Exterior Space</p></div>
                         </div>
 
                         <div class="cat-card" onclick="openCategory('fnb')">
@@ -125,24 +126,35 @@
         </section>
         
         <section id="gallery-full-bleed">
-            <section id="video-gallery">
+            
+            <!-- SECTION VIDEO TERBARU DENGAN KONSEP KARTU -->
+            <section id="video-gallery" style="padding-top: 80px; padding-bottom: 80px;">
                 <div class="container">
-                    <h2 class="gallery-divider">Karya Video & Sinematografi</h2>
-                    <p class="gallery-subheading"> </p>
-                </div>
+                    <h2 class="gallery-divider" data-aos="fade-up">Karya Video & Sinematografi</h2>
+                    <p class="gallery-subheading" style="text-align: center; margin-bottom: 30px;" data-aos="fade-up" data-aos-delay="100">Pilih kategori untuk melihat karya video.</p>
+                    
+                    <!-- Dibikin sama persis gayanya kayak category grid foto -->
+                    <div class="category-slider-wrapper" data-aos="fade-up" data-aos-delay="200">
+                        <div class="category-grid" style="justify-content: center; width: 100%;">
+                            <!-- Kartu WCC -->
+                            <div class="cat-card" onclick="openVideoCategory('wcc')">
+                                <!-- Gunakan gambar yang relevan sbg thumbnail kartu -->
+                                <img src="gambar/facad.jpg" alt="WCC Thumbnail" loading="lazy" decoding="async" style="filter: brightness(0.7);">
+                                <div class="cat-overlay"><h3>WCC</h3><p>WCC Projects</p></div>
+                            </div>
+                            
+                            <!-- Kartu RECAP EVENT -->
+                            <div class="cat-card" onclick="openVideoCategory('recap')">
+                                <img src="gambar/corporate.jpg" alt="Recap Event Thumbnail" loading="lazy" decoding="async" style="filter: brightness(0.7);">
+                                <div class="cat-overlay"><h3>RECAP EVENT</h3><p>Event Highlights</p></div>
+                            </div>
 
-                <div class="video-mixed-grid container">
-                    <div class="video-item vertical" data-aos="fade-up">
-                        <video src="Video/Video1.mp4" muted loop controls preload="metadata"></video>
-                    </div>
-                    <div class="video-item vertical" data-aos="fade-up" data-aos-delay="100">
-                        <video src="Video/Video2.mp4" muted loop controls preload="metadata"></video>
-                    </div>
-                    <div class="video-item vertical" data-aos="fade-up" data-aos-delay="200">
-                        <video src="Video/Video3.mp4" muted loop controls preload="metadata"></video>
-                    </div>
-                    <div class="video-item vertical" data-aos="fade-up" data-aos-delay="300">
-                        <video src="Video/Video4.mp4" muted loop controls preload="metadata"></video>
+                            <!-- Kartu CONTENT -->
+                            <div class="cat-card" onclick="openVideoCategory('content')">
+                                <img src="gambar/fnb.jpg" alt="Content Thumbnail" loading="lazy" decoding="async" style="filter: brightness(0.7);">
+                                <div class="cat-overlay"><h3>CONTENT</h3><p>Content Creation</p></div>
+                            </div>
+                        </div> 
                     </div>
                 </div>
             </section>
@@ -273,11 +285,22 @@
         </section>
     </main>
 
+    <!-- Modal Kategori Foto -->
     <div id="category-modal" class="category-modal">
         <div class="category-modal-content">
             <span class="category-modal-close" onclick="closeCategory()">&times;</span>
             <h2 id="category-title" style="color: var(--highlight-color); margin-bottom: 30px; text-transform: uppercase;"></h2>
             <div id="category-photos-grid" class="category-photos-grid">
+            </div>
+        </div>
+    </div>
+    
+    <!-- MODAL KATEGORI VIDEO (BARU) -->
+    <div id="video-modal" class="video-modal">
+        <div class="video-modal-content">
+            <span class="video-modal-close" onclick="closeVideoCategory()">&times;</span>
+            <h2 id="video-category-title" style="color: var(--highlight-color); margin-bottom: 30px; text-transform: uppercase;"></h2>
+            <div id="video-grid-modal" class="video-grid-modal">
             </div>
         </div>
     </div>
