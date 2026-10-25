@@ -237,7 +237,7 @@ window.closeCategory = function() {
 //  9. SISTEM KATEGORI VIDEO BARU (POP-UP)
 // ===============================================
 const videoData = {
-    'wcc': { title: 'WCC Projects', videos: ['wcc 1.mp4', 'wcc 2.mp4', 'wcc 3.mp4', 'wcc 4.mp4'] },
+    'wcc': { title: 'WCC Projects', videos: ['wcc 1.mp4', 'wcc 2.mp4', 'wcc 3.mp4', 'wcc 4.mp4', 'WCC5.mp4', 'WCC6.mp4', 'WCC7.mp4'] },
     'recap': { title: 'Recap Event', videos: ['Video1.mp4', 'Video2.mp4'] },
     'content': { title: 'Content Creation', videos: ['Video3.mp4', 'content 1.mp4', 'content 2.mp4', 'content 3.mp4', 'content 4.mp4', 'content 5.mp4'] }
 };
