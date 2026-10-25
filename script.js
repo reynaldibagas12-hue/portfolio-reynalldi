@@ -7,7 +7,6 @@ window.isDraggingCategory = false;
 AOS.init({ duration: 800, once: true });
 
 window.addEventListener('load', () => {
-    // Timeout dipercepat jadi 300ms agar halaman lebih cepat muncul
     setTimeout(() => {
         const loader = document.getElementById('premium-loader');
         if(loader) loader.classList.add('hidden');
@@ -182,13 +181,11 @@ function generatePhotos(prefix, count) {
 
 const categoryData = {
     'portrait': { title: 'Portrait', pdf: 'pdf/portfolio portrait rey.pdf', photos: generatePhotos('moments' , 47) },
-    'sport': { title: 'Sport', pdf: 'pdf/portfolio sport rey.pdf', photos: generatePhotos('Sport' , 37) },
+    'sport': { title: 'Sport & Wellness', pdf: 'pdf/portfolio sport rey.pdf', photos: generatePhotos('Sport' , 37) },
     'wedding': { title: 'Wedding', pdf: 'pdf/portfolio wedding rey.pdf', photos: generatePhotos('Wedding' , 12) },
     'corporate': { title: 'Corporate & Event', pdf: 'pdf/Corporate and Event Portfolio.pdf', photos: generatePhotos('corporate', 36) },
     'nightlife': { title: 'Nightlife & Stage', pdf: 'pdf/stage photography reynaldi bagaskara.pdf', photos: generatePhotos('stage', 44) },
     'private-party': { title: 'Private Party', pdf: '', photos: generatePhotos('party', 18) },
-    // Interior dihapus, fokus property & exterior
-    'property': { title: 'Property & Exterior Visuals', pdf: 'pdf/exterior portfolio reynaldi bagaskara.pdf', photos: generatePhotos('property', 31) },
     'fnb': { title: 'Food & Beverage', pdf: 'pdf/food and beverage portfolio reynaldi bagaskara.pdf', photos: generatePhotos('fnb', 39) }
 };
 
@@ -254,9 +251,8 @@ window.openVideoCategory = function(catKey) {
     if (!data || !modal || !gridEl) return;
 
     titleEl.innerText = data.title;
-    gridEl.innerHTML = ''; // bersihkan grid video lama
+    gridEl.innerHTML = ''; 
 
-    // Masukkan video ke dalam grid popup
     data.videos.forEach(videoName => {
         const videoEl = document.createElement('video');
         videoEl.src = `Video/${videoName}`;
@@ -266,15 +262,14 @@ window.openVideoCategory = function(catKey) {
     });
 
     modal.classList.add('active');
-    document.body.style.overflow = 'hidden'; // Kunci scroll halaman belakang
+    document.body.style.overflow = 'hidden'; 
 };
 
 window.closeVideoCategory = function() {
     const modal = document.getElementById('video-modal');
     modal.classList.remove('active');
-    document.body.style.overflow = 'auto'; // Kembalikan scroll halaman belakang
+    document.body.style.overflow = 'auto'; 
     
-    // Matikan semua video yang sedang berputar ketika modal ditutup
     const videos = modal.querySelectorAll('video');
     videos.forEach(vid => vid.pause());
 };
