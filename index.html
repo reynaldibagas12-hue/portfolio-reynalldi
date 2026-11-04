@@ -22,8 +22,15 @@
     <title>Reynaldi Bagaskara | Executive Portfolio Hub</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <!-- SWIPER CSS YANG LENGKAP -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        /* CSS Tambahan Khusus untuk Mencegah Slide Bertumpuk */
+        .featuredSwiper { width: 100%; overflow: hidden; padding-bottom: 50px; }
+        .featuredSwiper .swiper-wrapper { display: flex; }
+        .featuredSwiper .swiper-slide { flex-shrink: 0; width: 300px; }
+    </style>
 </head>
 <body>
     <div id="premium-loader">
@@ -63,7 +70,6 @@
     </header>
 
     <main>
-        <!-- HERO SECTION (DI-ADJUST AGAR FOTO TIDAK KEBESARAN/ZOOM BERLEBIHAN) -->
         <section id="home" class="hero" style="min-height: 75vh; height: auto; padding: 160px 0 100px 0; background-size: cover; background-position: center;">
             <div class="hero-content">
                 <h1 data-aos="fade-down" data-aos-delay="200">Brand Activation & Social Media Manager</h1>
@@ -145,8 +151,8 @@
                 <div class="about-text" data-aos="fade-left" data-aos-delay="200">
                     <h2 style="text-align: left; color: var(--highlight-color);">Profil Profesional</h2>
                     <p style="font-size: 1.1rem; color: var(--text-primary);">Saya adalah seorang <strong>T-Shaped Marketing Professional</strong> dengan fondasi eksekusi kreatif tajam yang berkembang memimpin strategi multi-brand di industri corporate hospitality & F&B.</p>
-                    <p style="margin-top: 15px; color: var(--text-secondary);">Saat ini mengelola pilar pemasaran digital dan media sosial untuk 6 unit bisnis di bawah <strong>Sudestada Group</strong> (termasuk Sudestada Jakarta, Casalena, Coal Bar, Libros Bar, dan Signature Cafe). Keunggulan saya terletak pada integrasi antara <em>brand awareness</em>, pengangkatan audiens melalui kampanye tematik (seperti Casa Summer Brunch & Pizza with Papa), manajemen <em>guest hosting</em> bar, dan konversi Meta Ads yang presisi.</p>
-                    <p style="margin-top: 15px; color: var(--text-secondary);">Berbekal latar belakang visual di Phototentic Studio[cite: 8] dan Public Relations, saya memastikan setiap arah komunikasi brand tidak hanya estetik secara visual, tetapi juga efektif secara objektif operasional venue.</p>
+                    <p style="margin-top: 15px; color: var(--text-secondary);">Saat ini mengelola pilar pemasaran digital dan media sosial untuk 6 unit bisnis di bawah <strong>Sudestada Group</strong> (termasuk Sudestada Jakarta, Casalena, Coal Bar, Libros Bar, dan Signature Cafe). Keunggulan saya terletak pada integrasi antara <em>brand awareness</em>, pengangkatan audiens melalui kampanye tematik (seperti Casa Summer Brunch & Pizza with Papa), manajemen <em>guest hosting</em> bar, dan konversi Meta Ads yang presisi[cite: 8].</p>
+                    <p style="margin-top: 15px; color: var(--text-secondary);">Berbekal latar belakang visual di Phototentic Studio dan Public Relations, saya memastikan setiap arah komunikasi brand tidak hanya estetik secara visual, tetapi juga efektif secara objektif operasional venue.</p>
                 </div>
             </div>
         </section>
