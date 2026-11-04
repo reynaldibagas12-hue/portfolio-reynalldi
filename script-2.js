@@ -1,10 +1,12 @@
-// Variable global
+// script-2.js (Global script for menu, modals, lightbox, categories & cursor)
 window.isDraggingCategory = false;
 
 // ===============================================
-//  1. INISIALISASI & PRE-LOADER (PERFORMA TINGGI)
+// 1. INISIALISASI & PRE-LOADER
 // ===============================================
-AOS.init({ duration: 800, once: true });
+if (typeof AOS !== 'undefined') {
+    AOS.init({ duration: 800, once: true });
+}
 
 window.addEventListener('load', () => {
     setTimeout(() => {
@@ -14,23 +16,7 @@ window.addEventListener('load', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-    const main = document.querySelector('main');
-    const footer = document.querySelector('footer');
-
-    function adjustFooter() {
-        if (window.innerWidth > 768 && footer && main) {
-            main.style.marginBottom = footer.offsetHeight + 'px';
-        } else {
-            main.style.marginBottom = '0';
-        }
-    }
-    
-    setTimeout(adjustFooter, 500);
-    window.addEventListener('resize', adjustFooter);
-
-    // ===============================================
-    //  2. NAVIGASI, BURGER MENU & AUTO-HIDE
-    // ===============================================
+    // Navigasi Burger Menu & Auto-Hide
     const burgerMenu = document.querySelector('.burger-menu');
     const navLinks = document.querySelector('.nav-links');
     const navbar = document.querySelector('.navbar');
@@ -53,12 +39,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ===============================================
-    //  3. KURSOR LENSA KAMERA (UPGRADED)
-    // ===============================================
+    // Custom Cursor
     const cursorDot = document.querySelector('.cursor-dot');
     const cursorRing = document.querySelector('.cursor-ring');
-    const interactables = document.querySelectorAll('a, button, .grid-photo-item img, .featured-item, input, textarea, .cat-card, .cat-scroll-btn, .side-nav-tab');
+    const interactables = document.querySelectorAll('a, button, img, .cat-card, .pillar-card');
 
     if (window.innerWidth > 1024 && cursorDot && cursorRing) {
         let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
@@ -78,23 +62,19 @@ document.addEventListener('DOMContentLoaded', () => {
         interactables.forEach(el => {
             el.addEventListener('mouseenter', () => {
                 cursorRing.classList.add('lens-focus');
-                cursorDot.style.transform = 'translate(-50%, -50%) scale(0)'; 
             });
             el.addEventListener('mouseleave', () => {
                 cursorRing.classList.remove('lens-focus');
-                cursorDot.style.transform = 'translate(-50%, -50%) scale(1)';
             });
         });
     }
 
-    // ===============================================
-    //  4. UNIFIED LIGHTBOX
-    // ===============================================
+    // Lightbox Global
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
     
     document.addEventListener('click', (e) => {
-        if (e.target && (e.target.classList.contains('lightbox-trigger') || e.target.closest('.grid-photo-item img') || e.target.closest('.featured-item img'))) {
+        if (e.target && (e.target.classList.contains('lightbox-trigger') || e.target.closest('.featured-item img'))) {
             let targetImg = e.target;
             if(!targetImg.getAttribute('src')) targetImg = targetImg.querySelector('img'); 
             
@@ -108,18 +88,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // ===============================================
-    //  5. TOMBOL EFFECT & SWIPER & GSAP
-    // ===============================================
-    document.querySelectorAll('.cta-button, .filter-btn, .focus-btn').forEach(btn => {
-        btn.addEventListener('mousemove', (e) => {
-            const pos = btn.getBoundingClientRect();
-            btn.style.transform = `translate(${(e.pageX - pos.left - pos.width / 2) * 0.3}px, ${(e.pageY - pos.top - pos.height / 2 - window.scrollY) * 0.5}px)`;
-        });
-        btn.addEventListener('mouseout', () => btn.style.transform = 'translate(0px, 0px)');
-    });
-
-    if (document.querySelector('.featuredSwiper')) {
+    // Swiper Carousel
+    if (typeof Swiper !== 'undefined' && document.querySelector('.featuredSwiper')) {
         new Swiper('.featuredSwiper', {
             slidesPerView: 1, spaceBetween: 20, loop: true,
             autoplay: { delay: 3500, disableOnInteraction: false },
@@ -129,6 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // GSAP Horizontal Scroll Showcase (Panorama)
     if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
         gsap.registerPlugin(ScrollTrigger);
         const hc = document.querySelector('.horizon-container'), hw = document.querySelector('.horizon-wrapper');
@@ -141,35 +112,26 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Scroll Back to Top Button
     const backToTopBtn = document.getElementById('back-to-top');
     if (backToTopBtn) {
         window.addEventListener('scroll', () => backToTopBtn.classList.toggle('show', window.scrollY > 500));
         backToTopBtn.addEventListener('click', (e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
     }
 
-    // ===============================================
-    //  8. ARROW KONTROL SAJA (KATEGORI GALERI FOTO)
-    // ===============================================
+    // Scroll Category Slider Arrow Controls
     const categoryGrid = document.querySelector('.category-grid');
     const scrollLeftBtn = document.getElementById('scrollLeftBtn');
     const scrollRightBtn = document.getElementById('scrollRightBtn');
 
     if (categoryGrid) {
-        if (scrollLeftBtn) {
-            scrollLeftBtn.addEventListener('click', () => {
-                categoryGrid.scrollBy({ left: -320, behavior: 'smooth' });
-            });
-        }
-        if (scrollRightBtn) {
-            scrollRightBtn.addEventListener('click', () => {
-                categoryGrid.scrollBy({ left: 320, behavior: 'smooth' });
-            });
-        }
+        if (scrollLeftBtn) scrollLeftBtn.addEventListener('click', () => categoryGrid.scrollBy({ left: -320, behavior: 'smooth' }));
+        if (scrollRightBtn) scrollRightBtn.addEventListener('click', () => categoryGrid.scrollBy({ left: 320, behavior: 'smooth' }));
     }
 });
 
 // ===============================================
-//  6. KATEGORI FOTO (GLOBAL FUNCTIONS)
+// 2. KATEGORI FOTO (POP-UP GENERATOR)
 // ===============================================
 function generatePhotos(prefix, count) {
     let arr = []; 
@@ -218,8 +180,7 @@ window.openCategory = function(catKey) {
     shuffleArray(data.photos).forEach(photoName => {
         const img = document.createElement('img');
         img.src = `gambar/acak/${photoName}`;
-        img.setAttribute('loading', 'lazy'); 
-        img.setAttribute('decoding', 'async');
+        img.setAttribute('loading', 'lazy');
         img.classList.add('lightbox-trigger');
         gridEl.appendChild(img);
     });
@@ -229,12 +190,13 @@ window.openCategory = function(catKey) {
 };
 
 window.closeCategory = function() {
-    document.getElementById('category-modal').classList.remove('active');
+    const modal = document.getElementById('category-modal');
+    if(modal) modal.classList.remove('active');
     document.body.style.overflow = 'auto';
 };
 
 // ===============================================
-//  9. SISTEM KATEGORI VIDEO BARU (POP-UP)
+// 3. KATEGORI VIDEO (POP-UP GENERATOR)
 // ===============================================
 const videoData = {
     'wcc': { title: 'WCC Projects', videos: ['wcc 1.mp4', 'wcc 2.mp4', 'wcc 3.mp4', 'wcc 4.mp4', 'WCC5.mp4', 'WCC6.mp4', 'WCC7.mp4'] },
@@ -267,28 +229,27 @@ window.openVideoCategory = function(catKey) {
 
 window.closeVideoCategory = function() {
     const modal = document.getElementById('video-modal');
-    modal.classList.remove('active');
+    if(modal) {
+        modal.classList.remove('active');
+        const videos = modal.querySelectorAll('video');
+        videos.forEach(vid => vid.pause());
+    }
     document.body.style.overflow = 'auto'; 
-    
-    const videos = modal.querySelectorAll('video');
-    videos.forEach(vid => vid.pause());
 };
 
-
 // ===============================================
-//  7. LOGIKA REKRUTMEN HRD (WA CTA)
+// 4. REKRUTMEN / DISKUSI WHATSAPP CTA
 // ===============================================
 let selectedRole = "";
 
 window.quickPitch = function(role) {
     document.querySelectorAll('.tag-btn').forEach(btn => btn.classList.remove('active'));
-    event.target.classList.add('active');
+    if(event && event.target) event.target.classList.add('active');
     selectedRole = role;
 };
 
 window.sendRecruitmentWA = function() {
-    const roleText = selectedRole ? `untuk posisi *${selectedRole}*` : "untuk berdiskusi lebih lanjut";
-    const message = `Halo Rey! Saya telah meninjau portofolio Anda dan tertarik untuk menjadwalkan waktu diskusi ${roleText} di perusahaan kami. Kapan waktu luang Anda?`;
-    
+    const roleText = selectedRole ? `untuk posisi *${selectedRole}*` : "untuk berdiskusi mengenai potensi kerjasama marketing";
+    const message = `Halo Rey! Saya telah meninjau portofolio Anda dan tertarik untuk berdiskusi ${roleText}. Kapan Anda ada waktu luang?`;
     window.open(`https://wa.me/6282196956556?text=${encodeURIComponent(message)}`, '_blank');
 };
