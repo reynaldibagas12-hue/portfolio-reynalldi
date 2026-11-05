@@ -1,7 +1,18 @@
 window.isDraggingCategory = false;
 
+if (typeof AOS !== 'undefined') {
+    AOS.init({ duration: 800, once: true });
+}
+
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        const loader = document.getElementById('premium-loader');
+        if(loader) loader.classList.add('hidden');
+    }, 300); 
+});
+
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Mobile Burger Menu Toggle
+    // Navigasi Burger Menu
     const burgerMenu = document.querySelector('.burger-menu');
     const navLinks = document.querySelector('.nav-links');
     const navbar = document.querySelector('.navbar');
@@ -14,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.classList.toggle('nav-open');
         });
 
-        // Tutup menu saat link diklik di mobile
+        // Auto close menu di HP saat diklik
         navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 burgerMenu.classList.remove('active');
@@ -24,25 +35,21 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Navbar hide/show on scroll
     if (navbar) {
         window.addEventListener('scroll', () => {
             let currentScroll = window.pageYOffset;
-            if (currentScroll > lastScroll && currentScroll > 100) {
-                navbar.classList.add('nav-hidden');
-            } else {
-                navbar.classList.remove('nav-hidden');
-            }
+            if (currentScroll > lastScroll && currentScroll > 100) navbar.classList.add('nav-hidden');
+            else navbar.classList.remove('nav-hidden');
             lastScroll = currentScroll;
         });
     }
 
-    // 2. Lightbox Handler
+    // Lightbox Global
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
     
     document.addEventListener('click', (e) => {
-        if (e.target && (e.target.classList.contains('lightbox-trigger') || e.target.closest('.grid-photo-item img') || e.target.closest('.featured-item img') || e.target.closest('.category-photos-grid img'))) {
+        if (e.target && (e.target.classList.contains('lightbox-trigger') || e.target.closest('.category-photos-grid img'))) {
             let targetImg = e.target;
             if(!targetImg.getAttribute('src')) targetImg = targetImg.querySelector('img'); 
             
@@ -56,42 +63,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 3. Back to Top Button
+    // Scroll Back to Top
     const backToTopBtn = document.getElementById('back-to-top');
     if (backToTopBtn) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 400) {
-                backToTopBtn.classList.add('show');
-            } else {
-                backToTopBtn.classList.remove('show');
-            }
-        });
-        backToTopBtn.addEventListener('click', (e) => { 
-            e.preventDefault(); 
-            window.scrollTo({ top: 0, behavior: 'smooth' }); 
-        });
-    }
-
-    // 4. Category Scroll Buttons (Desktop)
-    const categoryGrid = document.querySelector('.category-grid');
-    const scrollLeftBtn = document.getElementById('scrollLeftBtn');
-    const scrollRightBtn = document.getElementById('scrollRightBtn');
-
-    if (categoryGrid) {
-        if (scrollLeftBtn) {
-            scrollLeftBtn.addEventListener('click', () => {
-                categoryGrid.scrollBy({ left: -300, behavior: 'smooth' });
-            });
-        }
-        if (scrollRightBtn) {
-            scrollRightBtn.addEventListener('click', () => {
-                categoryGrid.scrollBy({ left: 300, behavior: 'smooth' });
-            });
-        }
+        window.addEventListener('scroll', () => backToTopBtn.classList.toggle('show', window.scrollY > 500));
+        backToTopBtn.addEventListener('click', (e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
     }
 });
 
-// 5. Category Modal Data & Functions
+// Generator Foto (Halaman Fotografi)
 function generatePhotos(prefix, count) {
     let arr = []; 
     for (let i = 1; i <= count; i++) {
@@ -101,52 +81,26 @@ function generatePhotos(prefix, count) {
 }
 
 const categoryData = {
-    'portrait': { title: 'Portrait', pdf: 'pdf/portfolio portrait rey.pdf', photos: generatePhotos('portrait' , 20) },
-    'sport': { title: 'Sport', pdf: 'pdf/portfolio sport rey.pdf', photos: generatePhotos('sport' , 20) },
-    'wedding': { title: 'Wedding', pdf: 'pdf/portfolio wedding rey.pdf', photos: generatePhotos('wedding' , 20) },
+    'portrait': { title: 'Portrait', pdf: 'pdf/portfolio portrait rey.pdf', photos: generatePhotos('moments' , 47) },
+    'sport': { title: 'Sport & Wellness', pdf: 'pdf/portfolio sport rey.pdf', photos: generatePhotos('Sport' , 43) },
+    'wedding': { title: 'Wedding', pdf: 'pdf/portfolio wedding rey.pdf', photos: generatePhotos('Wedding' , 12) },
     'corporate': { title: 'Corporate & Event', pdf: 'pdf/Corporate and Event Portfolio.pdf', photos: generatePhotos('corporate', 36) },
     'nightlife': { title: 'Nightlife & Stage', pdf: 'pdf/stage photography reynaldi bagaskara.pdf', photos: generatePhotos('stage', 44) },
-    'property': { title: 'Property Visuals', pdf: 'pdf/interior & exterior portfolio reynaldi bagaskara.pdf', photos: generatePhotos('property', 31) },
     'fnb': { title: 'Food & Beverage', pdf: 'pdf/food and beverage portfolio reynaldi bagaskara.pdf', photos: generatePhotos('fnb', 39) }
 };
 
-function shuffleArray(array) {
-    let shuffled = array.slice();
-    for (let i = shuffled.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-    }
-    return shuffled;
-}
-
 window.openCategory = function(catKey) {
-    const modal = document.getElementById('category-modal');
-    const titleEl = document.getElementById('category-title');
-    const gridEl = document.getElementById('category-photos-grid');
-    const data = categoryData[catKey];
-    
+    const modal = document.getElementById('category-modal'), titleEl = document.getElementById('category-title'), gridEl = document.getElementById('category-photos-grid'), data = categoryData[catKey];
     if (!data || !modal || !gridEl) return;
 
     titleEl.innerText = data.title;
     gridEl.innerHTML = ''; 
-    
-    const oldPdfBtn = document.querySelector('.category-pdf-btn');
-    if (oldPdfBtn) oldPdfBtn.remove();
 
-    if (data.pdf) {
-        const pdfLink = document.createElement('a');
-        pdfLink.href = data.pdf; 
-        pdfLink.target = '_blank'; 
-        pdfLink.className = 'category-pdf-btn';
-        pdfLink.innerHTML = `Download PDF Portfolio - ${data.title}`;
-        gridEl.insertAdjacentElement('beforebegin', pdfLink);
-    }
-
-    shuffleArray(data.photos).forEach(photoName => {
+    data.photos.forEach(photoName => {
         const img = document.createElement('img');
-        img.src = `Gambar/Acak/${photoName}`;
-        img.setAttribute('loading', 'lazy'); 
-        img.setAttribute('decoding', 'async');
+        img.src = `gambar/acak/${photoName}`;
+        img.setAttribute('loading', 'lazy');
+        img.classList.add('lightbox-trigger');
         gridEl.appendChild(img);
     });
 
@@ -160,16 +114,40 @@ window.closeCategory = function() {
     document.body.style.overflow = 'auto';
 };
 
-// 6. Recruitment WhatsApp Pitcher
-let selectedRole = "";
-window.quickPitch = function(role) {
-    document.querySelectorAll('.tag-btn').forEach(btn => btn.classList.remove('active'));
-    event.target.classList.add('active');
-    selectedRole = role;
+// Kategori Video (Halaman Videografi)
+const videoData = {
+    'wcc': { title: 'WCC Projects', videos: ['wcc 1.mp4', 'wcc 2.mp4'] },
+    'recap': { title: 'Recap Event', videos: ['Video1.mp4', 'Video2.mp4'] },
+    'content': { title: 'Content Creation', videos: ['Video3.mp4', 'content 1.mp4'] }
 };
 
+window.openVideoCategory = function(catKey) {
+    const modal = document.getElementById('video-modal'), titleEl = document.getElementById('video-category-title'), gridEl = document.getElementById('video-grid-modal'), data = videoData[catKey];
+    if (!data || !modal || !gridEl) return;
+    titleEl.innerText = data.title; gridEl.innerHTML = ''; 
+
+    data.videos.forEach(videoName => {
+        const videoEl = document.createElement('video');
+        videoEl.src = `Video/${videoName}`;
+        videoEl.controls = true; 
+        gridEl.appendChild(videoEl);
+    });
+
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden'; 
+};
+
+window.closeVideoCategory = function() {
+    const modal = document.getElementById('video-modal');
+    if(modal) {
+        modal.classList.remove('active');
+        const videos = modal.querySelectorAll('video');
+        videos.forEach(vid => vid.pause());
+    }
+    document.body.style.overflow = 'auto'; 
+};
+
+// Tombol WA
 window.sendRecruitmentWA = function() {
-    const roleText = selectedRole ? `untuk posisi *${selectedRole}*` : "untuk berdiskusi lebih lanjut";
-    const message = `Halo Rey! Saya telah meninjau portofolio Anda dan tertarik untuk menjadwalkan waktu diskusi ${roleText} di perusahaan kami. Kapan waktu luang Anda?`;
-    window.open(`https://wa.me/6282196956556?text=${encodeURIComponent(message)}`, '_blank');
+    window.open(`https://wa.me/6282196956556`, '_blank');
 };
