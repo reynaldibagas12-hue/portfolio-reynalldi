@@ -1,22 +1,7 @@
-// script-2.js (Global script for menu, modals, lightbox, categories & cursor)
 window.isDraggingCategory = false;
 
-// ===============================================
-// 1. INISIALISASI & PRE-LOADER
-// ===============================================
-if (typeof AOS !== 'undefined') {
-    AOS.init({ duration: 800, once: true });
-}
-
-window.addEventListener('load', () => {
-    setTimeout(() => {
-        const loader = document.getElementById('premium-loader');
-        if(loader) loader.classList.add('hidden');
-    }, 300); 
-});
-
 document.addEventListener('DOMContentLoaded', () => {
-    // Navigasi Burger Menu & Auto-Hide
+    // 1. Mobile Burger Menu Toggle
     const burgerMenu = document.querySelector('.burger-menu');
     const navLinks = document.querySelector('.nav-links');
     const navbar = document.querySelector('.navbar');
@@ -28,53 +13,36 @@ document.addEventListener('DOMContentLoaded', () => {
             navLinks.classList.toggle('active');
             document.body.classList.toggle('nav-open');
         });
+
+        // Tutup menu saat link diklik di mobile
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                burgerMenu.classList.remove('active');
+                navLinks.classList.remove('active');
+                document.body.classList.remove('nav-open');
+            });
+        });
     }
 
+    // Navbar hide/show on scroll
     if (navbar) {
         window.addEventListener('scroll', () => {
             let currentScroll = window.pageYOffset;
-            if (currentScroll > lastScroll && currentScroll > 100) navbar.classList.add('nav-hidden');
-            else navbar.classList.remove('nav-hidden');
+            if (currentScroll > lastScroll && currentScroll > 100) {
+                navbar.classList.add('nav-hidden');
+            } else {
+                navbar.classList.remove('nav-hidden');
+            }
             lastScroll = currentScroll;
         });
     }
 
-    // Custom Cursor
-    const cursorDot = document.querySelector('.cursor-dot');
-    const cursorRing = document.querySelector('.cursor-ring');
-    const interactables = document.querySelectorAll('a, button, img, .cat-card, .pillar-card');
-
-    if (window.innerWidth > 1024 && cursorDot && cursorRing) {
-        let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
-
-        document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX; mouseY = e.clientY;
-            cursorDot.style.left = mouseX + 'px'; cursorDot.style.top = mouseY + 'px';
-        });
-
-        function renderCursor() {
-            ringX += (mouseX - ringX) * 0.15; ringY += (mouseY - ringY) * 0.15;
-            cursorRing.style.left = ringX + 'px'; cursorRing.style.top = ringY + 'px';
-            requestAnimationFrame(renderCursor);
-        }
-        renderCursor();
-
-        interactables.forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                cursorRing.classList.add('lens-focus');
-            });
-            el.addEventListener('mouseleave', () => {
-                cursorRing.classList.remove('lens-focus');
-            });
-        });
-    }
-
-    // Lightbox Global
+    // 2. Lightbox Handler
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
     
     document.addEventListener('click', (e) => {
-        if (e.target && (e.target.classList.contains('lightbox-trigger') || e.target.closest('.featured-item img'))) {
+        if (e.target && (e.target.classList.contains('lightbox-trigger') || e.target.closest('.grid-photo-item img') || e.target.closest('.featured-item img') || e.target.closest('.category-photos-grid img'))) {
             let targetImg = e.target;
             if(!targetImg.getAttribute('src')) targetImg = targetImg.querySelector('img'); 
             
@@ -88,51 +56,42 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Swiper Carousel
-    if (typeof Swiper !== 'undefined' && document.querySelector('.featuredSwiper')) {
-        new Swiper('.featuredSwiper', {
-            slidesPerView: 1, spaceBetween: 20, loop: true,
-            autoplay: { delay: 3500, disableOnInteraction: false },
-            pagination: { el: '.swiper-pagination', clickable: true },
-            navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
-            breakpoints: { 640: { slidesPerView: 2, spaceBetween: 20 }, 1024: { slidesPerView: 3, spaceBetween: 30 } }
+    // 3. Back to Top Button
+    const backToTopBtn = document.getElementById('back-to-top');
+    if (backToTopBtn) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+        backToTopBtn.addEventListener('click', (e) => { 
+            e.preventDefault(); 
+            window.scrollTo({ top: 0, behavior: 'smooth' }); 
         });
     }
 
-    // GSAP Horizontal Scroll Showcase (Panorama)
-    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-        gsap.registerPlugin(ScrollTrigger);
-        const hc = document.querySelector('.horizon-container'), hw = document.querySelector('.horizon-wrapper');
-        if (hc && hw) {
-            gsap.to(hc, {
-                x: () => -(hc.scrollWidth - window.innerWidth),
-                ease: "none",
-                scrollTrigger: { trigger: hw, start: "top top", end: () => `+=${hc.scrollWidth - window.innerWidth}`, pin: true, scrub: 1, invalidateOnRefresh: true }
-            });
-        }
-    }
-
-    // Scroll Back to Top Button
-    const backToTopBtn = document.getElementById('back-to-top');
-    if (backToTopBtn) {
-        window.addEventListener('scroll', () => backToTopBtn.classList.toggle('show', window.scrollY > 500));
-        backToTopBtn.addEventListener('click', (e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
-    }
-
-    // Scroll Category Slider Arrow Controls
+    // 4. Category Scroll Buttons (Desktop)
     const categoryGrid = document.querySelector('.category-grid');
     const scrollLeftBtn = document.getElementById('scrollLeftBtn');
     const scrollRightBtn = document.getElementById('scrollRightBtn');
 
     if (categoryGrid) {
-        if (scrollLeftBtn) scrollLeftBtn.addEventListener('click', () => categoryGrid.scrollBy({ left: -320, behavior: 'smooth' }));
-        if (scrollRightBtn) scrollRightBtn.addEventListener('click', () => categoryGrid.scrollBy({ left: 320, behavior: 'smooth' }));
+        if (scrollLeftBtn) {
+            scrollLeftBtn.addEventListener('click', () => {
+                categoryGrid.scrollBy({ left: -300, behavior: 'smooth' });
+            });
+        }
+        if (scrollRightBtn) {
+            scrollRightBtn.addEventListener('click', () => {
+                categoryGrid.scrollBy({ left: 300, behavior: 'smooth' });
+            });
+        }
     }
 });
 
-// ===============================================
-// 2. KATEGORI FOTO (POP-UP GENERATOR)
-// ===============================================
+// 5. Category Modal Data & Functions
 function generatePhotos(prefix, count) {
     let arr = []; 
     for (let i = 1; i <= count; i++) {
@@ -142,12 +101,12 @@ function generatePhotos(prefix, count) {
 }
 
 const categoryData = {
-    'portrait': { title: 'Portrait', pdf: 'pdf/portfolio portrait rey.pdf', photos: generatePhotos('moments' , 47) },
-    'sport': { title: 'Sport & Wellness', pdf: 'pdf/portfolio sport rey.pdf', photos: generatePhotos('Sport' , 43) },
-    'wedding': { title: 'Wedding', pdf: 'pdf/portfolio wedding rey.pdf', photos: generatePhotos('Wedding' , 12) },
+    'portrait': { title: 'Portrait', pdf: 'pdf/portfolio portrait rey.pdf', photos: generatePhotos('portrait' , 20) },
+    'sport': { title: 'Sport', pdf: 'pdf/portfolio sport rey.pdf', photos: generatePhotos('sport' , 20) },
+    'wedding': { title: 'Wedding', pdf: 'pdf/portfolio wedding rey.pdf', photos: generatePhotos('wedding' , 20) },
     'corporate': { title: 'Corporate & Event', pdf: 'pdf/Corporate and Event Portfolio.pdf', photos: generatePhotos('corporate', 36) },
     'nightlife': { title: 'Nightlife & Stage', pdf: 'pdf/stage photography reynaldi bagaskara.pdf', photos: generatePhotos('stage', 44) },
-    'private-party': { title: 'Private Party', pdf: '', photos: generatePhotos('party', 18) },
+    'property': { title: 'Property Visuals', pdf: 'pdf/interior & exterior portfolio reynaldi bagaskara.pdf', photos: generatePhotos('property', 31) },
     'fnb': { title: 'Food & Beverage', pdf: 'pdf/food and beverage portfolio reynaldi bagaskara.pdf', photos: generatePhotos('fnb', 39) }
 };
 
@@ -161,7 +120,11 @@ function shuffleArray(array) {
 }
 
 window.openCategory = function(catKey) {
-    const modal = document.getElementById('category-modal'), titleEl = document.getElementById('category-title'), gridEl = document.getElementById('category-photos-grid'), data = categoryData[catKey];
+    const modal = document.getElementById('category-modal');
+    const titleEl = document.getElementById('category-title');
+    const gridEl = document.getElementById('category-photos-grid');
+    const data = categoryData[catKey];
+    
     if (!data || !modal || !gridEl) return;
 
     titleEl.innerText = data.title;
@@ -172,16 +135,18 @@ window.openCategory = function(catKey) {
 
     if (data.pdf) {
         const pdfLink = document.createElement('a');
-        pdfLink.href = data.pdf; pdfLink.target = '_blank'; pdfLink.className = 'category-pdf-btn';
-        pdfLink.innerHTML = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 8px;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>Download PDF Portfolio - ${data.title}`;
+        pdfLink.href = data.pdf; 
+        pdfLink.target = '_blank'; 
+        pdfLink.className = 'category-pdf-btn';
+        pdfLink.innerHTML = `Download PDF Portfolio - ${data.title}`;
         gridEl.insertAdjacentElement('beforebegin', pdfLink);
     }
 
     shuffleArray(data.photos).forEach(photoName => {
         const img = document.createElement('img');
-        img.src = `gambar/acak/${photoName}`;
-        img.setAttribute('loading', 'lazy');
-        img.classList.add('lightbox-trigger');
+        img.src = `Gambar/Acak/${photoName}`;
+        img.setAttribute('loading', 'lazy'); 
+        img.setAttribute('decoding', 'async');
         gridEl.appendChild(img);
     });
 
@@ -195,61 +160,16 @@ window.closeCategory = function() {
     document.body.style.overflow = 'auto';
 };
 
-// ===============================================
-// 3. KATEGORI VIDEO (POP-UP GENERATOR)
-// ===============================================
-const videoData = {
-    'wcc': { title: 'WCC Projects', videos: ['wcc 1.mp4', 'wcc 2.mp4', 'wcc 3.mp4', 'wcc 4.mp4', 'WCC5.mp4', 'WCC6.mp4', 'WCC7.mp4'] },
-    'recap': { title: 'Recap Event', videos: ['Video1.mp4', 'Video2.mp4'] },
-    'content': { title: 'Content Creation', videos: ['Video3.mp4', 'content 1.mp4', 'content 2.mp4', 'content 3.mp4', 'content 4.mp4', 'content 5.mp4'] }
-};
-
-window.openVideoCategory = function(catKey) {
-    const modal = document.getElementById('video-modal');
-    const titleEl = document.getElementById('video-category-title');
-    const gridEl = document.getElementById('video-grid-modal');
-    const data = videoData[catKey];
-    
-    if (!data || !modal || !gridEl) return;
-
-    titleEl.innerText = data.title;
-    gridEl.innerHTML = ''; 
-
-    data.videos.forEach(videoName => {
-        const videoEl = document.createElement('video');
-        videoEl.src = `Video/${videoName}`;
-        videoEl.controls = true; 
-        videoEl.setAttribute('preload', 'metadata');
-        gridEl.appendChild(videoEl);
-    });
-
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden'; 
-};
-
-window.closeVideoCategory = function() {
-    const modal = document.getElementById('video-modal');
-    if(modal) {
-        modal.classList.remove('active');
-        const videos = modal.querySelectorAll('video');
-        videos.forEach(vid => vid.pause());
-    }
-    document.body.style.overflow = 'auto'; 
-};
-
-// ===============================================
-// 4. REKRUTMEN / DISKUSI WHATSAPP CTA
-// ===============================================
+// 6. Recruitment WhatsApp Pitcher
 let selectedRole = "";
-
 window.quickPitch = function(role) {
     document.querySelectorAll('.tag-btn').forEach(btn => btn.classList.remove('active'));
-    if(event && event.target) event.target.classList.add('active');
+    event.target.classList.add('active');
     selectedRole = role;
 };
 
 window.sendRecruitmentWA = function() {
-    const roleText = selectedRole ? `untuk posisi *${selectedRole}*` : "untuk berdiskusi mengenai potensi kerjasama marketing";
-    const message = `Halo Rey! Saya telah meninjau portofolio Anda dan tertarik untuk berdiskusi ${roleText}. Kapan Anda ada waktu luang?`;
+    const roleText = selectedRole ? `untuk posisi *${selectedRole}*` : "untuk berdiskusi lebih lanjut";
+    const message = `Halo Rey! Saya telah meninjau portofolio Anda dan tertarik untuk menjadwalkan waktu diskusi ${roleText} di perusahaan kami. Kapan waktu luang Anda?`;
     window.open(`https://wa.me/6282196956556?text=${encodeURIComponent(message)}`, '_blank');
 };
