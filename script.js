@@ -1,10 +1,8 @@
 // ===============================================
 // SCRIPT UTAMA PORTFOLIO - REYNALDI BAGASKARA
 // ===============================================
-
 window.isDraggingCategory = false;
 
-// Inisialisasi AOS & Preloader
 if (typeof AOS !== 'undefined') {
     AOS.init({ duration: 800, once: true });
 }
@@ -29,7 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
             navLinks.classList.toggle('active');
         });
 
-        // Auto close menu saat link diklik di mobile
         navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 burgerMenu.classList.remove('active');
@@ -38,7 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Navbar hide/show on scroll
     if (navbar) {
         window.addEventListener('scroll', () => {
             let currentScroll = window.pageYOffset;
@@ -51,143 +47,176 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 2. Lightbox Global untuk Zoom Foto
+    // 2. Custom Cursor (Desktop Only)
+    const cursorDot = document.querySelector('.cursor-dot');
+    const cursorRing = document.querySelector('.cursor-ring');
+    const interactables = document.querySelectorAll('a, button, img, .cat-card, .pillar-card, .cs-card');
+
+    if (window.innerWidth > 1024 && cursorDot && cursorRing) {
+        let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX; mouseY = e.clientY;
+            cursorDot.style.left = mouseX + 'px'; cursorDot.style.top = mouseY + 'px';
+        });
+
+        function renderCursor() {
+            ringX += (mouseX - ringX) * 0.15; ringY += (mouseY - ringY) * 0.15;
+            cursorRing.style.left = ringX + 'px'; cursorRing.style.top = ringY + 'px';
+            requestAnimationFrame(renderCursor);
+        }
+        renderCursor();
+
+        interactables.forEach(el => {
+            el.addEventListener('mouseenter', () => cursorRing.classList.add('lens-focus'));
+            el.addEventListener('mouseleave', () => cursorRing.classList.remove('lens-focus'));
+        });
+    }
+
+    // 3. Lightbox Global
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
     
     document.addEventListener('click', (e) => {
-        if (e.target && e.target.tagName === 'IMG' && (e.target.closest('.masonry-grid') || e.target.classList.contains('lightbox-trigger'))) {
-            if (lightbox && lightboxImg) {
-                lightboxImg.src = e.target.src;
+        if (e.target && (e.target.classList.contains('lightbox-trigger') || e.target.closest('.featured-item img') || (e.target.tagName === 'IMG' && e.target.closest('.category-photos-grid')))) {
+            let targetImg = e.target;
+            if(!targetImg.getAttribute('src')) targetImg = targetImg.querySelector('img'); 
+            
+            if (lightbox && lightboxImg && targetImg) {
+                lightboxImg.setAttribute('src', targetImg.getAttribute('src'));
                 lightbox.classList.add('active');
             }
         }
-        if (e.target.classList.contains('modal-close') || e.target === lightbox) {
+        if (e.target.classList.contains('lightbox-close') || e.target === lightbox) {
             if(lightbox) lightbox.classList.remove('active');
         }
     });
 
-    // 3. Scroll Back to Top Button
-    const topBtn = document.getElementById('topBtn');
-    if (topBtn) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 400) {
-                topBtn.classList.add('show');
-            } else {
-                topBtn.classList.remove('show');
-            }
-        });
-        topBtn.addEventListener('click', (e) => { 
-            e.preventDefault(); 
-            window.scrollTo({ top: 0, behavior: 'smooth' }); 
+    // 4. Back to Top Button
+    const backToTopBtn = document.getElementById('back-to-top');
+    if (backToTopBtn) {
+        window.addEventListener('scroll', () => backToTopBtn.classList.toggle('show', window.scrollY > 400));
+        backToTopBtn.addEventListener('click', (e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
+    }
+
+    // 5. Swiper Carousel Homepage
+    if (typeof Swiper !== 'undefined' && document.querySelector('.featuredSwiper')) {
+        new Swiper('.featuredSwiper', {
+            slidesPerView: 1, spaceBetween: 20, loop: true,
+            autoplay: { delay: 3500, disableOnInteraction: false },
+            pagination: { el: '.swiper-pagination', clickable: true },
+            navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+            breakpoints: { 640: { slidesPerView: 2, spaceBetween: 20 }, 1024: { slidesPerView: 3, spaceBetween: 30 } }
         });
     }
 });
 
 // ===============================================
-// 2. GENERATOR KATEGORI GALERI FOTO
+// 2. GENERATOR KATEGORI FOTO (PORTRAIT)
 // ===============================================
 function generatePhotos(prefix, count) {
     let arr = []; 
-    for (let i = 1; i <= count; i++) {
-        arr.push(`${prefix}${i}.jpg`); 
-    }
+    for (let i = 1; i <= count; i++) { arr.push(`${prefix}${i}.jpg`); }
     return arr; 
 }
 
-const photoData = {
-    'portrait': { title: 'Portrait', photos: generatePhotos('moments', 15) },
-    'sport': { title: 'Sport & Wellness', photos: generatePhotos('Sport', 15) },
-    'wedding': { title: 'Wedding', photos: generatePhotos('Wedding', 12) },
-    'corporate': { title: 'Corporate & Event', photos: generatePhotos('corporate', 15) },
-    'nightlife': { title: 'Nightlife & Stage', photos: generatePhotos('stage', 15) },
-    'fnb': { title: 'Food & Beverage', photos: generatePhotos('fnb', 15) }
+const categoryData = {
+    'portrait': { title: 'Portrait', pdf: 'pdf/portfolio portrait rey.pdf', photos: generatePhotos('moments', 47) },
+    'sport': { title: 'Sport & Wellness', pdf: 'pdf/portfolio sport rey.pdf', photos: generatePhotos('Sport', 43) },
+    'wedding': { title: 'Wedding', pdf: 'pdf/portfolio wedding rey.pdf', photos: generatePhotos('Wedding', 12) },
+    'corporate': { title: 'Corporate & Event', pdf: 'pdf/Corporate and Event Portfolio.pdf', photos: generatePhotos('corporate', 36) },
+    'nightlife': { title: 'Nightlife & Stage', pdf: 'pdf/stage photography reynaldi bagaskara.pdf', photos: generatePhotos('stage', 44) },
+    'private-party': { title: 'Private Party', pdf: '', photos: generatePhotos('party', 18) },
+    'fnb': { title: 'Food & Beverage', pdf: 'pdf/food and beverage portfolio reynaldi bagaskara.pdf', photos: generatePhotos('fnb', 39) }
 };
 
-window.openGallery = function(key) {
-    const modal = document.getElementById('gallery-modal');
-    const title = document.getElementById('gallery-title');
-    const grid = document.getElementById('gallery-grid');
-    if (!modal || !photoData[key]) return;
+window.openCategory = function(catKey) {
+    const modal = document.getElementById('category-modal'), titleEl = document.getElementById('category-title'), gridEl = document.getElementById('category-photos-grid'), data = categoryData[catKey];
+    if (!data || !modal || !gridEl) return;
 
-    title.innerText = photoData[key].title;
-    grid.innerHTML = '';
+    titleEl.innerText = data.title;
+    gridEl.innerHTML = ''; 
     
-    photoData[key].photos.forEach(imgName => {
+    const oldPdfBtn = document.querySelector('.category-pdf-btn');
+    if (oldPdfBtn) oldPdfBtn.remove();
+
+    if (data.pdf) {
+        const pdfLink = document.createElement('a');
+        pdfLink.href = data.pdf; pdfLink.target = '_blank'; pdfLink.className = 'category-pdf-btn';
+        pdfLink.innerHTML = `📄 Download PDF Portfolio - ${data.title}`;
+        gridEl.insertAdjacentElement('beforebegin', pdfLink);
+    }
+
+    data.photos.forEach(photoName => {
         const img = document.createElement('img');
-        img.src = `gambar/acak/${imgName}`;
-        img.loading = 'lazy';
-        grid.appendChild(img);
+        img.src = `gambar/acak/${photoName}`;
+        img.setAttribute('loading', 'lazy');
+        gridEl.appendChild(img);
     });
-    
+
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
 };
 
-window.closeModal = function(modalId) {
-    const modal = document.getElementById(modalId);
+window.closeCategory = function() {
+    const modal = document.getElementById('category-modal');
     if(modal) modal.classList.remove('active');
     document.body.style.overflow = 'auto';
 };
 
 // ===============================================
-// 3. KATEGORI VIDEO (HALAMAN VIDEOGRAFI)
+// 3. GENERATOR KATEGORI VIDEO (PORTRAIT)
 // ===============================================
 const videoData = {
-    'wcc': { title: 'WCC Projects', videos: ['wcc 1.mp4', 'wcc 2.mp4', 'wcc 3.mp4'] },
+    'wcc': { title: 'WCC Projects', videos: ['wcc 1.mp4', 'wcc 2.mp4', 'wcc 3.mp4', 'wcc 4.mp4', 'WCC5.mp4', 'WCC6.mp4', 'WCC7.mp4'] },
     'recap': { title: 'Recap Event', videos: ['Video1.mp4', 'Video2.mp4'] },
-    'content': { title: 'Content Creation', videos: ['Video3.mp4', 'content 1.mp4'] }
+    'content': { title: 'Content Creation', videos: ['Video3.mp4', 'content 1.mp4', 'content 2.mp4', 'content 3.mp4', 'content 4.mp4', 'content 5.mp4'] }
 };
 
-window.openVideoGallery = function(key) {
+window.openVideoCategory = function(catKey) {
     const modal = document.getElementById('video-modal');
-    const title = document.getElementById('video-title');
-    const grid = document.getElementById('video-grid');
-    if (!modal || !videoData[key]) return;
+    const titleEl = document.getElementById('video-category-title');
+    const gridEl = document.getElementById('video-grid-modal');
+    const data = videoData[catKey];
+    
+    if (!data || !modal || !gridEl) return;
 
-    title.innerText = videoData[key].title;
-    grid.innerHTML = '';
+    titleEl.innerText = data.title;
+    gridEl.innerHTML = ''; 
 
-    videoData[key].videos.forEach(vidName => {
+    data.videos.forEach(videoName => {
         const videoEl = document.createElement('video');
-        videoEl.src = `Video/${vidName}`;
-        videoEl.controls = true;
-        videoEl.preload = 'metadata';
-        grid.appendChild(videoEl);
+        videoEl.src = `Video/${videoName}`;
+        videoEl.controls = true; 
+        videoEl.setAttribute('preload', 'metadata');
+        gridEl.appendChild(videoEl);
     });
 
     modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden'; 
+};
+
+window.closeVideoCategory = function() {
+    const modal = document.getElementById('video-modal');
+    if(modal) {
+        modal.classList.remove('active');
+        modal.querySelectorAll('video').forEach(vid => vid.pause());
+    }
+    document.body.style.overflow = 'auto'; 
 };
 
 // ===============================================
-// 4. CAMPAIGN MODAL (MARKETING)
+// 4. WHATSAPP CTA PITCH PADA HOMEPAGE
 // ===============================================
-const campaignData = {
-    'steak': { title: 'Steak to The Point', desc: 'Yield management targeting expat di hari Senin. Cost per message Rp8.968.', kpi1: 'Rp2.5 Juta Budget', kpi2: 'Efisiensi Leads' },
-    'pizza': { title: 'Pizza with Papa', desc: 'Aktivasi Father\'s day. Menghasilkan 115.4K Views dan 1.570 Link Clicks.', kpi1: '115.4K Views', kpi2: 'Rp312 CPC' },
-    'brunch': { title: 'Casa Summer Brunch', desc: 'Membuka jam operasional pagi. Menaikkan sitting occupancy hingga 48.2%.', kpi1: '+48.2% Occupancy', kpi2: '+35% Bill Amount' }
+let selectedRole = "";
+window.quickPitch = function(role) {
+    document.querySelectorAll('.tag-btn').forEach(btn => btn.classList.remove('active'));
+    if(event && event.target) event.target.classList.add('active');
+    selectedRole = role;
 };
 
-window.openCampaign = function(key) {
-    const modal = document.getElementById('campaign-modal');
-    const content = document.getElementById('campaign-content');
-    if(!modal || !campaignData[key]) return;
-    const data = campaignData[key];
-    
-    content.innerHTML = `
-        <span class="badge badge-ig">EXECUTIVE REPORT</span>
-        <h2 style="text-align:left; color:#fff; margin: 15px 0;">${data.title}</h2>
-        <p style="color:var(--text-secondary); margin-bottom: 25px; line-height: 1.6;">${data.desc}</p>
-        <div style="display:flex; gap:15px; margin-bottom:20px; flex-wrap:wrap;">
-            <div style="background:rgba(255,255,255,0.05); padding:15px; border-radius:8px; border:1px solid var(--border-color); flex:1; text-align:center;">
-                <h4 style="color:var(--highlight-color); font-size:1.2rem;">${data.kpi1}</h4>
-            </div>
-            <div style="background:rgba(255,255,255,0.05); padding:15px; border-radius:8px; border:1px solid var(--border-color); flex:1; text-align:center;">
-                <h4 style="color:var(--highlight-color); font-size:1.2rem;">${data.kpi2}</h4>
-            </div>
-        </div>
-    `;
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
+window.sendRecruitmentWA = function() {
+    const roleText = selectedRole ? `untuk posisi *${selectedRole}*` : "untuk berdiskusi mengenai potensi kerjasama marketing";
+    const message = `Halo Rey! Saya telah meninjau portofolio Anda dan tertarik untuk berdiskusi ${roleText}. Kapan Anda ada waktu luang?`;
+    window.open(`https://wa.me/6282196956556?text=${encodeURIComponent(message)}`, '_blank');
 };
