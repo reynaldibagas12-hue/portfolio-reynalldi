@@ -1,19 +1,11 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WN4M2QCL4G"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-WN4M2QCL4G');
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reynaldi Bagaskara | Executive Portfolio Hub</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style_2.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="style.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
@@ -27,15 +19,14 @@
 
     <header class="navbar">
         <div class="container">
-            <a href="index_2.html" class="logo">Reynaldi Bagaskara</a>
+            <a href="index.html" class="logo">Reynaldi Bagaskara</a>
             
             <nav class="nav-links">
                 <ul>
-                    <li><a href="index_2.html" class="active">Home</a></li>
+                    <li><a href="index.html" class="active">Home</a></li>
                     <li><a href="marketing.html">Marketing Strategy</a></li>
                     <li><a href="fotografi.html">Fotografi</a></li>
                     <li><a href="videografi.html">Videografi</a></li>
-                    <li><a href="index_2.html#contact">Kontak</a></li>
                 </ul>
             </nav>
     
@@ -48,109 +39,103 @@
     </header>
 
     <main>
-        <section id="home" class="hero">
-            <div class="container hero-content" data-aos="fade-up">
+        <section class="hero hero-bg" style="min-height: 100vh;">
+            <div class="container" data-aos="fade-up">
+                <span class="badge badge-ig" style="margin-bottom: 20px;">EXECUTIVE PORTFOLIO HUB</span>
                 <h1>Brand Activation & Social Media Manager</h1>
                 <p>Menghubungkan strategi pemasaran digital, manajemen KOL, dan estetika visual tingkat tinggi untuk industri F&B, Hospitality, & Lifestyle.</p>
                 <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-                    <a href="marketing.html" class="cta-button" style="background: var(--highlight-color); color: var(--bg-main);">Marketing Portfolio</a>
-                    <a href="#pillar-hub" class="cta-button">Eksplor Pilar Karya</a>
+                    <a href="marketing.html" class="cta-button">Marketing Portfolio</a>
+                    <a href="fotografi.html" class="cta-button" style="background: var(--highlight-color); color: var(--bg-main);">Galeri Foto</a>
                 </div>
             </div>
         </section>
 
-        <!-- THREE PILLARS SECTION -->
-        <section id="pillar-hub" style="background-color: var(--bg-secondary); padding: 80px 0; border-bottom: 1px solid var(--border-color);">
+        <!-- THREE PILLARS EXECUTIVE HUB -->
+        <section style="background-color: var(--bg-secondary); padding: 90px 0;">
             <div class="container">
                 <h2 data-aos="fade-up">Area Keahlian Utama</h2>
-                <p style="text-align: center; color: var(--text-secondary); margin-bottom: 50px; max-width: 700px; margin: 0 auto;" data-aos="fade-up">Pilih cabang portofolio di bawah ini untuk meninjau dokumentasi proyek secara terperinci.</p>
+                <p style="text-align: center; color: var(--text-secondary); margin-bottom: 50px; max-width: 700px; margin-left: auto; margin-right: auto;" data-aos="fade-up">Pilih cabang portofolio di bawah ini untuk meninjau dokumentasi proyek strategis secara terperinci.</p>
 
-                <div class="hub-pillars-grid">
-                    <div class="pillar-card" data-aos="fade-up">
-                        <div class="pillar-img-wrapper">
-                            <img src="gambar/facad.jpg" alt="Marketing & Brand Activation">
-                            <span class="pillar-badge">STRATEGY</span>
+                <div class="grid-3">
+                    <div class="card" data-aos="fade-up" onclick="window.location.href='marketing.html'">
+                        <div class="card-img">
+                            <img src="gambar/facad.jpg" alt="Marketing & Brand Activation" loading="lazy">
+                            <span class="badge badge-gold" style="position: absolute; top: 15px; left: 15px;">STRATEGY</span>
                         </div>
-                        <div class="pillar-content">
+                        <div class="card-content">
                             <h3>Marketing & Social Media</h3>
-                            <p>Manajemen 6 unit bisnis F&B, strategi Meta Ads, studi kasus kampanye, serta pengelolaan KOL.</p>
-                            <a href="marketing.html" class="pillar-link-btn">Buka Portofolio &rarr;</a>
+                            <p>Manajemen unit bisnis F&B, strategi Meta Ads, studi kasus kampanye, serta pengelolaan KOL.</p>
+                            <span style="color: var(--highlight-color); font-weight: 700; font-size: 0.85rem; margin-top: auto;">Buka Portofolio &rarr;</span>
                         </div>
                     </div>
 
-                    <div class="pillar-card" data-aos="fade-up" data-aos-delay="150">
-                        <div class="pillar-img-wrapper">
-                            <img src="gambar/acak35 (2).jpg" alt="Fotografi Portofolio">
-                            <span class="pillar-badge">VISUAL ART</span>
+                    <div class="card" data-aos="fade-up" data-aos-delay="150" onclick="window.location.href='fotografi.html'">
+                        <div class="card-img">
+                            <img src="gambar/acak35 (2).jpg" alt="Fotografi Portofolio" loading="lazy">
+                            <span class="badge badge-gold" style="position: absolute; top: 15px; left: 15px;">VISUAL ART</span>
                         </div>
-                        <div class="pillar-content">
+                        <div class="card-content">
                             <h3>Karya Fotografi</h3>
-                            <p>Koleksi fotografi komersial, Food & Beverage styling, Nightlife stage, Portrait, dan Sport & Wellness.</p>
-                            <a href="fotografi.html" class="pillar-link-btn">Lihat Galeri Foto &rarr;</a>
+                            <p>Koleksi fotografi komersial, Food & Beverage styling, Nightlife stage, Portrait, dan Sport.</p>
+                            <span style="color: var(--highlight-color); font-weight: 700; font-size: 0.85rem; margin-top: auto;">Lihat Galeri Foto &rarr;</span>
                         </div>
                     </div>
 
-                    <div class="pillar-card" data-aos="fade-up" data-aos-delay="300">
-                        <div class="pillar-img-wrapper">
-                            <img src="gambar/wcc.jpg" alt="Videografi & Sinematografi">
-                            <span class="pillar-badge">MOTION</span>
+                    <div class="card" data-aos="fade-up" data-aos-delay="300" onclick="window.location.href='videografi.html'">
+                        <div class="card-img">
+                            <img src="gambar/wcc.jpg" alt="Videografi & Sinematografi" loading="lazy">
+                            <span class="badge badge-gold" style="position: absolute; top: 15px; left: 15px;">MOTION</span>
                         </div>
-                        <div class="pillar-content">
+                        <div class="card-content">
                             <h3>Videografi & Reels</h3>
-                            <p>Showcase sinematografi event recap, konten kreatif media sosial, produksi Reels/TikTok, serta visual WCC.</p>
-                            <a href="videografi.html" class="pillar-link-btn">Putar Video &rarr;</a>
+                            <p>Showcase sinematografi event recap, konten kreatif media sosial, produksi Reels/TikTok.</p>
+                            <span style="color: var(--highlight-color); font-weight: 700; font-size: 0.85rem; margin-top: auto;">Putar Video &rarr;</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="about" class="about-section">
-            <div class="container about-content">
-                <img src="gambar/fotoprofile.jpg" alt="Reynaldi Bagaskara" class="profile-pic" data-aos="fade-right">
-                <div class="about-text" data-aos="fade-left">
-                    <h2 style="text-align: left; color: var(--highlight-color);">Profil Profesional</h2>
-                    <p style="font-size: 1.1rem;">Saya adalah seorang <strong>T-Shaped Marketing Professional</strong> dengan fondasi eksekusi kreatif tajam yang berkembang memimpin strategi multi-brand di industri corporate hospitality & F&B.</p>
-                    <p style="margin-top: 15px; color: var(--text-secondary);">Berbekal latar belakang visual di Phototentic Studio dan Public Relations, saya memastikan setiap arah komunikasi brand tidak hanya estetik secara visual, tetapi juga efektif secara objektif operasional venue.</p>
-                </div>
+        <!-- VIDEOTRON ANIMATION TICKER -->
+        <div class="videotron-container">
+            <div class="videotron-content">
+                <span>BRAND ACTIVATION</span>
+                <span>SOCIAL MEDIA STRATEGY</span>
+                <span>KOL & NIGHTLIFE HOSTING</span>
+                <span>COMMERCIAL PHOTOGRAPHY</span>
+                <span>F&B MARKETING</span>
+                <span>BRAND ACTIVATION</span>
+                <span>SOCIAL MEDIA STRATEGY</span>
+                <span>KOL & NIGHTLIFE HOSTING</span>
+            </div>
+        </div>
+
+        <!-- ABOUT SECTION -->
+        <section class="container about-section" style="padding: 90px 20px;">
+            <img src="gambar/fotoprofile.jpg" alt="Reynaldi Bagaskara" class="profile-pic" data-aos="fade-right">
+            <div data-aos="fade-left">
+                <h2 style="text-align: left; color: var(--highlight-color); margin-bottom: 20px;">Profil Profesional</h2>
+                <p style="font-size: 1.1rem; margin-bottom: 15px;">Saya adalah seorang <strong>T-Shaped Marketing Professional</strong> dengan fondasi eksekusi kreatif tajam yang berkembang memimpin strategi multi-brand di industri corporate hospitality & F&B.</p>
+                <p style="color: var(--text-secondary); line-height: 1.6;">Berbekal latar belakang visual di Phototentic Studio dan Public Relations, saya memastikan setiap arah komunikasi brand tidak hanya estetik secara visual, tetapi juga efektif secara objektif operasional venue.</p>
             </div>
         </section>
-
-        <!-- FOOTER & CTA -->
-        <section id="contact" class="final-cta-section">
-            <div class="container">
-                <div class="cta-card" data-aos="zoom-in">
-                    <p style="color: var(--highlight-color); letter-spacing: 2px; font-size: 0.8rem; font-weight: 700;">BUTUH STRATEGI MARKETING?</p>
-                    <h2 style="font-size: 2.5rem; margin-bottom: 30px;">Mari Berdiskusi</h2>
-                    
-                    <div class="cta-action">
-                        <a href="pdf/CV_Reynaldi_Bagaskara.pdf" target="_blank" class="cv-download-btn">DOWNLOAD RESUME (PDF)</a>
-                        <button onclick="sendRecruitmentWA()" class="magnetic-send-btn">
-                            HUBUNGI SAYA (WA)
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section> 
     </main>
 
-    <div class="cursor-dot"></div>
-    <div class="cursor-ring"></div>
-
-    <a href="https://wa.me/6282196956556" class="whatsapp-float" target="_blank">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.23.148-.427.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/></svg>
-        <span>Chat Saya</span>
-    </a>
-    <a href="#" id="back-to-top" class="back-to-top">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"></polyline></svg>
-        <span>Ke Atas</span>
-    </a>
-
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="script-2.js"></script>
     <footer>
         <p>&copy; 2026 | Portfolio Reynaldi Bagaskara.</p>
     </footer>
+
+    <!-- FLOATING BUTTONS -->
+    <a href="https://wa.me/6282196956556" class="wa-float" target="_blank">
+        <svg width="24" height="24" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.23.148-.427.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/></svg>
+        <span>Chat Saya</span>
+    </a>
+    <a href="#" id="topBtn" class="top-float">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"></polyline></svg>
+    </a>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
