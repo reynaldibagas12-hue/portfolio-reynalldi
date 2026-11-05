@@ -1,79 +1,78 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WN4M2QCL4G"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-WN4M2QCL4G');
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portofolio Videografi - Reynaldi Bagaskara</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style_2.css">
+    <link rel="stylesheet" href="style.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
     <header class="navbar">
         <div class="container">
-            <a href="index_2.html" class="logo">Reynaldi Bagaskara</a>
+            <a href="index.html" class="logo">Reynaldi Bagaskara</a>
             <nav class="nav-links">
                 <ul>
-                    <li><a href="index_2.html">Home</a></li>
+                    <li><a href="index.html">Home</a></li>
                     <li><a href="marketing.html">Marketing Strategy</a></li>
                     <li><a href="fotografi.html">Fotografi</a></li>
                     <li><a href="videografi.html" class="active">Videografi</a></li>
                 </ul>
             </nav>
             <div class="burger-menu">
-                <div class="burger-line"></div><div class="burger-line"></div><div class="burger-line"></div>
+                <div class="burger-line"></div>
+                <div class="burger-line"></div>
+                <div class="burger-line"></div>
             </div>
         </div>
     </header>
 
     <main>
-        <section class="hero" style="min-height: 40vh; padding: 120px 0 60px;">
+        <section style="padding: 140px 0 50px; text-align: center;">
             <div class="container" data-aos="fade-up">
-                <h1>Karya Videografi & Motion</h1>
-                <p style="color: var(--text-secondary);">Kumpulan karya sinematografi, video rekap event hospitality, pembuatan konten Reels/TikTok, dan visual showcase WCC.</p>
+                <span class="badge badge-tiktok">CINEMATOGRAPHY & REELS</span>
+                <h1 style="font-size: 2.5rem; margin: 15px 0;">Karya Videografi & Motion</h1>
+                <p style="color: var(--text-secondary); max-width: 700px; margin: 0 auto;">Kumpulan karya sinematografi, video rekap event hospitality, pembuatan konten Reels/TikTok, dan visual showcase WCC.</p>
             </div>
         </section>
 
-        <section id="video-gallery" style="padding: 60px 0;">
+        <section style="padding-bottom: 90px;">
             <div class="container">
-                <h2 data-aos="fade-up">Pilih Kategori Video</h2>
-                <div class="category-grid-static" data-aos="fade-up" style="margin-top: 40px;">
-                    <div class="cat-card" onclick="openVideoCategory('wcc')">
+                <div class="grid-3" data-aos="fade-up">
+                    <div class="cat-card" onclick="openVideoGallery('wcc')">
                         <img src="gambar/wcc.jpg" alt="WCC Thumbnail" loading="lazy" onerror="this.src='gambar/acak23 (2).jpg'">
-                        <div class="cat-overlay"><h3>WCC</h3><p>WCC Projects</p></div>
+                        <div class="cat-overlay"><h3>WCC Projects</h3><p>Visual Showcase</p></div>
                     </div>
-                    <div class="cat-card" onclick="openVideoCategory('recap')">
-                        <img src="gambar/event.jpg" alt="Recap Event" loading="lazy" onerror="this.src='gambar/facad.jpg'">
-                        <div class="cat-overlay"><h3>RECAP EVENT</h3><p>Event Highlights</p></div>
+                    
+                    <div class="cat-card" onclick="openVideoGallery('recap')">
+                        <img src="gambar/event.jpg" alt="Recap Event Thumbnail" loading="lazy" onerror="this.src='gambar/facad.jpg'">
+                        <div class="cat-overlay"><h3>Recap Event</h3><p>Event Highlights</p></div>
                     </div>
-                    <div class="cat-card" onclick="openVideoCategory('content')">
-                        <img src="gambar/content.jpg" alt="Content" loading="lazy" onerror="this.src='gambar/fnb.jpg'">
-                        <div class="cat-overlay"><h3>CONTENT</h3><p>Content Creation</p></div>
+
+                    <div class="cat-card" onclick="openVideoGallery('content')">
+                        <img src="gambar/content.jpg" alt="Content Thumbnail" loading="lazy" onerror="this.src='gambar/fnb.jpg'">
+                        <div class="cat-overlay"><h3>Content Creation</h3><p>Reels & TikTok</p></div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- MODAL KATEGORI VIDEO -->
-    <div id="video-modal" class="video-modal">
-        <div class="video-modal-content" style="background: var(--bg-secondary); padding: 40px; border-radius: 15px; width: 90%; max-width: 1000px; text-align: center; max-height: 90vh; overflow-y: auto;">
-            <span class="video-modal-close" onclick="closeVideoCategory()">&times;</span>
-            <h2 id="video-category-title" style="color: var(--highlight-color); margin-bottom: 30px;"></h2>
-            <div id="video-grid-modal" class="video-grid-modal"></div>
+    <!-- Modal Galeri Video -->
+    <div id="video-modal" class="modal-overlay">
+        <div class="modal-content" style="max-width: 950px; text-align: center;">
+            <span class="modal-close" onclick="closeModal('video-modal')">&times;</span>
+            <h2 id="video-title" style="color: var(--highlight-color); margin-bottom: 30px; text-transform: uppercase;"></h2>
+            <div id="video-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;"></div>
         </div>
     </div>
-    
-    <div class="cursor-dot"></div>
-    <div class="cursor-ring"></div>
+
+    <footer>
+        <p>&copy; 2026 | Portfolio Reynaldi Bagaskara.</p>
+    </footer>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="script-2.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
