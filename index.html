@@ -1,4 +1,3 @@
-<!-- index.html (Homepage & Summary Hub) -->
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -11,26 +10,11 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Reynaldi Bagaskara - Brand Activation & Social Media Manager, Digital Marketer, dan Seniman Visual Spesialis Industri F&B & Hospitality.">
-    <meta name="keywords" content="Brand Activation Manager, Social Media Manager Jakarta, Digital Marketing Hospitality, Portofolio Reynaldi Bagaskara">
-    <meta property="og:title" content="Reynaldi Bagaskara | Brand Activation & Visual Portfolio">
-    <meta property="og:description" content="Mengintegrasikan strategi pemasaran digital, aktivasi brand, dan estetika visual tinggi.">
-    <meta property="og:image" content="gambar/fotoprofile.jpg">
-    <meta property="og:url" content="https://reynaldi.netlify.app">
-    <meta property="og:type" content="website">
-    <link rel="icon" type="image/x-icon" href="gambar/fotoprofile.jpg">
     <title>Reynaldi Bagaskara | Executive Portfolio Hub</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <!-- SWIPER CSS YANG LENGKAP -->
+    <link rel="stylesheet" href="style_2.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <style>
-        /* CSS Tambahan Khusus untuk Mencegah Slide Bertumpuk */
-        .featuredSwiper { width: 100%; overflow: hidden; padding-bottom: 50px; }
-        .featuredSwiper .swiper-wrapper { display: flex; }
-        .featuredSwiper .swiper-slide { flex-shrink: 0; width: 300px; }
-    </style>
 </head>
 <body>
     <div id="premium-loader">
@@ -43,21 +27,15 @@
 
     <header class="navbar">
         <div class="container">
-            <a href="index.html" class="logo">Reynaldi Bagaskara</a>
-            
-            <div class="hiring-status" data-aos="fade-left">
-                <span class="status-dot"></span>
-                <span class="status-text">Available for Full-time / Consult</span>
-            </div>
+            <a href="index_2.html" class="logo">Reynaldi Bagaskara</a>
             
             <nav class="nav-links">
                 <ul>
-                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="index_2.html" class="active">Home</a></li>
                     <li><a href="marketing.html">Marketing Strategy</a></li>
                     <li><a href="fotografi.html">Fotografi</a></li>
                     <li><a href="videografi.html">Videografi</a></li>
-                    <li><a href="index.html#about">Tentang Saya</a></li>
-                    <li><a href="index.html#contact">Kontak</a></li>
+                    <li><a href="index_2.html#contact">Kontak</a></li>
                 </ul>
             </nav>
     
@@ -70,164 +48,83 @@
     </header>
 
     <main>
-        <section id="home" class="hero" style="min-height: 75vh; height: auto; padding: 160px 0 100px 0; background-size: cover; background-position: center;">
-            <div class="hero-content">
-                <h1 data-aos="fade-down" data-aos-delay="200">Brand Activation & Social Media Manager</h1>
-                <p data-aos="fade-up" data-aos-delay="400">Menghubungkan strategi pemasaran digital, manajemen KOL, dan estetika visual tingkat tinggi untuk industri F&B, Hospitality, & Lifestyle.</p>
-                <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;" data-aos="fade-up" data-aos-delay="600">
+        <section id="home" class="hero">
+            <div class="container hero-content" data-aos="fade-up">
+                <h1>Brand Activation & Social Media Manager</h1>
+                <p>Menghubungkan strategi pemasaran digital, manajemen KOL, dan estetika visual tingkat tinggi untuk industri F&B, Hospitality, & Lifestyle.</p>
+                <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
                     <a href="marketing.html" class="cta-button" style="background: var(--highlight-color); color: var(--bg-main);">Marketing Portfolio</a>
                     <a href="#pillar-hub" class="cta-button">Eksplor Pilar Karya</a>
                 </div>
             </div>
         </section>
 
-        <!-- THREE PILLARS EXECUTIVE HUB SECTION -->
-        <section id="pillar-hub" style="background-color: var(--bg-secondary); padding: 90px 0; border-bottom: 1px solid var(--border-color);">
+        <!-- THREE PILLARS SECTION -->
+        <section id="pillar-hub" style="background-color: var(--bg-secondary); padding: 80px 0; border-bottom: 1px solid var(--border-color);">
             <div class="container">
-                <h2 data-aos="fade-up" style="color: var(--highlight-color); font-size: 1.5rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px;">Area Keahlian Utama</h2>
-                <p data-aos="fade-up" data-aos-delay="100" style="text-align: center; color: var(--text-secondary); margin-bottom: 50px; max-width: 700px; margin-left: auto; margin-right: auto;">Pilih cabang portofolio di bawah ini untuk meninjau dokumentasi proyek strategis, studi kasus kampanye, maupun hasil produksi visual secara terperinci.</p>
+                <h2 data-aos="fade-up">Area Keahlian Utama</h2>
+                <p style="text-align: center; color: var(--text-secondary); margin-bottom: 50px; max-width: 700px; margin: 0 auto;" data-aos="fade-up">Pilih cabang portofolio di bawah ini untuk meninjau dokumentasi proyek secara terperinci.</p>
 
                 <div class="hub-pillars-grid">
-                    <!-- Pillar 1: Marketing -->
-                    <div class="pillar-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="pillar-card" data-aos="fade-up">
                         <div class="pillar-img-wrapper">
                             <img src="gambar/facad.jpg" alt="Marketing & Brand Activation">
-                            <span class="pillar-badge">STRATEGY & ACTIVATION</span>
+                            <span class="pillar-badge">STRATEGY</span>
                         </div>
                         <div class="pillar-content">
                             <h3>Marketing & Social Media</h3>
-                            <p>Manajemen 6 unit bisnis F&B, strategi Meta Ads, studi kasus kampanye (Steak to The Point, Pizza with Papa), serta pengelolaan KOL & Guest Hosting.</p>
-                            <a href="marketing.html" class="pillar-link-btn">Buka Portofolio Marketing &rarr;</a>
+                            <p>Manajemen 6 unit bisnis F&B, strategi Meta Ads, studi kasus kampanye, serta pengelolaan KOL.</p>
+                            <a href="marketing.html" class="pillar-link-btn">Buka Portofolio &rarr;</a>
                         </div>
                     </div>
 
-                    <!-- Pillar 2: Fotografi -->
-                    <div class="pillar-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="pillar-card" data-aos="fade-up" data-aos-delay="150">
                         <div class="pillar-img-wrapper">
                             <img src="gambar/acak35 (2).jpg" alt="Fotografi Portofolio">
                             <span class="pillar-badge">VISUAL ART</span>
                         </div>
                         <div class="pillar-content">
                             <h3>Karya Fotografi</h3>
-                            <p>Koleksi fotografi komersial, Food & Beverage styling, Nightlife stage, Portrait, Sport & Wellness, dan manipulasi digital 21:9 Stitching.</p>
+                            <p>Koleksi fotografi komersial, Food & Beverage styling, Nightlife stage, Portrait, dan Sport & Wellness.</p>
                             <a href="fotografi.html" class="pillar-link-btn">Lihat Galeri Foto &rarr;</a>
                         </div>
                     </div>
 
-                    <!-- Pillar 3: Videografi -->
                     <div class="pillar-card" data-aos="fade-up" data-aos-delay="300">
                         <div class="pillar-img-wrapper">
                             <img src="gambar/wcc.jpg" alt="Videografi & Sinematografi">
-                            <span class="pillar-badge">MOTION & RECAP</span>
+                            <span class="pillar-badge">MOTION</span>
                         </div>
                         <div class="pillar-content">
                             <h3>Videografi & Reels</h3>
-                            <p>Showcase sinematografi event recap, konten kreatif media sosial, produksi Reels/TikTok, serta WCC visual showcase.</p>
-                            <a href="videografi.html" class="pillar-link-btn">Putar Karya Video &rarr;</a>
+                            <p>Showcase sinematografi event recap, konten kreatif media sosial, produksi Reels/TikTok, serta visual WCC.</p>
+                            <a href="videografi.html" class="pillar-link-btn">Putar Video &rarr;</a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <div class="videotron-container">
-            <div class="videotron-content">
-                <span>BRAND ACTIVATION</span>
-                <span>SOCIAL MEDIA STRATEGY</span>
-                <span>KOL & NIGHTLIFE HOSTING</span>
-                <span>COMMERCIAL PHOTOGRAPHY</span>
-                <span>F&B MARKETING</span>
-                <span>BRAND ACTIVATION</span>
-                <span>SOCIAL MEDIA STRATEGY</span>
-                <span>KOL & NIGHTLIFE HOSTING</span>
-                <span>COMMERCIAL PHOTOGRAPHY</span>
-                <span>F&B MARKETING</span>
-            </div>
-        </div>
-
         <section id="about" class="about-section">
             <div class="container about-content">
                 <img src="gambar/fotoprofile.jpg" alt="Reynaldi Bagaskara" class="profile-pic" data-aos="fade-right">
-                <div class="about-text" data-aos="fade-left" data-aos-delay="200">
+                <div class="about-text" data-aos="fade-left">
                     <h2 style="text-align: left; color: var(--highlight-color);">Profil Profesional</h2>
-                    <p style="font-size: 1.1rem; color: var(--text-primary);">Saya adalah seorang <strong>T-Shaped Marketing Professional</strong> dengan fondasi eksekusi kreatif tajam yang berkembang memimpin strategi multi-brand di industri corporate hospitality & F&B.</p>
-                    <p style="margin-top: 15px; color: var(--text-secondary);">Saat ini mengelola pilar pemasaran digital dan media sosial untuk 6 unit bisnis di bawah <strong>Sudestada Group</strong> (termasuk Sudestada Jakarta, Casalena, Coal Bar, Libros Bar, dan Signature Cafe). Keunggulan saya terletak pada integrasi antara <em>brand awareness</em>, pengangkatan audiens melalui kampanye tematik (seperti Casa Summer Brunch & Pizza with Papa), manajemen <em>guest hosting</em> bar, dan konversi Meta Ads yang presisi[cite: 8].</p>
+                    <p style="font-size: 1.1rem;">Saya adalah seorang <strong>T-Shaped Marketing Professional</strong> dengan fondasi eksekusi kreatif tajam yang berkembang memimpin strategi multi-brand di industri corporate hospitality & F&B.</p>
                     <p style="margin-top: 15px; color: var(--text-secondary);">Berbekal latar belakang visual di Phototentic Studio dan Public Relations, saya memastikan setiap arah komunikasi brand tidak hanya estetik secara visual, tetapi juga efektif secara objektif operasional venue.</p>
                 </div>
             </div>
         </section>
 
-        <section id="featured-works" style="background-color: var(--bg-secondary); padding: 80px 0; overflow: hidden;">
-            <div class="container">
-                <h2 data-aos="fade-up" style="color: #fff; margin-bottom: 10px;">Sorotan Visual Unggulan</h2>
-                <p data-aos="fade-up" style="color: var(--text-secondary); margin-bottom: 40px;">Geser untuk melihat pratinjau aset estetika visual hospitality & lifestyle.</p>
-                
-                <div class="swiper featuredSwiper" data-aos="fade-up" data-aos-delay="200">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide featured-item">
-                            <img src="gambar/acak23 (2).jpg" alt="Nightlife" class="lightbox-trigger" loading="lazy">
-                            <div class="featured-overlay">
-                                <h3>Nightlife & Crowd</h3>
-                                <p>Atmosfer nightlife dan event hosting Coal Bar & Flexyum</p>
-                            </div>
-                        </div>
-                        <div class="swiper-slide featured-item">
-                            <img src="gambar/eksterior.jpg" alt="Eksterior" class="lightbox-trigger" loading="lazy">
-                            <div class="featured-overlay">
-                                <h3>Architectural & Venue</h3>
-                                <p>Dokumentasi ruang komersial & function space Casalena</p>
-                            </div>
-                        </div>
-                        <div class="swiper-slide featured-item">
-                            <img src="gambar/fnb.jpg" alt="Food Stylist" class="lightbox-trigger" loading="lazy">
-                            <div class="featured-overlay">
-                                <h3>Culinary & Beverage</h3>
-                                <p>Visual produk premium steak & mixology cocktail</p>
-                            </div>
-                        </div>
-                        <div class="swiper-slide featured-item">
-                            <img src="gambar/acak35 (2).jpg" alt="Portrait" class="lightbox-trigger" loading="lazy">
-                            <div class="featured-overlay">
-                                <h3>Brand Ambassador & KOL</h3>
-                                <p>Visual storytelling untuk persona brand dan media sosial</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="swiper-pagination"></div>
-                    <div class="swiper-button-next" style="color: var(--highlight-color);"></div>
-                    <div class="swiper-button-prev" style="color: var(--highlight-color);"></div>
-                </div>
-            </div>
-        </section>
-
+        <!-- FOOTER & CTA -->
         <section id="contact" class="final-cta-section">
-            <div class="cta-kinetic-bg">
-                <span>IMPACT • STRATEGY • VISION • IMPACT • STRATEGY • </span>
-            </div>
-            
             <div class="container">
                 <div class="cta-card" data-aos="zoom-in">
-                    <p class="cta-subtitle">BUTUH STRATEGI MARKETING & ACTIVATION?</p>
-                    <h2 class="cta-title">Mari Berdiskusi</h2>
+                    <p style="color: var(--highlight-color); letter-spacing: 2px; font-size: 0.8rem; font-weight: 700;">BUTUH STRATEGI MARKETING?</p>
+                    <h2 style="font-size: 2.5rem; margin-bottom: 30px;">Mari Berdiskusi</h2>
                     
-                    <p style="color: var(--text-secondary); margin-bottom: 30px; font-size: 0.95rem;">
-                        Saya terbuka untuk diskusi konsultasi, proyek manajemen kampanye, maupun kesempatan karier full-time managerial.
-                        Pilih fokus area yang ingin Anda bahas:
-                    </p>
-                    
-                    <div class="project-tags">
-                        <button class="tag-btn" onclick="quickPitch('Brand & Social Media Manager')">Brand & Socmed Manager</button>
-                        <button class="tag-btn" onclick="quickPitch('Brand Activation Specialist')">Brand Activation</button>
-                        <button class="tag-btn" onclick="quickPitch('Digital Marketing Strategist')">Digital Marketing</button>
-                        <button class="tag-btn" onclick="quickPitch('Creative Lead')">Creative Lead</button>
-                    </div>
-
                     <div class="cta-action">
-                        <a href="pdf/CV_Reynaldi_Bagaskara.pdf" target="_blank" class="cv-download-btn">
-                            DOWNLOAD RESUME (PDF)
-                        </a>
-                        
+                        <a href="pdf/CV_Reynaldi_Bagaskara.pdf" target="_blank" class="cv-download-btn">DOWNLOAD RESUME (PDF)</a>
                         <button onclick="sendRecruitmentWA()" class="magnetic-send-btn">
                             HUBUNGI SAYA (WA)
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
@@ -238,40 +135,21 @@
         </section> 
     </main>
 
-    <div id="lightbox" class="lightbox">
-        <span class="lightbox-close">&times;</span>
-        <img id="lightbox-img" class="lightbox-content" src="">
-    </div>
     <div class="cursor-dot"></div>
     <div class="cursor-ring"></div>
 
-    <a href="https://wa.me/6282196956556?text=Halo%20Rey,%20saya%20tertarik%20untuk%20berdiskusi%20mengenai%20potensi%20kerjasama." class="whatsapp-float" target="_blank">
-        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 16 16">
-            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.23.148-.427.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
-        </svg>
+    <a href="https://wa.me/6282196956556" class="whatsapp-float" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.23.148-.427.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/></svg>
         <span>Chat Saya</span>
     </a>
-
-    <a href="#" id="back-to-top" class="back-to-top" aria-label="Kembali ke atas">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+    <a href="#" id="back-to-top" class="back-to-top">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"></polyline></svg>
         <span>Ke Atas</span>
     </a>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
     <script src="script-2.js"></script>
-
     <footer>
-        <div class="social-links">
-            <a href="https://www.instagram.com/motretsembarang_" target="_blank" class="social-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="24" height="24" fill="currentColor">
-                    <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9 26.2 26.2 58 34.4 93.9 36.2 37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
-                </svg>
-            </a>
-        </div>
         <p>&copy; 2026 | Portfolio Reynaldi Bagaskara.</p>
     </footer>
 </body>
