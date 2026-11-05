@@ -15,9 +15,11 @@
     padding: 0;
 }
 
-html {
+html, body {
     scroll-behavior: smooth;
-    overflow-x: hidden;
+    overflow-x: hidden; /* Mengunci agar layar HP tidak bisa digeser ke samping/bocor */
+    width: 100%;
+    max-width: 100vw;
 }
 
 body {
@@ -25,8 +27,6 @@ body {
     line-height: 1.6;
     color: var(--text-primary);
     background-color: var(--bg-main);
-    overflow-x: hidden;
-    width: 100%;
 }
 
 .container {
@@ -36,471 +36,244 @@ body {
     width: 100%;
 }
 
-h1, h2, h3 {
-    font-weight: 700;
-    color: #FFFFFF;
-}
-
-h2 {
-    text-align: center;
-    font-size: 2.2rem;
-    margin-bottom: 20px;
-}
-
-section {
-    padding: 80px 0;
-}
+h1, h2, h3 { font-weight: 700; color: #FFFFFF; }
+h2 { text-align: center; font-size: 2.2rem; margin-bottom: 20px; }
+section { padding: 80px 0; }
 
 /* ----- 1. NAVBAR MODERN BLUR ----- */
 .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
+    position: fixed; top: 0; left: 0; width: 100%;
     background: var(--nav-bg);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border-color);
     z-index: 3000;
     transition: transform 0.4s cubic-bezier(0.3, 1, 0.2, 1), background 0.3s;
 }
-
 .navbar .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 15px; padding-bottom: 15px;
 }
-
 .logo {
-    font-size: 1.3rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--text-primary);
-    text-decoration: none;
-    transition: all 0.3s ease;
-    display: inline-block;
-    z-index: 3001;
+    font-size: 1.3rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 1px; color: var(--text-primary); text-decoration: none;
+    transition: all 0.3s ease; z-index: 3001;
 }
-
-.logo:hover {
-    color: var(--highlight-color);
-}
-
-.nav-links ul {
-    display: flex;
-    list-style: none;
-    align-items: center;
-}
-
-.nav-links li {
-    margin-left: 25px;
-}
-
+.logo:hover { color: var(--highlight-color); }
+.nav-links ul { display: flex; list-style: none; align-items: center; }
+.nav-links li { margin-left: 25px; }
 .nav-links a {
-    text-decoration: none;
-    color: var(--text-secondary);
-    font-weight: 400;
-    transition: color 0.3s ease;
-    position: relative;
-    padding-bottom: 5px;
+    text-decoration: none; color: var(--text-secondary);
+    font-weight: 400; transition: color 0.3s ease;
+    position: relative; padding-bottom: 5px;
 }
-
-.nav-links a:hover, 
-.nav-links a.active {
-    color: var(--highlight-color);
-}
-
+.nav-links a:hover, .nav-links a.active { color: var(--highlight-color); }
 .nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 2px;
-    background-color: var(--highlight-color);
-    transition: width 0.3s ease-out;
+    content: ''; position: absolute; bottom: 0; left: 50%;
+    transform: translateX(-50%); width: 0; height: 2px;
+    background-color: var(--highlight-color); transition: width 0.3s ease-out;
 }
-
 .nav-links a:hover::after { width: 100%; }
 .nav-links a.active::after { width: 0; }
 .navbar.nav-hidden { transform: translateY(-100%); }
 
-/* ----- 2. TOMBOL CTA ----- */
+/* ----- 2. TOMBOL CTA & BADGE ----- */
 .cta-button {
-    display: inline-block;
-    background: transparent;
-    color: var(--highlight-color);
-    border: 1px solid var(--highlight-color);
-    padding: 12px 25px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: 700;
+    display: inline-flex; align-items: center; justify-content: center;
+    background: transparent; color: var(--highlight-color);
+    border: 1px solid var(--highlight-color); padding: 12px 25px;
+    text-decoration: none; border-radius: 5px; font-weight: 700;
     transition: all 0.3s ease;
 }
+.cta-button:hover { background: var(--highlight-color); color: var(--bg-main); }
+.badge { display: inline-block; padding: 4px 10px; border-radius: 20px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; }
+.badge-ig { background: linear-gradient(45deg, #f09433, #dc2743, #bc1888); color: #fff; }
+.badge-tiktok { background: #00f2fe; color: #000; }
 
-.cta-button:hover {
-    background: var(--highlight-color);
-    color: var(--bg-main);
-}
-
-/* ----- 3. STYLE HALAMAN DEPAN (index.html) ----- */
+/* ----- 3. HERO & ABOUT ----- */
 .hero {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #fff;
-    padding-top: 80px;
-    background-image: linear-gradient(rgba(18,18,18,0.7), rgba(18,18,18,0.9)), url('Gambar/acak23 (2).jpg');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    animation: heroSlideshow 15s infinite;
+    display: flex; justify-content: center; align-items: center;
+    text-align: center; color: #fff; position: relative;
+    background-image: linear-gradient(rgba(18,18,18,0.7), rgba(18,18,18,0.95)), url('gambar/acak23 (2).jpg');
 }
-
-@keyframes heroSlideshow {
-    0% { background-image: linear-gradient(rgba(18,18,18,0.7), rgba(18,18,18,0.9)), url('Gambar/acak23 (2).jpg'); }
-    33% { background-image: linear-gradient(rgba(18,18,18,0.7), rgba(18,18,18,0.9)), url('Gambar/facad.jpg'); }
-    66% { background-image: linear-gradient(rgba(18,18,18,0.7), rgba(18,18,18,0.9)), url('Gambar/fnb.jpg'); }
-    100% { background-image: linear-gradient(rgba(18,18,18,0.7), rgba(18,18,18,0.9)), url('Gambar/acak23 (2).jpg'); }
-}
-
 .hero-content h1 { font-size: 3rem; margin-bottom: 15px; }
-.hero-content p { font-size: 1.2rem; font-weight: 300; margin-bottom: 30px; color: var(--text-secondary); }
-
+.hero-content p { font-size: 1.1rem; font-weight: 300; margin-bottom: 30px; color: var(--text-secondary); max-width: 800px; margin-left: auto; margin-right: auto; }
 .about-section { background-color: var(--bg-main); }
 .about-content { display: flex; align-items: center; gap: 40px; }
 .profile-pic { width: 280px; height: 280px; object-fit: cover; border-radius: 50%; box-shadow: 0 4px 20px rgba(0,0,0,0.5); flex-shrink: 0; }
 .about-text { flex: 1; }
 
-.contact-section { background: var(--bg-secondary); text-align: center; }
-.contact-form { max-width: 600px; margin: 30px auto 0; text-align: left; }
-.contact-form input, 
-.contact-form textarea {
-    width: 100%;
-    padding: 15px;
-    margin-bottom: 15px;
-    background: var(--bg-main);
-    color: var(--text-primary);
-    border: 1px solid var(--border-color);
-    border-radius: 5px;
-    font-family: 'Montserrat', sans-serif;
-    transition: border 0.3s ease;
+/* ----- 4. PILLAR HUB (Halaman Utama / Index) ----- */
+.hub-pillars-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 20px;
 }
-.contact-form input:focus, 
-.contact-form textarea:focus {
-    outline: none;
-    border-color: var(--highlight-color);
+.pillar-card {
+    background: var(--bg-main); border-radius: 15px; overflow: hidden;
+    border: 1px solid var(--border-color); transition: transform 0.3s ease, border-color 0.3s ease;
 }
-.contact-form button { width: 100%; cursor: pointer; }
+.pillar-card:hover { transform: translateY(-8px); border-color: var(--highlight-color); }
+.pillar-img-wrapper { position: relative; height: 220px; }
+.pillar-img-wrapper img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.8); transition: filter 0.3s; }
+.pillar-card:hover .pillar-img-wrapper img { filter: brightness(1); }
+.pillar-badge { position: absolute; top: 15px; left: 15px; background: var(--highlight-color); color: #000; font-size: 0.7rem; font-weight: 800; padding: 5px 12px; border-radius: 20px; }
+.pillar-content { padding: 25px; }
+.pillar-content h3 { font-size: 1.3rem; margin-bottom: 10px; }
+.pillar-content p { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 25px; line-height: 1.5; }
+.pillar-link-btn { color: var(--highlight-color); text-decoration: none; font-weight: 700; font-size: 0.9rem; border-bottom: 1px solid transparent; transition: border-color 0.3s; }
+.pillar-link-btn:hover { border-color: var(--highlight-color); }
 
-/* ----- 4. TEMA SCROLLABLE & KATEGORI FOTO (FIXED MOBILE OVERFLOW) ----- */
-.category-slider-wrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
-    width: 100%;
-    max-width: 100%;
-    overflow: hidden;
+/* ----- 5. MULTI-BRAND LAYOUT (Halaman Marketing) ----- */
+.multi-brand-layout {
+    display: grid; grid-template-columns: 1fr; gap: 40px; align-items: start;
 }
+@media (min-width: 992px) {
+    .multi-brand-layout { grid-template-columns: 320px 1fr; }
+    .multi-brand-header-sticky { position: sticky; top: 100px; }
+}
+.brand-matrix-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+.brand-matrix-card { background: var(--bg-secondary); padding: 30px; border-radius: 12px; border: 1px solid var(--border-color); transition: transform 0.3s; }
+.brand-matrix-card:hover { transform: translateY(-5px); border-color: var(--highlight-color); box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
+.brand-header { margin-bottom: 15px; }
+.brand-header h3 { color: #fff; font-size: 1.25rem; margin-bottom: 8px; }
+.brand-tag { display: inline-block; background: var(--highlight-color); color: #000; padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 700; }
+.brand-target { color: var(--highlight-color); font-size: 0.85rem; margin-bottom: 10px; font-weight: 600; }
+.brand-desc { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6; }
 
-.cat-scroll-btn {
-    background: rgba(30, 30, 30, 0.9);
-    border: 1px solid var(--highlight-color);
-    color: var(--highlight-color);
-    border-radius: 50%;
-    width: 45px;
-    height: 45px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    position: absolute;
-    z-index: 100;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.3s;
-}
-.cat-scroll-btn:hover { background: var(--highlight-color); color: var(--bg-main); transform: scale(1.1); }
-.cat-scroll-left { left: 0px; }
-.cat-scroll-right { right: 0px; }
+/* ----- 6. CAMPAIGN SPOTLIGHT & CASE STUDIES ----- */
+.campaign-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+.cs-card { background: var(--bg-main); border-radius: 12px; border: 1px solid var(--border-color); overflow: hidden; display: flex; flex-direction: column; transition: transform 0.3s, border-color 0.3s; }
+.cs-card:hover { transform: translateY(-8px); border-color: var(--highlight-color); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+.cs-visual-small { height: 220px; position: relative; overflow: hidden; }
+.cs-visual-small img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.85); transition: transform 0.4s; }
+.cs-card:hover .cs-visual-small img { transform: scale(1.05); filter: brightness(1); }
+.cs-badge { position: absolute; top: 15px; left: 15px; background: var(--highlight-color); color: var(--bg-main); font-weight: 800; font-size: 0.65rem; padding: 4px 12px; border-radius: 20px; }
+.cs-content-small { padding: 25px; flex: 1; display: flex; flex-direction: column; }
+.cs-content-small h3 { font-size: 1.2rem; margin-bottom: 5px; }
+.cs-role { color: var(--highlight-color); font-size: 0.8rem; margin-bottom: 15px; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; }
+.cs-pillar { margin-bottom: 15px; }
+.cs-pillar h4 { font-size: 0.9rem; color: #fff; margin-bottom: 3px; }
+.cs-pillar p { font-size: 0.85rem; color: var(--text-secondary); }
+.cs-metrics-mini { display: flex; justify-content: space-around; padding-top: 15px; border-top: 1px solid var(--border-color); margin-top: auto; }
+.m-item { text-align: center; font-size: 0.7rem; color: var(--text-secondary); text-transform: uppercase; }
+.m-item span { display: block; font-size: 1.2rem; font-weight: 800; color: var(--highlight-color); }
 
-.category-grid {
-    display: flex;
-    overflow-x: auto;
-    gap: 20px;
-    padding: 20px 10px;
-    scroll-behavior: smooth;
-    width: 100%;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
+/* ----- 7. FOTOGRAFI & VIDEOGRAFI (STATIC GRID & SCROLLABLE) ----- */
+.category-grid-static { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+.category-slider-wrapper { position: relative; display: flex; align-items: center; width: 100%; max-width: 100%; overflow: hidden; }
+.category-grid { display: flex; overflow-x: auto; gap: 20px; padding: 20px 5px; scroll-behavior: smooth; width: 100%; -ms-overflow-style: none; scrollbar-width: none; }
 .category-grid::-webkit-scrollbar { display: none; }
-
 .cat-card {
-    position: relative;
-    height: 420px;
-    width: 280px;
-    flex-shrink: 0;
-    border-radius: 12px;
-    overflow: hidden;
-    cursor: pointer;
-    border: 1px solid var(--border-color);
-    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.4s ease;
-    background: var(--bg-secondary);
+    position: relative; height: 420px; flex-shrink: 0; border-radius: 12px; overflow: hidden;
+    cursor: pointer; border: 1px solid var(--border-color); transition: transform 0.4s ease, border-color 0.4s ease; background: var(--bg-secondary);
 }
-.cat-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-}
-.cat-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 30px 15px 20px;
-    background: linear-gradient(to top, rgba(10,10,10,0.95) 40%, rgba(10,10,10,0.4) 70%, transparent);
-    text-align: center;
-}
+.category-grid .cat-card { width: 280px; } /* Untuk slider menyamping */
+.category-grid-static .cat-card { width: 100%; height: 350px; } /* Untuk grid diam */
+.cat-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+.cat-overlay { position: absolute; bottom: 0; left: 0; width: 100%; padding: 30px 15px 20px; background: linear-gradient(to top, rgba(10,10,10,0.95) 40%, transparent); text-align: center; }
 .cat-overlay h3 { font-size: 1.2rem; margin-bottom: 5px; color: var(--highlight-color); }
 .cat-overlay p { font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px; }
-.cat-card:hover { border-color: var(--highlight-color); transform: translateY(-5px); }
+.cat-card:hover { border-color: var(--highlight-color); transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
 .cat-card:hover img { transform: scale(1.05); }
 
-@media (max-width: 768px) {
-    .cat-scroll-btn { display: none; } /* Mobile cukup swipe pakai jari */
-    .category-grid { padding-left: 0; padding-right: 0; }
-    .cat-card { width: 240px; height: 380px; }
+/* ----- 8. MODAL, LIGHTBOX, & VIDEO MODAL ----- */
+.lightbox, .category-modal, .video-modal {
+    position: fixed; z-index: 5000; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(10, 10, 10, 0.95); display: none; justify-content: center; align-items: center; padding: 20px;
 }
-
-/* ----- 5. GALERI FOTO (MASONRY GRID) ----- */
-.main-gallery-grid { column-count: 4; column-gap: 15px; padding: 30px 0; }
-.grid-photo-item { break-inside: avoid; margin-bottom: 15px; position: relative; overflow: hidden; border-radius: 8px; cursor: zoom-in; }
-.grid-photo-item img { width: 100%; height: auto; display: block; transition: transform 0.6s ease; }
-@media (max-width: 1024px) { .main-gallery-grid { column-count: 3; } }
-@media (max-width: 768px) { .main-gallery-grid { column-count: 2; } }
-@media (max-width: 480px) { .main-gallery-grid { column-count: 1; } }
-
-/* ----- 6. KARYA VIDEO ----- */
-#video-gallery { padding-top: 40px; padding-bottom: 80px; }
-.video-mixed-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; align-items: start; }
-.video-item { background: #000; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.4); border: 1px solid var(--border-color); }
-.video-item video { width: 100%; display: block; object-fit: cover; aspect-ratio: 9/16; }
-
-/* ----- 7. MODAL & LIGHTBOX ----- */
-.lightbox, .category-modal {
-    position: fixed;
-    z-index: 5000;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(10, 10, 10, 0.95);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
-.lightbox.active, .category-modal.active { display: flex; }
+.lightbox.active, .category-modal.active, .video-modal.active { display: flex; }
 .lightbox-content { max-width: 90%; max-height: 90%; object-fit: contain; border-radius: 5px; }
-.lightbox-close, .category-modal-close {
-    position: fixed;
-    top: 20px;
-    right: 25px;
-    font-size: 2.5rem;
-    color: var(--text-primary);
-    cursor: pointer;
-    z-index: 5001;
-}
+.lightbox-close, .category-modal-close, .video-modal-close { position: fixed; top: 20px; right: 25px; font-size: 2.5rem; color: var(--text-primary); cursor: pointer; z-index: 5001; }
 .category-modal { overflow-y: auto; display: none; padding: 60px 15px; }
 .category-modal-content { max-width: 1100px; margin: 0 auto; width: 100%; text-align: center; }
 .category-photos-grid { column-count: 3; column-gap: 15px; margin-top: 20px; }
 .category-photos-grid img { width: 100%; border-radius: 8px; margin-bottom: 15px; cursor: zoom-in; }
+.video-grid-modal { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; width: 100%; max-width: 1000px; margin: 0 auto; }
+.video-grid-modal video { width: 100%; border-radius: 10px; border: 1px solid var(--border-color); background: #000; }
 @media (max-width: 768px) { .category-photos-grid { column-count: 2; } }
 @media (max-width: 480px) { .category-photos-grid { column-count: 1; } }
 
-.category-pdf-btn {
-    display: inline-flex;
-    align-items: center;
-    background: transparent;
-    color: var(--highlight-color);
-    border: 1px solid var(--highlight-color);
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 30px;
-    font-weight: 700;
-    font-size: 0.85rem;
-    margin-bottom: 30px;
-    transition: all 0.3s ease;
-}
-.category-pdf-btn:hover { background: var(--highlight-color); color: var(--bg-main); }
-
-/* ----- 8. FOOTER & SOSIAL MEDIA ----- */
-main { position: relative; z-index: 2; background-color: var(--bg-main); min-height: 100vh; }
+/* ----- 9. FOOTER & BURGER MENU MOBILE (RESPONSIVE FIXES) ----- */
+main { position: relative; z-index: 2; background-color: var(--bg-main); min-height: 100vh; overflow-x: hidden; }
 footer { background: #050505; padding: 50px 0; text-align: center; border-top: 1px solid var(--border-color); }
 .social-links { margin-bottom: 15px; }
 .social-icon { color: var(--text-secondary); margin: 0 10px; transition: color 0.3s ease; display: inline-block; }
-.social-icon:hover { color: var(--highlight-color); }
+.social-icon:hover { color: var(--highlight-color); transform: translateY(-3px); }
 
-/* ----- 9. BURGER MENU & MOBILE RESPONSIVE FIXES ----- */
 .burger-menu { display: none; cursor: pointer; }
 .burger-line { width: 25px; height: 3px; background-color: var(--text-primary); margin: 5px 0; transition: all 0.3s ease; }
 
 @media(max-width: 992px) {
     .nav-links {
-        position: fixed;
-        right: 0;
-        top: 0;
-        height: 100vh;
-        width: 75%;
-        max-width: 300px;
-        background-color: var(--bg-secondary);
-        box-shadow: -5px 0 25px rgba(0,0,0,0.7);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transform: translateX(100%);
-        transition: transform 0.4s ease-in-out;
-        z-index: 3001;
+        position: fixed; right: 0; top: 0; height: 100vh; width: 75%; max-width: 300px;
+        background-color: var(--bg-secondary); box-shadow: -5px 0 25px rgba(0,0,0,0.7);
+        display: flex; justify-content: center; align-items: center;
+        transform: translateX(100%); transition: transform 0.4s ease-in-out; z-index: 3001;
     }
     .nav-links.active { transform: translateX(0); }
     .nav-links ul { flex-direction: column; text-align: center; width: 100%; }
     .nav-links li { margin: 20px 0; }
     .nav-links a { font-size: 1.1rem; }
-    
     .burger-menu { display: block; position: relative; z-index: 3002; }
     .burger-menu.active .burger-line:nth-child(1) { transform: rotate(-45deg) translate(-5px, 6px); }
     .burger-menu.active .burger-line:nth-child(2) { opacity: 0; }
     .burger-menu.active .burger-line:nth-child(3) { transform: rotate(45deg) translate(-5px, -6px); }
-    
     body::after {
-        content: '';
-        position: fixed;
-        top: 0; left: 0;
-        width: 100%; height: 100vh;
-        background: rgba(0,0,0,0.7);
-        z-index: 2999;
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.4s ease;
+        content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+        background: rgba(0,0,0,0.7); z-index: 2999; opacity: 0; pointer-events: none; transition: opacity 0.4s ease;
     }
     body.nav-open::after { opacity: 1; pointer-events: all; }
     
     .about-content { flex-direction: column; text-align: center; }
     .profile-pic { width: 200px; height: 200px; margin: 0 auto; }
     .hero-content h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.8rem; }
 }
 
-/* ----- FIXED FLOATING BUTTONS (TIDAK BERTUMPUK DI MOBILE) ----- */
+/* ----- FIXED FLOATING BUTTONS (ANTI TUMPUK DI HP) ----- */
 .whatsapp-float {
-    position: fixed;
-    bottom: 25px;
-    right: 20px;
-    background-color: #25d366;
-    color: white;
-    border-radius: 50px;
-    padding: 12px 18px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 0.9rem;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-    z-index: 4500;
-    transition: all 0.3s ease;
+    position: fixed; bottom: 25px; right: 20px; background-color: #25d366; color: white;
+    border-radius: 50px; padding: 12px 18px; display: flex; align-items: center; gap: 8px;
+    text-decoration: none; font-weight: bold; font-size: 0.9rem; box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    z-index: 4500; transition: all 0.3s ease;
 }
 .whatsapp-float:hover { background-color: #128c7e; transform: translateY(-3px); }
-
 .back-to-top {
-    position: fixed;
-    bottom: 25px;
-    left: 20px;
-    background-color: var(--bg-secondary);
-    border: 1px solid var(--border-color);
-    color: var(--highlight-color);
-    border-radius: 30px;
-    padding: 10px 15px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    text-decoration: none;
-    z-index: 4500;
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(20px);
-    transition: all 0.4s ease;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    position: fixed; bottom: 25px; left: 20px; background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color); color: var(--highlight-color); border-radius: 30px;
+    padding: 10px 15px; display: flex; align-items: center; gap: 6px; text-decoration: none;
+    z-index: 4500; opacity: 0; pointer-events: none; transform: translateY(20px);
+    transition: all 0.4s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.4);
 }
 .back-to-top span { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
 .back-to-top.show { opacity: 1; pointer-events: all; transform: translateY(0); }
 .back-to-top:hover { background-color: var(--highlight-color); color: var(--bg-main); }
 
 @media (max-width: 480px) {
-    .whatsapp-float span { display: none; } /* Di HP kecil jadi ikon saja agar tidak sempit */
+    .whatsapp-float span { display: none; }
     .whatsapp-float { padding: 12px; bottom: 20px; right: 15px; }
-    
     .back-to-top span { display: none; }
     .back-to-top { padding: 10px; bottom: 20px; left: 15px; border-radius: 50%; }
 }
 
-/* ----- ELEMEN LAINNYA ----- */
+/* ----- VIDEOTRON & FEEDS ----- */
 .videotron-container {
-    background-color: #050505;
-    background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px);
-    background-size: 4px 4px;
-    padding: 20px 0;
-    overflow: hidden;
-    white-space: nowrap;
-    border-top: 2px solid #111;
-    border-bottom: 2px solid #111;
+    background-color: #050505; padding: 20px 0; overflow: hidden; white-space: nowrap;
+    border-top: 2px solid #111; border-bottom: 2px solid #111;
 }
 .videotron-content {
-    display: inline-block;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 1.5rem;
-    font-weight: 700;
-    letter-spacing: 4px;
-    color: var(--highlight-color);
+    display: inline-block; font-family: 'Courier New', Courier, monospace; font-size: 1.5rem;
+    font-weight: 700; letter-spacing: 4px; color: var(--highlight-color);
     animation: scrollVideotron 25s linear infinite;
 }
 .videotron-content span { margin: 0 20px; }
-@keyframes scrollVideotron {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
-
-.campaign-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 30px; }
-.cs-card { background: var(--bg-main); border-radius: 12px; border: 1px solid var(--border-color); overflow: hidden; display: flex; flex-direction: column; }
-.cs-visual-small { height: 220px; position: relative; overflow: hidden; }
-.cs-visual-small img { width: 100%; height: 100%; object-fit: cover; }
-.cs-badge { position: absolute; top: 15px; left: 15px; background: var(--highlight-color); color: var(--bg-main); font-weight: 800; font-size: 0.65rem; padding: 4px 12px; border-radius: 20px; }
-.cs-content-small { padding: 20px; flex: 1; display: flex; flex-direction: column; }
-.cs-content-small h3 { font-size: 1.3rem; margin-bottom: 5px; }
-.cs-role { color: var(--highlight-color); font-size: 0.8rem; margin-bottom: 15px; border-bottom: 1px solid var(--border-color); padding-bottom: 8px; }
-.cs-pillar { margin-bottom: 12px; }
-.cs-pillar h4 { font-size: 0.9rem; color: #fff; margin-bottom: 3px; }
-.cs-pillar p { font-size: 0.8rem; color: var(--text-secondary); }
-.cs-metrics-mini { display: flex; justify-content: space-around; padding-top: 12px; border-top: 1px solid var(--border-color); margin-top: auto; }
-.m-item { text-align: center; font-size: 0.7rem; color: var(--text-secondary); text-transform: uppercase; }
-.m-item span { display: block; font-size: 1.2rem; font-weight: 800; color: var(--highlight-color); }
+@keyframes scrollVideotron { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
 .feed-grid-container { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; width: 100%; }
 @media (max-width: 992px) { .feed-grid-container { grid-template-columns: 1fr; } }
-.live-feed-wrapper { background: rgba(255, 255, 255, 0.02); padding: 20px; border-radius: 12px; border: 1px solid var(--border-color); }
-.badge { display: inline-block; padding: 4px 10px; border-radius: 20px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; }
-.badge-ig { background: linear-gradient(45deg, #f09433, #dc2743, #bc1888); color: #fff; }
-.badge-tiktok { background: #00f2fe; color: #000; }
+.live-feed-wrapper { background: rgba(255, 255, 255, 0.02); padding: 20px; border-radius: 12px; border: 1px solid var(--border-color); overflow: hidden; }
 
-.final-cta-section { position: relative; padding: 80px 0; background: #050505; overflow: hidden; text-align: center; }
-.cta-card { position: relative; z-index: 2; background: rgba(30, 30, 30, 0.6); backdrop-filter: blur(15px); border: 1px solid rgba(255,255,255,0.1); padding: 40px 20px; border-radius: 15px; max-width: 750px; margin: 0 auto; }
-.cta-title { font-size: 2.2rem; margin-bottom: 20px; }
+/* ----- FINAL CTA ----- */
+.final-cta-section { position: relative; padding: 80px 0; background: #050505; text-align: center; }
+.cta-card { position: relative; z-index: 2; background: rgba(30, 30, 30, 0.6); border: 1px solid rgba(255,255,255,0.1); padding: 40px 20px; border-radius: 15px; max-width: 750px; margin: 0 auto; }
 .project-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 30px; }
 .tag-btn { background: transparent; border: 1px solid #444; color: #fff; padding: 8px 16px; border-radius: 20px; cursor: pointer; font-size: 0.8rem; }
 .tag-btn.active, .tag-btn:hover { border-color: var(--highlight-color); color: var(--highlight-color); background: rgba(245, 203, 92, 0.1); }
@@ -508,25 +281,6 @@ footer { background: #050505; padding: 50px 0; text-align: center; border-top: 1
 .magnetic-send-btn { background: var(--highlight-color); color: #000; border: none; padding: 12px 25px; border-radius: 30px; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 0.85rem; }
 .cv-download-btn { display: flex; align-items: center; justify-content: center; background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.2); padding: 12px 20px; border-radius: 30px; font-weight: 700; font-size: 0.85rem; text-decoration: none; }
 
-.side-nav-wrapper { display: none; } /* Disembunyikan di mobile agar tidak mengganggu layar */
-@media(min-width: 1025px) {
-    .side-nav-wrapper {
-        position: fixed; top: 50%; right: 0; transform: translateY(-50%) translateX(100%);
-        z-index: 2000; transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-        background: rgba(18, 18, 18, 0.95); backdrop-filter: blur(12px);
-        border: 1px solid var(--border-color); border-right: none;
-        border-radius: 15px 0 0 15px; padding: 25px; box-shadow: -10px 10px 30px rgba(0,0,0,0.6);
-        display: block;
-    }
-    .side-nav-tab {
-        position: absolute; left: -40px; top: 50%; transform: translateY(-50%);
-        background: rgba(18, 18, 18, 0.95); backdrop-filter: blur(12px);
-        border: 1px solid var(--border-color); border-right: none;
-        width: 40px; height: 70px; border-radius: 15px 0 0 15px;
-        display: flex; justify-content: center; align-items: center; cursor: pointer; color: var(--highlight-color);
-    }
-    .side-nav-wrapper:hover { transform: translateY(-50%) translateX(0); }
-    .section-nav { display: flex; flex-direction: column; gap: 12px; }
-    .section-nav a { color: var(--text-secondary); text-decoration: none; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; white-space: nowrap; transition: 0.3s; }
-    .section-nav a:hover { color: var(--highlight-color); }
-}
+/* Swiper Overrides */
+.featuredSwiper { width: 100%; overflow: hidden; padding-bottom: 50px; }
+.featuredSwiper .swiper-slide { border-radius: 12px; overflow: hidden; }
