@@ -12,131 +12,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portofolio Fotografi - Reynaldi Bagaskara</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style_2.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
-    <div id="premium-loader">
-        <div class="loader-content">
-            <span class="loader-name">REYNALDI BAGASKARA</span>
-            <span class="loader-title">Commercial & Visual Artist</span>
-            <div class="loader-progress"></div>
-        </div>
-    </div>
-
     <header class="navbar">
         <div class="container">
-            <a href="index.html" class="logo">Reynaldi Bagaskara</a>
-            
-            <div class="hiring-status" data-aos="fade-left">
-                <span class="status-dot"></span>
-                <span class="status-text">Available for Projects</span>
-            </div>
-            
+            <a href="index_2.html" class="logo">Reynaldi Bagaskara</a>
             <nav class="nav-links">
                 <ul>
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index_2.html">Home</a></li>
                     <li><a href="marketing.html">Marketing Strategy</a></li>
                     <li><a href="fotografi.html" class="active">Fotografi</a></li>
                     <li><a href="videografi.html">Videografi</a></li>
-                    <li><a href="index.html#contact">Kontak</a></li>
                 </ul>
             </nav>
-    
             <div class="burger-menu">
-                <div class="burger-line"></div>
-                <div class="burger-line"></div>
-                <div class="burger-line"></div>
+                <div class="burger-line"></div><div class="burger-line"></div><div class="burger-line"></div>
             </div>
         </div>
     </header>
 
     <main>
-        <section class="page-banner">
+        <section class="hero" style="min-height: 40vh; padding: 120px 0 60px;">
             <div class="container" data-aos="fade-up">
-                <span class="badge badge-ig" style="margin-bottom: 15px;">VISUAL ARTWORK</span>
                 <h1>Galeri Karya Fotografi</h1>
-                <p>Koleksi karya fotografi komersial, portret, panggung hiburan, styling makanan & minuman, serta manipulasi digital sudut lebar.</p>
+                <p style="color: var(--text-secondary);">Koleksi karya fotografi komersial, portret, panggung hiburan, styling makanan & minuman.</p>
             </div>
         </section>
 
-        <section id="karya-foto-section" style="padding-top: 40px; padding-bottom: 80px;">
+        <section id="karya-foto-section" style="padding: 60px 0;">
             <div class="container">
-                <h2 class="gallery-divider" data-aos="fade-up">Kategori Karya Foto</h2>
-                <p class="gallery-subheading" style="text-align: center; margin-bottom: 30px;" data-aos="fade-up" data-aos-delay="100">Klik pada salah satu kategori untuk membuka galeri foto lengkap & mengunduh PDF portofolio.</p>
+                <h2 data-aos="fade-up">Kategori Karya Foto</h2>
+                <p style="text-align: center; margin-bottom: 40px; color: var(--text-secondary);" data-aos="fade-up">Klik pada salah satu kategori untuk membuka galeri.</p>
                 
-                <div class="category-static-wrapper" data-aos="fade-up" data-aos-delay="200">
-                    <div class="category-grid-static">
-                        <div class="cat-card" onclick="openCategory('portrait')">
-                            <img src="gambar/acak35 (2).jpg" alt="Portrait" loading="lazy">
-                            <div class="cat-overlay"><h3>Portrait</h3><p>Human Emotion</p></div>
-                        </div>
-
-                        <div class="cat-card" onclick="openCategory('sport')">
-                            <img src="gambar/sport.jpg" alt="Sport & Wellness" loading="lazy">
-                            <div class="cat-overlay"><h3>Sport & Wellness</h3><p>Action & Energy</p></div>
-                        </div>
-
-                        <div class="cat-card" onclick="openCategory('wedding')">
-                            <img src="gambar/wedding.jpg" alt="Wedding" loading="lazy">
-                            <div class="cat-overlay"><h3>Wedding</h3><p>Love & Moments</p></div>
-                        </div>
-
-                        <div class="cat-card" onclick="openCategory('corporate')">
-                            <img src="gambar/corporate.jpg" alt="Corporate & Event" loading="lazy">
-                            <div class="cat-overlay"><h3>Corporate & Event</h3><p>Professional Engagement</p></div>
-                        </div>
-
-                        <div class="cat-card" onclick="openCategory('nightlife')">
-                            <img src="gambar/nightlife.jpg" alt="Nightlife & Stage" loading="lazy">
-                            <div class="cat-overlay"><h3>Nightlife & Stage</h3><p>Energy & Crowd Atmosphere</p></div>
-                        </div>
-
-                        <div class="cat-card" onclick="openCategory('private-party')">
-                            <img src="gambar/private.jpg" alt="Private Party" loading="lazy">
-                            <div class="cat-overlay"><h3>Private Party</h3><p>Exclusive Celebrations & Vibe</p></div>
-                        </div>
-                        
-                        <div class="cat-card" onclick="openCategory('fnb')">
-                            <img src="gambar/fnb.jpg" alt="Food & Beverage" loading="lazy">
-                            <div class="cat-overlay"><h3>Food & Beverage</h3><p>Culinary & Product Styling</p></div>
-                        </div>
-                    </div> 
-                </div>
-            </div>
-        </section>
-
-        <!-- HORIZON PANORAMIC SHOWCASE -->
-        <section id="horizon-showcase" class="horizon-wrapper">
-            <div class="horizon-container">
-                <div class="horizon-intro">
-                    <h2 data-aos="fade-right">Panoramic<br><span style="color: var(--highlight-color);">Vision.</span></h2>
-                    <p data-aos="fade-right" data-aos-delay="200">Teknik penggabungan gambar presisi tinggi (21:9 Stitching) untuk ruang komersial & arsitektur tanpa mengorbankan integritas subjek.</p>
-                </div>
-
-                <div class="horizon-item">
-                    <img src="gambar/facad.jpg" alt="Panoramic Commercial">
-                    <div class="horizon-caption">Commercial Space & Architecture</div>
-                </div>
-
-                <div class="horizon-item">
-                    <img src="gambar/widestage.jpg" alt="Panoramic Stage">
-                    <div class="horizon-caption">Wide Stage & Crowd Atmosphere</div>
-                </div>
-
-                <div class="horizon-item">
-                    <img src="gambar/landscape.jpg" alt="Panoramic Landscape">
-                    <div class="horizon-caption">Landscape & Environment</div>
+                <div class="category-grid-static" data-aos="fade-up">
+                    <div class="cat-card" onclick="openCategory('portrait')">
+                        <img src="gambar/acak35 (2).jpg" alt="Portrait" loading="lazy">
+                        <div class="cat-overlay"><h3>Portrait</h3><p>Human Emotion</p></div>
+                    </div>
+                    <div class="cat-card" onclick="openCategory('sport')">
+                        <img src="gambar/sport.jpg" alt="Sport & Wellness" loading="lazy" onerror="this.src='gambar/acak23 (2).jpg'">
+                        <div class="cat-overlay"><h3>Sport & Wellness</h3><p>Action & Energy</p></div>
+                    </div>
+                    <div class="cat-card" onclick="openCategory('wedding')">
+                        <img src="gambar/wedding.jpg" alt="Wedding" loading="lazy" onerror="this.src='gambar/facad.jpg'">
+                        <div class="cat-overlay"><h3>Wedding</h3><p>Love & Moments</p></div>
+                    </div>
+                    <div class="cat-card" onclick="openCategory('corporate')">
+                        <img src="gambar/corporate.jpg" alt="Corporate" loading="lazy" onerror="this.src='gambar/fnb.jpg'">
+                        <div class="cat-overlay"><h3>Corporate & Event</h3><p>Professional Engagement</p></div>
+                    </div>
+                    <div class="cat-card" onclick="openCategory('nightlife')">
+                        <img src="gambar/nightlife.jpg" alt="Nightlife" loading="lazy" onerror="this.src='gambar/acak23 (2).jpg'">
+                        <div class="cat-overlay"><h3>Nightlife & Stage</h3><p>Energy & Crowd</p></div>
+                    </div>
+                    <div class="cat-card" onclick="openCategory('fnb')">
+                        <img src="gambar/fnb.jpg" alt="Food & Beverage" loading="lazy">
+                        <div class="cat-overlay"><h3>Food & Beverage</h3><p>Culinary Styling</p></div>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Modal Pop-up Foto -->
+    <!-- Modal Galeri Foto -->
     <div id="category-modal" class="category-modal">
         <div class="category-modal-content">
             <span class="category-modal-close" onclick="closeCategory()">&times;</span>
-            <h2 id="category-title" style="color: var(--highlight-color); margin-bottom: 30px; text-transform: uppercase;"></h2>
+            <h2 id="category-title" style="color: var(--highlight-color); margin-bottom: 20px;"></h2>
             <div id="category-photos-grid" class="category-photos-grid"></div>
         </div>
     </div>
@@ -145,35 +89,10 @@
         <span class="lightbox-close">&times;</span>
         <img id="lightbox-img" class="lightbox-content" src="">
     </div>
+    
     <div class="cursor-dot"></div>
     <div class="cursor-ring"></div>
-
-    <a href="https://wa.me/6282196956556?text=Halo%20Rey,%20saya%20tertarik%20dengan%20layanan%20fotografi%20Anda." class="whatsapp-float" target="_blank">
-        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 16 16">
-            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.23.148-.427.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
-        </svg>
-        <span>Chat Saya</span>
-    </a>
-
-    <a href="#" id="back-to-top" class="back-to-top">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"></polyline></svg>
-        <span>Ke Atas</span>
-    </a>
-
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="script-2.js"></script>
-
-    <footer>
-        <div class="social-links">
-            <a href="https://www.instagram.com/motretsembarang_" target="_blank" class="social-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="24" height="24" fill="currentColor">
-                    <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9 26.2 26.2 58 34.4 93.9 36.2 37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
-                </svg>
-            </a>
-        </div>
-        <p>&copy; 2026 | Portfolio Reynaldi Bagaskara.</p>
-    </footer>
 </body>
 </html>
