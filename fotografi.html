@@ -1,73 +1,66 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WN4M2QCL4G"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-WN4M2QCL4G');
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portofolio Fotografi - Reynaldi Bagaskara</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style_2.css">
+    <link rel="stylesheet" href="style.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
     <header class="navbar">
         <div class="container">
-            <a href="index_2.html" class="logo">Reynaldi Bagaskara</a>
+            <a href="index.html" class="logo">Reynaldi Bagaskara</a>
             <nav class="nav-links">
                 <ul>
-                    <li><a href="index_2.html">Home</a></li>
+                    <li><a href="index.html">Home</a></li>
                     <li><a href="marketing.html">Marketing Strategy</a></li>
                     <li><a href="fotografi.html" class="active">Fotografi</a></li>
                     <li><a href="videografi.html">Videografi</a></li>
                 </ul>
             </nav>
             <div class="burger-menu">
-                <div class="burger-line"></div><div class="burger-line"></div><div class="burger-line"></div>
+                <div class="burger-line"></div>
+                <div class="burger-line"></div>
+                <div class="burger-line"></div>
             </div>
         </div>
     </header>
 
     <main>
-        <section class="hero" style="min-height: 40vh; padding: 120px 0 60px;">
+        <section style="padding: 140px 0 50px; text-align: center;">
             <div class="container" data-aos="fade-up">
-                <h1>Galeri Karya Fotografi</h1>
-                <p style="color: var(--text-secondary);">Koleksi karya fotografi komersial, portret, panggung hiburan, styling makanan & minuman.</p>
+                <span class="badge badge-ig">VISUAL ARTWORK</span>
+                <h1 style="font-size: 2.5rem; margin: 15px 0;">Galeri Karya Fotografi</h1>
+                <p style="color: var(--text-secondary); max-width: 700px; margin: 0 auto;">Koleksi karya fotografi komersial, portret, panggung hiburan, styling makanan & minuman, serta olahraga.</p>
             </div>
         </section>
 
-        <section id="karya-foto-section" style="padding: 60px 0;">
+        <section style="padding-bottom: 90px;">
             <div class="container">
-                <h2 data-aos="fade-up">Kategori Karya Foto</h2>
-                <p style="text-align: center; margin-bottom: 40px; color: var(--text-secondary);" data-aos="fade-up">Klik pada salah satu kategori untuk membuka galeri.</p>
-                
-                <div class="category-grid-static" data-aos="fade-up">
-                    <div class="cat-card" onclick="openCategory('portrait')">
+                <div class="grid-3" data-aos="fade-up">
+                    <div class="cat-card" onclick="openGallery('portrait')">
                         <img src="gambar/acak35 (2).jpg" alt="Portrait" loading="lazy">
                         <div class="cat-overlay"><h3>Portrait</h3><p>Human Emotion</p></div>
                     </div>
-                    <div class="cat-card" onclick="openCategory('sport')">
+                    <div class="cat-card" onclick="openGallery('sport')">
                         <img src="gambar/sport.jpg" alt="Sport & Wellness" loading="lazy" onerror="this.src='gambar/acak23 (2).jpg'">
                         <div class="cat-overlay"><h3>Sport & Wellness</h3><p>Action & Energy</p></div>
                     </div>
-                    <div class="cat-card" onclick="openCategory('wedding')">
+                    <div class="cat-card" onclick="openGallery('wedding')">
                         <img src="gambar/wedding.jpg" alt="Wedding" loading="lazy" onerror="this.src='gambar/facad.jpg'">
                         <div class="cat-overlay"><h3>Wedding</h3><p>Love & Moments</p></div>
                     </div>
-                    <div class="cat-card" onclick="openCategory('corporate')">
+                    <div class="cat-card" onclick="openGallery('corporate')">
                         <img src="gambar/corporate.jpg" alt="Corporate" loading="lazy" onerror="this.src='gambar/fnb.jpg'">
                         <div class="cat-overlay"><h3>Corporate & Event</h3><p>Professional Engagement</p></div>
                     </div>
-                    <div class="cat-card" onclick="openCategory('nightlife')">
+                    <div class="cat-card" onclick="openGallery('nightlife')">
                         <img src="gambar/nightlife.jpg" alt="Nightlife" loading="lazy" onerror="this.src='gambar/acak23 (2).jpg'">
                         <div class="cat-overlay"><h3>Nightlife & Stage</h3><p>Energy & Crowd</p></div>
                     </div>
-                    <div class="cat-card" onclick="openCategory('fnb')">
+                    <div class="cat-card" onclick="openGallery('fnb')">
                         <img src="gambar/fnb.jpg" alt="Food & Beverage" loading="lazy">
                         <div class="cat-overlay"><h3>Food & Beverage</h3><p>Culinary Styling</p></div>
                     </div>
@@ -77,22 +70,25 @@
     </main>
 
     <!-- Modal Galeri Foto -->
-    <div id="category-modal" class="category-modal">
-        <div class="category-modal-content">
-            <span class="category-modal-close" onclick="closeCategory()">&times;</span>
-            <h2 id="category-title" style="color: var(--highlight-color); margin-bottom: 20px;"></h2>
-            <div id="category-photos-grid" class="category-photos-grid"></div>
+    <div id="gallery-modal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal('gallery-modal')">&times;</span>
+            <h2 id="gallery-title" style="color: var(--highlight-color); margin-bottom: 20px; text-transform: uppercase;"></h2>
+            <div id="gallery-grid" class="masonry-grid"></div>
         </div>
     </div>
     
+    <!-- Lightbox Zoom -->
     <div id="lightbox" class="lightbox">
-        <span class="lightbox-close">&times;</span>
-        <img id="lightbox-img" class="lightbox-content" src="">
+        <span class="modal-close">&times;</span>
+        <img id="lightbox-img" class="lightbox-img" src="">
     </div>
-    
-    <div class="cursor-dot"></div>
-    <div class="cursor-ring"></div>
+
+    <footer>
+        <p>&copy; 2026 | Portfolio Reynaldi Bagaskara.</p>
+    </footer>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="script-2.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
