@@ -1,40 +1,29 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WN4M2QCL4G"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-WN4M2QCL4G');
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marketing & Social Media Portfolio - Reynaldi Bagaskara</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style_2.css">
+    <link rel="stylesheet" href="style.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
-    <div id="premium-loader">
-        <div class="loader-content">
-            <span class="loader-name">REYNALDI BAGASKARA</span>
-            <span class="loader-title">Marketing Strategy & Brand Activation</span>
-            <div class="loader-progress"></div>
-        </div>
-    </div>
-
     <header class="navbar">
         <div class="container">
-            <a href="index_2.html" class="logo">Reynaldi Bagaskara</a>
+            <a href="index.html" class="logo">Reynaldi Bagaskara</a>
+            
+            <div class="hiring-status" style="display: flex; align-items: center; gap: 8px;">
+                <span style="width: 8px; height: 8px; background-color: #25d366; border-radius: 50%;"></span>
+                <span style="font-size: 0.8rem; color: var(--text-secondary);">Available for Managerial Roles</span>
+            </div>
             
             <nav class="nav-links">
                 <ul>
-                    <li><a href="index_2.html">Home</a></li>
+                    <li><a href="index.html">Home</a></li>
                     <li><a href="marketing.html" class="active">Marketing Strategy</a></li>
                     <li><a href="fotografi.html">Fotografi</a></li>
                     <li><a href="videografi.html">Videografi</a></li>
-                    <li><a href="index_2.html#contact">Kontak</a></li>
                 </ul>
             </nav>
     
@@ -48,124 +37,103 @@
 
     <main>
         <!-- PAGE HERO BANNER -->
-        <section class="hero" style="min-height: 50vh; padding: 120px 0 60px;">
+        <section style="padding: 140px 0 60px; text-align: center;">
             <div class="container" data-aos="fade-up">
-                <span class="badge badge-ig" style="margin-bottom: 15px;">STRATEGIC MARKETING & ACTIVATION</span>
-                <h1 style="font-size: 2.5rem; margin-bottom: 15px;">Marketing & Social Media Portfolio</h1>
-                <p style="color: var(--text-secondary); max-width: 700px; margin: 0 auto;">Mengelola strategi multi-brand, kampanye performa digital (Meta Ads), aktivasi komunitas, dan kurasi KOL untuk industri F&B, Nightlife, dan Hospitality.</p>
+                <span class="badge badge-ig">STRATEGIC MARKETING & ACTIVATION</span>
+                <h1 style="font-size: 2.5rem; margin: 15px 0;">Marketing & Social Media Portfolio</h1>
+                <p style="color: var(--text-secondary); max-width: 800px; margin: 0 auto;">Mengelola strategi multi-brand, kampanye performa digital (Meta Ads), aktivasi komunitas, dan kurasi KOL untuk industri F&B, Nightlife, dan Hospitality.</p>
             </div>
         </section>
 
-        <!-- MULTI-BRAND MANAGEMENT SECTION (PERBAIKAN LAYOUT GRID) -->
-        <section id="multi-brand" style="background-color: var(--bg-main); padding: 80px 0; border-bottom: 1px solid var(--border-color);">
-            <div class="container multi-brand-layout">
-                <!-- Sisi Kiri (Judul - Tetap diam di desktop) -->
-                <div class="multi-brand-header-sticky" data-aos="fade-right">
-                    <h2 style="text-align: left; margin-bottom: 15px;">Multi-Brand Strategy & Management</h2>
-                    <p style="color: var(--text-secondary); line-height: 1.6;">Memetakan unit bisnis di bawah Sudestada Group serta pengalaman profesional sebelumnya.</p>
-                </div>
+        <!-- MULTI-BRAND MANAGEMENT MATRIX SECTION -->
+        <section id="multi-brand" style="background-color: var(--bg-main); padding: 80px 0; border-top: 1px solid var(--border-color);">
+            <div class="container">
+                <h2 data-aos="fade-up">Multi-Brand Strategy & Management</h2>
+                <p style="text-align: center; margin-bottom: 50px; color: var(--text-secondary);" data-aos="fade-up">Memetakan unit bisnis di bawah Sudestada Group serta pengalaman profesional sebelumnya.</p>
 
-                <!-- Sisi Kanan (Kartu Grid) -->
-                <div class="brand-matrix-grid" data-aos="fade-up" data-aos-delay="200">
+                <!-- GRID SUDAH DIDEFINISIKAN DI CSS -->
+                <div class="brand-matrix-grid" data-aos="fade-up">
                     <div class="brand-matrix-card">
                         <div class="brand-header">
-                            <h3>Sudestada Grill & Casalena</h3>
+                            <h3 style="color: #fff; font-size: 1.2rem; margin-bottom: 8px;">Sudestada Grill & Casalena</h3>
                             <span class="brand-tag">Main Dining / Experiential</span>
                         </div>
-                        <p class="brand-target">Target Audience: Corporate Executives, Expatriates, & Affluent Families.</p>
-                        <p class="brand-desc">Memosisikan brand sebagai Argentine Steakhouse autentik dan lifestyle dining berkelas melalui visual high-fidelity, sorotan premium cuts, serta program tematik.</p>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 10px;"><strong>Target Audience:</strong> Corporate Executives, Expatriates, & Affluent Families.</p>
+                        <p style="color: var(--text-primary); font-size: 0.9rem;">Memosisikan brand sebagai Argentine Steakhouse autentik dan lifestyle dining berkelas melalui visual high-fidelity, sorotan premium cuts, serta program tematik.</p>
                     </div>
 
                     <div class="brand-matrix-card">
                         <div class="brand-header">
-                            <h3>Coal Bar & Libros Bar</h3>
+                            <h3 style="color: #fff; font-size: 1.2rem; margin-bottom: 8px;">Coal Bar & Libros Bar</h3>
                             <span class="brand-tag">Lounge & Speakeasy</span>
                         </div>
-                        <p class="brand-target">Target Audience: After-Hours CBD Professionals & Nightlife Enthusiasts.</p>
-                        <p class="brand-desc">Fokus pada strategi <em>Curated Guest Hosting</em>, promosi cocktail mixology, eksklusivitas speakeasy bar, dan DJ entertainment untuk membangun FOMO.</p>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 10px;"><strong>Target Audience:</strong> After-Hours CBD Professionals & Nightlife Enthusiasts.</p>
+                        <p style="color: var(--text-primary); font-size: 0.9rem;">Fokus pada strategi <em>Curated Guest Hosting</em>, promosi cocktail mixology, eksklusivitas speakeasy bar, dan DJ entertainment untuk membangun FOMO.</p>
                     </div>
 
                     <div class="brand-matrix-card">
                         <div class="brand-header">
-                            <h3>Signature & Sudestada Cafe</h3>
+                            <h3 style="color: #fff; font-size: 1.2rem; margin-bottom: 8px;">Signature & Sudestada Cafe</h3>
                             <span class="brand-tag">Casual Dining & Sports Hub</span>
                         </div>
-                        <p class="brand-target">Target Audience: Padel Court Community, Youth, & Casual Diners.</p>
-                        <p class="brand-desc">Berada di area fasilitas olahraga padel court, menyajikan konten energetic lifestyle, makanan santai, dan minuman segar pasca beraktivitas.</p>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 10px;"><strong>Target Audience:</strong> Padel Court Community, Youth, & Casual Diners.</p>
+                        <p style="color: var(--text-primary); font-size: 0.9rem;">Berada di area fasilitas olahraga padel court, menyajikan konten energetic lifestyle, makanan santai, dan minuman segar pasca beraktivitas.</p>
                     </div>
 
                     <div class="brand-matrix-card">
                         <div class="brand-header">
-                            <h3>Flexyum Dining & Lounge</h3>
+                            <h3 style="color: #fff; font-size: 1.2rem; margin-bottom: 8px;">Flexyum Dining & Lounge (Prev)</h3>
                             <span class="brand-tag">Hospitality & KTV</span>
                         </div>
-                        <p class="brand-target">Target Audience: Entertainment Seekers & Social Groups.</p>
-                        <p class="brand-desc">Menyusun strategi digital marketing, action plans, Meta Ads, pengelolan konten media sosial, hingga dokumentasi event nightlife secara menyeluruh.</p>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 10px;"><strong>Target Audience:</strong> Entertainment Seekers & Social Groups.</p>
+                        <p style="color: var(--text-primary); font-size: 0.9rem;">Menyusun strategi digital marketing, action plans, Meta Ads, pengelolan konten media sosial, hingga dokumentasi event nightlife secara menyeluruh.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- CAMPAIGN SPOTLIGHT & CASE STUDIES -->
-        <section id="campaign-case-study" style="background-color: var(--bg-secondary); padding: 80px 0; border-bottom: 1px solid var(--border-color);">
+        <!-- CAMPAIGN SPOTLIGHT -->
+        <section id="campaign-case-study" style="background-color: var(--bg-secondary); padding: 80px 0; border-top: 1px solid var(--border-color);">
             <div class="container">
                 <h2 data-aos="fade-up">Campaign Spotlight Case Studies</h2>
-                <p style="text-align: center; margin-bottom: 50px; color: var(--text-secondary);" data-aos="fade-up" data-aos-delay="100">Klik kartu kampanye di bawah untuk membuka **Executive Performance Dashboard** (Grafik Meta Ads, Report KOL, & Link Konten Asli).</p>
+                <p style="text-align: center; margin-bottom: 50px; color: var(--text-secondary);" data-aos="fade-up">Klik kartu kampanye di bawah untuk membuka **Executive Performance Dashboard**.</p>
 
+                <!-- GRID SUDAH DIDEFINISIKAN DI CSS -->
                 <div class="campaign-grid">
-                    <div class="cs-card" data-aos="fade-up" onclick="openCampaignModal('steak')" style="cursor: pointer;">
+                    <div class="cs-card" data-aos="fade-up" onclick="openCampaignModal('steak')">
                         <div class="cs-visual-small">
                             <img src="gambar/steak-campaign-1.jpg" alt="Steak to the point visual" loading="lazy" onerror="this.src='gambar/fnb.jpg'">
                             <div class="cs-badge">YIELD MANAGEMENT</div>
                         </div>
                         <div class="cs-content-small">
                             <h3>Steak to The Point – Sudestada</h3>
-                            <p class="cs-role"><strong>Role:</strong> Digital Marketing Strategist</p>
-                            <div class="cs-pillar">
-                                <h4>⚠️ Business Challenge</h4>
-                                <p>Mengatasi okupansi rendah di hari Senin untuk pasar eksekutif & ekspatriat.</p>
+                            <p style="color: var(--highlight-color); font-size: 0.8rem; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid var(--border-color);"><strong>Role:</strong> Digital Marketing Strategist & Media Buyer</p>
+                            <div style="margin-bottom: 15px;">
+                                <h4 style="font-size: 0.9rem; margin-bottom: 3px;">⚠️ Business Challenge</h4>
+                                <p style="font-size: 0.85rem; color: var(--text-secondary);">Mengatasi okupansi rendah di hari Senin untuk pasar eksekutif.</p>
                             </div>
-                            <div class="cs-metrics-mini">
-                                <div class="m-item"><span>Rp8.968</span> Cost / Message</div>
-                                <div class="m-item"><span>Rp2.5Jt</span> Budget</div>
+                            <div style="display: flex; justify-content: space-around; padding-top: 15px; border-top: 1px solid var(--border-color); margin-top: auto;">
+                                <div style="text-align: center; font-size: 0.7rem; color: var(--text-secondary);"><span style="display: block; font-size: 1.2rem; font-weight: 800; color: var(--highlight-color);">Rp8.968</span> Cost/Msg</div>
+                                <div style="text-align: center; font-size: 0.7rem; color: var(--text-secondary);"><span style="display: block; font-size: 1.2rem; font-weight: 800; color: var(--highlight-color);">Rp2.5Jt</span> Budget</div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="cs-card" data-aos="fade-up" data-aos-delay="150" onclick="openCampaignModal('pizza')" style="cursor: pointer;">
+                    <div class="cs-card" data-aos="fade-up" data-aos-delay="100" onclick="openCampaignModal('pizza')">
                         <div class="cs-visual-small">
                             <img src="gambar/pizza-campaign-1.jpg" alt="Pizza with Papa visual" loading="lazy" onerror="this.src='gambar/acak23 (2).jpg'">
                             <div class="cs-badge" style="background:#fff; color:#000;">EXPERIENTIAL</div>
                         </div>
                         <div class="cs-content-small">
                             <h3>Pizza with Papa – Father's Day</h3>
-                            <p class="cs-role"><strong>Role:</strong> Campaign Lead</p>
-                            <div class="cs-pillar">
-                                <h4>🔍 Business Challenge</h4>
-                                <p>Meningkatkan brand consideration segmen keluarga di Sudestada.</p>
+                            <p style="color: var(--highlight-color); font-size: 0.8rem; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid var(--border-color);"><strong>Role:</strong> Campaign Lead & Social Media</p>
+                            <div style="margin-bottom: 15px;">
+                                <h4 style="font-size: 0.9rem; margin-bottom: 3px;">🔍 Business Challenge</h4>
+                                <p style="font-size: 0.85rem; color: var(--text-secondary);">Meningkatkan brand consideration segmen keluarga di Sudestada.</p>
                             </div>
-                            <div class="cs-metrics-mini">
-                                <div class="m-item"><span>115.4K</span> Views</div>
-                                <div class="m-item"><span>Rp312</span> Cost / Visit</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="cs-card" data-aos="fade-up" data-aos-delay="300" onclick="openCampaignModal('brunch')" style="cursor: pointer;">
-                        <div class="cs-visual-small">
-                            <img src="gambar/brunch-campaign-1.jpg" alt="Casa Summer Brunch" loading="lazy" onerror="this.src='gambar/facad.jpg'">
-                            <div class="cs-badge" style="background:var(--highlight-color); color:#000;">DAYPARTING STRATEGY</div>
-                        </div>
-                        <div class="cs-content-small">
-                            <h3>Casa Summer Brunch</h3>
-                            <p class="cs-role"><strong>Role:</strong> Brand Activation Manager</p>
-                            <div class="cs-pillar">
-                                <h4>🔍 Business Challenge</h4>
-                                <p>Membuka aliran pendapatan baru di akhir pekan pagi (07:00 - 11:00 WIB).</p>
-                            </div>
-                            <div class="cs-metrics-mini">
-                                <div class="m-item"><span>+48.2%</span> Occupancy</div>
-                                <div class="m-item"><span>+35%</span> Bill Amount</div>
+                            <div style="display: flex; justify-content: space-around; padding-top: 15px; border-top: 1px solid var(--border-color); margin-top: auto;">
+                                <div style="text-align: center; font-size: 0.7rem; color: var(--text-secondary);"><span style="display: block; font-size: 1.2rem; font-weight: 800; color: var(--highlight-color);">115.4K</span> Views</div>
+                                <div style="text-align: center; font-size: 0.7rem; color: var(--text-secondary);"><span style="display: block; font-size: 1.2rem; font-weight: 800; color: var(--highlight-color);">Rp312</span> Cost/Visit</div>
                             </div>
                         </div>
                     </div>
@@ -173,101 +141,28 @@
             </div>
         </section>
 
-        <!-- SOCIAL MEDIA MANAGEMENT & FEEDS -->
-        <section id="socmed-management" style="background-color: var(--bg-main); padding: 80px 0;">
-            <div class="container">
-                <h2 data-aos="fade-up">Social Media Execution & Visual Feeds</h2>
-                <p style="text-align: center; color: var(--text-secondary); margin-bottom: 50px;" data-aos="fade-up" data-aos-delay="100">Menangani alur penuh dari rencana pilar konten bulanan, pengarahan visual shooting, pengunggahan, hingga analisis insight.</p>
-
-                <div class="feed-grid-container">
-                    <div class="live-feed-wrapper" data-aos="fade-up">
-                        <div style="text-align: center; margin-bottom: 25px;">
-                            <span class="badge badge-ig">Instagram Feed 1</span>
-                            <h3 style="margin-top: 10px; font-size: 1.1rem;">Sudestada Grill Bar & Cafe</h3>
-                        </div>
-                        <script src="https://elfsightcdn.com/platform.js" async></script>
-                        <div class="elfsight-app-d257a057-1bf6-4374-a1f6-c4956a45dc3e" data-elfsight-app-lazy style="width: 100%;"></div>
-                    </div>
-
-                    <div class="live-feed-wrapper" data-aos="fade-up" data-aos-delay="100">
-                        <div style="text-align: center; margin-bottom: 25px;">
-                            <span class="badge badge-ig">Instagram Feed 2</span>
-                            <h3 style="margin-top: 10px; font-size: 1.1rem;">Phototentic Studio</h3>
-                        </div>
-                        <div class="elfsight-app-17acafec-d519-4b70-ab26-e9f66c16e8ef" data-elfsight-app-lazy style="width: 100%;"></div>
-                    </div>
-
-                    <div class="live-feed-wrapper" data-aos="fade-up" data-aos-delay="200">
-                        <div style="text-align: center; margin-bottom: 25px;">
-                            <span class="badge badge-tiktok">TikTok Feed 3</span>
-                            <h3 style="margin-top: 10px; font-size: 1.1rem;">Flexyum Dining & Lounge</h3>
-                        </div>
-                        <div class="elfsight-app-3e53cae9-24f3-44dc-8c9d-e6dde6a5f88a" data-elfsight-app-lazy style="width: 100%;"></div>
-                    </div>
-
-                    <div class="live-feed-wrapper" data-aos="fade-up" data-aos-delay="300">
-                        <div style="text-align: center; margin-bottom: 25px;">
-                            <span class="badge badge-ig">Instagram Feed 4</span>
-                            <h3 style="margin-top: 10px; font-size: 1.1rem;">Casalena Jakarta</h3>
-                        </div>
-                        <div class="elfsight-app-f67fad80-0231-4afa-8f68-9b731bd76a5e" data-elfsight-app-lazy style="width: 100%;"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
     </main>
 
     <!-- EXECUTIVE DASHBOARD MODAL -->
     <div id="campaign-modal" class="category-modal">
-        <div class="category-modal-content" style="text-align: left; max-width: 950px; background: var(--bg-secondary); padding: 45px; border-radius: 20px; border: 1px solid var(--border-color);">
+        <div class="category-modal-content" style="text-align: left; background: var(--bg-secondary); padding: 45px; border-radius: 20px; border: 1px solid var(--border-color);">
             <span class="category-modal-close" onclick="closeCampaignModal()">&times;</span>
             <div id="modal-body-content"></div>
         </div>
     </div>
 
-    <div class="cursor-dot"></div>
-    <div class="cursor-ring"></div>
-    
-    <a href="https://wa.me/6282196956556" class="whatsapp-float" target="_blank">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.23.148-.427.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/></svg>
-        <span>Chat Saya</span>
-    </a>
-    <a href="#" id="back-to-top" class="back-to-top">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"></polyline></svg>
-        <span>Ke Atas</span>
-    </a>
-
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="script-2.js"></script>
+    <script src="script.js"></script>
     <script>
+        // Data Modal sesuai aslimu
         const campaignDataStore = {
             'steak': {
                 title: 'Steak to The Point – Yield Management Campaign',
-                subtitle: 'Sudestada Grill Bar & Cafe Jakarta | Target: Monday Occupancy Boost',
-                kpis: [{ label: 'Budget Bulanan', value: 'Rp 2.500.000' }, { label: 'Cost Per Message', value: 'Rp 8.968' }, { label: 'Campaign Focus', value: 'Yield Optimization' }],
-                chartBars: [{ week: 'Minggu 1', height: '40%', val: 'Efisiensi' }, { week: 'Minggu 2', height: '70%', val: 'Leads' }, { week: 'Minggu 3 & 4', height: '100%', val: 'Conversion' }],
-                metaDesc: 'Menjalankan Meta Ads dengan alokasi budget terukur Rp2.500.000/bulan dan berhasil mencatatkan Cost per Message yang sangat efisien di angka Rp8.968 untuk menjaring target ekspatriat & eksekutif CBD di hari Senin.',
-                promoLink: 'https://www.instagram.com/p/Dd8NzdZCC-B/',
-                supportList: [
-                    { name: 'Support Content Reels 1', link: 'https://www.instagram.com/reel/Den1IlTCC4g/' }
-                ],
-                kolList: []
+                metaDesc: 'Menjalankan Meta Ads dengan alokasi budget terukur Rp2.500.000/bulan dan berhasil mencatatkan Cost per Message di angka Rp8.968.'
             },
             'pizza': {
                 title: 'Pizza with Papa – Experiential Activation',
-                subtitle: 'Sudestada Grill Bar & Cafe Jakarta | International Father\'s Day',
-                kpis: [{ label: 'Total Views', value: '115.4K' }, { label: 'Unique Viewers', value: '77.078' }, { label: 'Cost / Profile Visit', value: 'Rp 312' }],
-                chartBars: [{ week: 'Engagement', height: '75%', val: '1,658' }, { week: 'Link Clicks', height: '85%', val: '1,570' }, { week: 'Total Reach', height: '100%', val: '115.4K' }],
-                metaDesc: 'Aktivasi interaktif Hari Ayah Internasional yang menghasilkan performa Meta Ads luar biasa: total 115.4K views, 77.078 viewers unik, 1.658 post engagement, 1.570 link clicks.',
-                promoLink: '', supportList: [], kolList: []
-            },
-            'brunch': {
-                title: 'Casa Summer Brunch – Dayparting Strategy',
-                subtitle: 'Casalena Jakarta | Weekend Morning Revenue Stream',
-                kpis: [{ label: 'Sitting Occupancy', value: '+48.2%' }, { label: 'Average Bill', value: '+35%' }, { label: 'Program', value: 'Permanent' }],
-                chartBars: [{ week: 'Pre-Brunch', height: '40%', val: 'Baseline' }, { week: 'Month 1', height: '75%', val: 'Growth' }, { week: 'Stabilized', height: '100%', val: '+48.2%' }],
-                metaDesc: 'Strategi pembukaan jam operasional pagi akhir pekan di Casalena berhasil mendongkrak sitting occupancy hingga 48.2% dan meningkatkan nilai rata-rata tagihan (bill amount) sebesar 35%.',
-                promoLink: '', supportList: [], kolList: []
+                metaDesc: 'Aktivasi interaktif menghasilkan performa Meta Ads luar biasa: total 115.4K views, 1.658 post engagement, serta Cost per Profile Visit Rp312.'
             }
         };
 
@@ -276,42 +171,13 @@
             const modal = document.getElementById('campaign-modal');
             const body = document.getElementById('modal-body-content');
             if(!data) return;
-
-            let kpiHTML = data.kpis.map(kpi => `
-                <div style="background: rgba(245, 203, 92, 0.05); border: 1px solid rgba(245, 203, 92, 0.2); padding: 15px; border-radius: 10px; text-align: center;">
-                    <span style="display: block; font-size: 1.25rem; font-weight: 800; color: var(--highlight-color); margin-bottom: 3px;">${kpi.value}</span>
-                    <span style="font-size: 0.7rem; color: var(--text-secondary); text-transform: uppercase;">${kpi.label}</span>
-                </div>
-            `).join('');
-
-            let chartHTML = data.chartBars.map(bar => `
-                <div style="text-align: center; flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 120px;">
-                    <span style="font-size: 0.7rem; color: var(--highlight-color); margin-bottom: 5px; font-weight: 700;">${bar.val}</span>
-                    <div style="width: 40px; height: ${bar.height}; background: var(--highlight-color); border-radius: 4px 4px 0 0; opacity: 0.85;"></div>
-                    <span style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 8px;">${bar.week}</span>
-                </div>
-            `).join('');
-
             body.innerHTML = `
-                <span class="badge badge-ig" style="margin-bottom: 10px;">EXECUTIVE PERFORMANCE REPORT</span>
-                <h2 style="color: #fff; margin-bottom: 5px; font-size: 1.5rem;">${data.title}</h2>
-                <p style="color: var(--highlight-color); font-size: 0.85rem; margin-bottom: 25px; font-weight: 600;">${data.subtitle}</p>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin-bottom: 30px;">
-                    ${kpiHTML}
-                </div>
-                <div style="background: rgba(18,18,18,0.6); border: 1px solid var(--border-color); padding: 20px; border-radius: 12px; margin-bottom: 25px;">
-                    <h3 style="color: #fff; font-size: 0.95rem; margin-bottom: 15px;">📊 Grafik Tren Performa Kampanye</h3>
-                    <div style="display: flex; align-items: flex-end; justify-content: space-around; height: 140px; border-bottom: 1px solid var(--border-color); padding-bottom:10px;">
-                        ${chartHTML}
-                    </div>
-                </div>
-                <h3 style="color: #fff; font-size: 1rem; margin-bottom: 8px;">🎯 Strategi Meta Ads</h3>
-                <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">${data.metaDesc}</p>
+                <h2 style="color: #fff; margin-bottom: 15px;">${data.title}</h2>
+                <p style="color: var(--text-secondary); line-height: 1.6;">${data.metaDesc}</p>
             `;
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
-
         function closeCampaignModal() {
             document.getElementById('campaign-modal').classList.remove('active');
             document.body.style.overflow = 'auto';
