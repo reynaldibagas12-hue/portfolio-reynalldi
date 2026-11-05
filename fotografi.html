@@ -18,6 +18,7 @@
                     <li><a href="marketing.html">Marketing Strategy</a></li>
                     <li><a href="fotografi.html" class="active">Fotografi</a></li>
                     <li><a href="videografi.html">Videografi</a></li>
+                    <li><a href="index.html#contact">Kontak</a></li>
                 </ul>
             </nav>
             <div class="burger-menu">
@@ -29,66 +30,81 @@
     </header>
 
     <main>
-        <section style="padding: 140px 0 50px; text-align: center;">
+        <section class="page-banner">
             <div class="container" data-aos="fade-up">
-                <span class="badge badge-ig">VISUAL ARTWORK</span>
-                <h1 style="font-size: 2.5rem; margin: 15px 0;">Galeri Karya Fotografi</h1>
-                <p style="color: var(--text-secondary); max-width: 700px; margin: 0 auto;">Koleksi karya fotografi komersial, portret, panggung hiburan, styling makanan & minuman, serta olahraga.</p>
+                <span class="badge badge-ig" style="margin-bottom: 15px;">VISUAL ARTWORK</span>
+                <h1>Galeri Karya Fotografi</h1>
+                <p>Koleksi karya fotografi komersial, portret, panggung hiburan, styling makanan & minuman, serta olahraga.</p>
             </div>
         </section>
 
-        <section style="padding-bottom: 90px;">
+        <!-- KATEGORI CARD PORTRAIT -->
+        <section style="padding: 80px 0;">
             <div class="container">
-                <div class="grid-3" data-aos="fade-up">
-                    <div class="cat-card" onclick="openGallery('portrait')">
-                        <img src="gambar/acak35 (2).jpg" alt="Portrait" loading="lazy">
-                        <div class="cat-overlay"><h3>Portrait</h3><p>Human Emotion</p></div>
-                    </div>
-                    <div class="cat-card" onclick="openGallery('sport')">
-                        <img src="gambar/sport.jpg" alt="Sport & Wellness" loading="lazy" onerror="this.src='gambar/acak23 (2).jpg'">
-                        <div class="cat-overlay"><h3>Sport & Wellness</h3><p>Action & Energy</p></div>
-                    </div>
-                    <div class="cat-card" onclick="openGallery('wedding')">
-                        <img src="gambar/wedding.jpg" alt="Wedding" loading="lazy" onerror="this.src='gambar/facad.jpg'">
-                        <div class="cat-overlay"><h3>Wedding</h3><p>Love & Moments</p></div>
-                    </div>
-                    <div class="cat-card" onclick="openGallery('corporate')">
-                        <img src="gambar/corporate.jpg" alt="Corporate" loading="lazy" onerror="this.src='gambar/fnb.jpg'">
-                        <div class="cat-overlay"><h3>Corporate & Event</h3><p>Professional Engagement</p></div>
-                    </div>
-                    <div class="cat-card" onclick="openGallery('nightlife')">
-                        <img src="gambar/nightlife.jpg" alt="Nightlife" loading="lazy" onerror="this.src='gambar/acak23 (2).jpg'">
-                        <div class="cat-overlay"><h3>Nightlife & Stage</h3><p>Energy & Crowd</p></div>
-                    </div>
-                    <div class="cat-card" onclick="openGallery('fnb')">
-                        <img src="gambar/fnb.jpg" alt="Food & Beverage" loading="lazy">
-                        <div class="cat-overlay"><h3>Food & Beverage</h3><p>Culinary Styling</p></div>
-                    </div>
+                <h2 data-aos="fade-up">Kategori Karya Foto</h2>
+                <p style="text-align: center; color: var(--text-secondary); margin-bottom: 40px;" data-aos="fade-up">Klik pada salah satu kategori untuk membuka galeri foto lengkap & mengunduh PDF portofolio.</p>
+                
+                <div class="category-static-wrapper" data-aos="fade-up">
+                    <div class="category-grid-static">
+                        <div class="cat-card" onclick="openCategory('portrait')">
+                            <img src="gambar/acak35 (2).jpg" alt="Portrait" loading="lazy">
+                            <div class="cat-overlay"><h3>Portrait</h3><p>Human Emotion</p></div>
+                        </div>
+                        <div class="cat-card" onclick="openCategory('sport')">
+                            <img src="gambar/sport.jpg" alt="Sport" loading="lazy" onerror="this.src='gambar/acak23 (2).jpg'">
+                            <div class="cat-overlay"><h3>Sport & Wellness</h3><p>Action & Energy</p></div>
+                        </div>
+                        <div class="cat-card" onclick="openCategory('wedding')">
+                            <img src="gambar/wedding.jpg" alt="Wedding" loading="lazy" onerror="this.src='gambar/facad.jpg'">
+                            <div class="cat-overlay"><h3>Wedding</h3><p>Love & Moments</p></div>
+                        </div>
+                        <div class="cat-card" onclick="openCategory('corporate')">
+                            <img src="gambar/corporate.jpg" alt="Corporate" loading="lazy" onerror="this.src='gambar/fnb.jpg'">
+                            <div class="cat-overlay"><h3>Corporate & Event</h3><p>Professional Engagement</p></div>
+                        </div>
+                        <div class="cat-card" onclick="openCategory('nightlife')">
+                            <img src="gambar/nightlife.jpg" alt="Nightlife" loading="lazy" onerror="this.src='gambar/acak23 (2).jpg'">
+                            <div class="cat-overlay"><h3>Nightlife & Stage</h3><p>Energy & Crowd</p></div>
+                        </div>
+                        <div class="cat-card" onclick="openCategory('private-party')">
+                            <img src="gambar/private.jpg" alt="Private" loading="lazy" onerror="this.src='gambar/facad.jpg'">
+                            <div class="cat-overlay"><h3>Private Party</h3><p>Exclusive Vibe</p></div>
+                        </div>
+                        <div class="cat-card" onclick="openCategory('fnb')">
+                            <img src="gambar/fnb.jpg" alt="F&B" loading="lazy">
+                            <div class="cat-overlay"><h3>Food & Beverage</h3><p>Culinary Styling</p></div>
+                        </div>
+                    </div> 
                 </div>
             </div>
         </section>
     </main>
 
     <!-- Modal Galeri Foto -->
-    <div id="gallery-modal" class="modal-overlay">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeModal('gallery-modal')">&times;</span>
-            <h2 id="gallery-title" style="color: var(--highlight-color); margin-bottom: 20px; text-transform: uppercase;"></h2>
-            <div id="gallery-grid" class="masonry-grid"></div>
+    <div id="category-modal" class="category-modal">
+        <div class="category-modal-content">
+            <span class="category-modal-close" onclick="closeCategory()">&times;</span>
+            <h2 id="category-title" style="color: var(--highlight-color); margin-bottom: 20px; text-transform: uppercase;"></h2>
+            <div id="category-photos-grid" class="category-photos-grid"></div>
         </div>
     </div>
     
-    <!-- Lightbox Zoom -->
     <div id="lightbox" class="lightbox">
-        <span class="modal-close">&times;</span>
-        <img id="lightbox-img" class="lightbox-img" src="">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" class="lightbox-content" src="">
     </div>
-
-    <footer>
-        <p>&copy; 2026 | Portfolio Reynaldi Bagaskara.</p>
-    </footer>
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
+    <footer>
+        <div class="social-links">
+            <a href="https://www.instagram.com/motretsembarang_" target="_blank" class="social-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="24" height="24" fill="currentColor"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9 26.2 26.2 58 34.4 93.9 36.2 37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+            </a>
+        </div>
+        <p>&copy; 2026 | Portfolio Reynaldi Bagaskara.</p>
+    </footer>
 </body>
 </html>
